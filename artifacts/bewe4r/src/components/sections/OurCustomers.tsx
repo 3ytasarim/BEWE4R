@@ -1,7 +1,11 @@
 import { useRef, useState, useEffect } from "react";
+import { Link } from "wouter";
 import { useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { SectionHeading } from "./SectionHeading";
+
+// Every customer logo links here
+const CUSTOMER_CTA_HREF = "/your-brand/sample";
 
 type Brand = {
   id: number;
@@ -86,7 +90,10 @@ export function OurCustomers() {
                 style={{ width: "clamp(200px, 22vw, 280px)" }}
                 data-testid={`customer-logo-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
               >
-                <div
+                <Link
+                  href={CUSTOMER_CTA_HREF}
+                  aria-label={`${c.name} — ${t("Start your sample")}`}
+                  tabIndex={i >= sorted.length ? -1 : undefined}
                   className={`flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110 ${
                     isLightLogo(c.name)
                       ? "bg-[#0f0f0f] rounded-[2px] px-8 py-6"
@@ -100,7 +107,7 @@ export function OurCustomers() {
                     draggable={false}
                     className="max-w-full max-h-[110px] md:max-h-[140px] object-contain select-none"
                   />
-                </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -120,7 +127,10 @@ export function OurCustomers() {
                 className="group/logo flex-shrink-0 flex items-center justify-center"
                 style={{ width: "clamp(200px, 22vw, 280px)" }}
               >
-                <div
+                <Link
+                  href={CUSTOMER_CTA_HREF}
+                  aria-label={`${c.name} — ${t("Start your sample")}`}
+                  tabIndex={i >= bottomRow.length ? -1 : undefined}
                   className={`flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110 ${
                     isLightLogo(c.name)
                       ? "bg-[#0f0f0f] rounded-[2px] px-8 py-6"
@@ -134,7 +144,7 @@ export function OurCustomers() {
                     draggable={false}
                     className="max-w-full max-h-[110px] md:max-h-[140px] object-contain select-none"
                   />
-                </div>
+                </Link>
               </div>
             ))}
           </div>
