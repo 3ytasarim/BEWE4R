@@ -82,7 +82,7 @@ export function BentoGrid() {
 
             {/* MERCHANDISE - Top Right */}
             <motion.div variants={fadeUp} className="group relative overflow-hidden rounded-[2px] cursor-pointer">
-              <Link href="/your-brand/print" data-testid="bento-merch">
+              <Link href="/your-brand/sample" data-testid="bento-merch">
                 <div className="relative w-full h-full min-h-[200px]">
                   <img
                     src={bentoMerch}
@@ -104,7 +104,7 @@ export function BentoGrid() {
 
             {/* B2B - Middle Right */}
             <motion.div variants={fadeUp} className="group relative overflow-hidden rounded-[2px] cursor-pointer">
-              <Link href="/e-catalog" data-testid="bento-work">
+              <Link href="/your-brand/sample" data-testid="bento-work">
                 <div className="relative w-full h-full min-h-[200px]">
                   <img
                     src={bentoB2B}
