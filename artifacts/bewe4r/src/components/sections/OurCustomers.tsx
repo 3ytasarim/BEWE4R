@@ -15,12 +15,6 @@ type Brand = {
   sortOrder: number | null;
 };
 
-// Light/white logos that need a dark plate on the white background
-const LIGHT_LOGOS = ["voidwear", "twtu", "blackmoneyclo", "quels"];
-function isLightLogo(name: string) {
-  return LIGHT_LOGOS.includes(name.toLowerCase().replace(/\s+/g, ""));
-}
-
 export function OurCustomers() {
   const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
@@ -40,17 +34,11 @@ export function OurCustomers() {
       });
   }, []);
 
-  // Fallback so logos always render while DB fetch is in flight
-  const displayBrands = brands.length > 0 ? brands : [
-    { id: 1, name: "Aryan", logoUrl: "/brands/aryan.png", website: null, sortOrder: 1 },
-    { id: 2, name: "Black Money Clo", logoUrl: "/brands/black-money-clo.png", website: null, sortOrder: 2 },
-    { id: 3, name: "Voidwear", logoUrl: "/brands/voidwear.png", website: null, sortOrder: 3 },
-    { id: 4, name: "TWTU", logoUrl: "/brands/twtu.png", website: null, sortOrder: 4 },
-    { id: 5, name: "Quels", logoUrl: "/brands/quels.png", website: null, sortOrder: 5 },
-  ];
+  // No brands in the CMS -> hide the section entirely
+  if (brands.length === 0) return null;
 
   // Sort for row directions: top row asc, bottom row desc
-  const sorted = [...displayBrands].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  const sorted = [...brands].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
   const topRow = [...sorted, ...sorted];
   const bottomRow = [...sorted].reverse();
   const bottomLoop = [...bottomRow, ...bottomRow];
@@ -94,11 +82,7 @@ export function OurCustomers() {
                   href={CUSTOMER_CTA_HREF}
                   aria-label={`${c.name} — ${t("Start your sample")}`}
                   tabIndex={i >= sorted.length ? -1 : undefined}
-                  className={`flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110 ${
-                    isLightLogo(c.name)
-                      ? "bg-[#0f0f0f] rounded-[2px] px-8 py-6"
-                      : ""
-                  }`}
+                  className="flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110"
                 >
                   <img
                     src={c.logoUrl}
@@ -131,11 +115,7 @@ export function OurCustomers() {
                   href={CUSTOMER_CTA_HREF}
                   aria-label={`${c.name} — ${t("Start your sample")}`}
                   tabIndex={i >= bottomRow.length ? -1 : undefined}
-                  className={`flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110 ${
-                    isLightLogo(c.name)
-                      ? "bg-[#0f0f0f] rounded-[2px] px-8 py-6"
-                      : ""
-                  }`}
+                  className="flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110"
                 >
                   <img
                     src={c.logoUrl}
