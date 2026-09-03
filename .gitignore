@@ -47,3 +47,6 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+restore-production-data.sql
+seed-brand-references.sql
