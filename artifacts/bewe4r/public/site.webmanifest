@@ -1,0 +1,13 @@
+{
+  "name": "BEWE4R",
+  "short_name": "BEWE4R",
+  "description": "Premium Textilproduktion aus Istanbul für Streetwear, Modemarken und junge Brands.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "de",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

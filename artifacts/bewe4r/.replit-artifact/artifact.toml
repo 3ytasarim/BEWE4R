@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "BEWE4R"
+version = "1.0.0"
+id = "artifacts/bewe4r"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25411
+
+[services.development]
+run = "pnpm --filter @workspace/bewe4r run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/bewe4r", "run", "build" ]
+publicDir = "artifacts/bewe4r/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25411"
+BASE_PATH = "/"
