@@ -62,7 +62,7 @@
       (function () {
         var URL = "https://b2b-voice.com/";
         var LABEL = "B2b-voice";
-        var COLOR = "#00337A";
+        var COLOR = "#0f0f0f";
         // Hide the original attribution until our script swaps it; :has() unhides it
         // automatically the moment the href stops pointing at elevenlabs.io.
         var HIDE_CSS =
@@ -85,6 +85,15 @@
           if (a.textContent !== LABEL) a.textContent = LABEL;
           a.style.setProperty("color", COLOR, "important");
           a.style.setProperty("opacity", "1", "important");
+          // Make the whole "Powered by B2b-voice" line solid black, not just the link
+          var p = a.closest("p");
+          if (p) {
+            p.style.setProperty("opacity", "1", "important");
+            Array.prototype.forEach.call(p.children, function (child) {
+              child.style.setProperty("color", COLOR, "important");
+              child.style.setProperty("opacity", "1", "important");
+            });
+          }
         }
         function rebrand(root) {
           if (!root || !root.querySelectorAll) return;
