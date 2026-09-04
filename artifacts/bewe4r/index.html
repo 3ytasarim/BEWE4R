@@ -58,12 +58,26 @@
       type="text/javascript"
     ></script>
     <script>
-      /* Re-brand the widget's "Powered by" attribution to B2b-voice */
+      /* Re-brand the widget's "Powered by" attribution to B2b-voice (no ElevenLabs flash) */
       (function () {
         var URL = "https://b2b-voice.com/";
         var LABEL = "B2b-voice";
         var COLOR = "#00337A";
+        // Hide the original attribution until our script swaps it; :has() unhides it
+        // automatically the moment the href stops pointing at elevenlabs.io.
+        var HIDE_CSS =
+          'a[href*="elevenlabs.io"]{opacity:0!important;transition:none!important}' +
+          'p:has(a[href*="elevenlabs.io"]){opacity:0!important;transition:none!important}';
         var seen = new WeakSet();
+        function inject(root) {
+          if (root.__b2bv) return;
+          root.__b2bv = true;
+          try {
+            var s = document.createElement("style");
+            s.textContent = HIDE_CSS;
+            root.appendChild(s);
+          } catch (e) {}
+        }
         function brandLink(a) {
           a.setAttribute("href", URL);
           a.setAttribute("target", "_blank");
@@ -74,6 +88,7 @@
         }
         function rebrand(root) {
           if (!root || !root.querySelectorAll) return;
+          inject(root);
           root
             .querySelectorAll('a[href*="elevenlabs.io"], a[href="' + URL + '"]')
             .forEach(brandLink);
@@ -89,10 +104,18 @@
             }
           });
         }
-        setInterval(function () {
+        function tick() {
           var host = document.querySelector("elevenlabs-convai");
           if (host && host.shadowRoot) rebrand(host.shadowRoot);
-        }, 1000);
+        }
+        tick();
+        // Catch the widget within ~50ms of it rendering, then settle to a keep-alive.
+        var fast = setInterval(tick, 50);
+        setTimeout(function () {
+          clearInterval(fast);
+        }, 12000);
+        setInterval(tick, 1000);
+        document.addEventListener("DOMContentLoaded", tick);
       })();
     </script>
   </body>
