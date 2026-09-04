@@ -11,6 +11,8 @@ router.get("/brands", async (_req, res) => {
     .select()
     .from(brandReferences)
     .orderBy(asc(brandReferences.sortOrder));
+  // Never let a CDN/proxy cache this (e.g. a stale empty list after seeding)
+  res.set("Cache-Control", "no-store");
   res.json(rows);
 });
 

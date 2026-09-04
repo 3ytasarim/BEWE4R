@@ -1,6 +1,5 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { SectionHeading } from "./SectionHeading";
 
@@ -17,21 +16,37 @@ type Brand = {
 
 export function OurCustomers() {
   const { t } = useTranslation();
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-120px" });
   const [brands, setBrands] = useState<Brand[]>([]);
 
   useEffect(() => {
-    fetch("/api/brands", { cache: "no-store" })
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-      .then((data: Brand[]) => setBrands(Array.isArray(data) ? data : []))
-      .catch((err) => {
-        console.error("[OurCustomers] fetch failed:", err);
-        setBrands([]);
-      });
+    let cancelled = false;
+    let attempt = 0;
+    const MAX_ATTEMPTS = 5;
+
+    const load = async () => {
+      try {
+        const r = await fetch("/api/brands", { cache: "no-store" });
+        const contentType = r.headers.get("content-type") || "";
+        if (!r.ok || !contentType.includes("application/json")) {
+          throw new Error(`Unexpected response ${r.status} (${contentType})`);
+        }
+        const data = await r.json();
+        if (!cancelled && Array.isArray(data)) setBrands(data);
+      } catch (err) {
+        if (cancelled) return;
+        attempt += 1;
+        if (attempt < MAX_ATTEMPTS) {
+          setTimeout(load, 1000 * attempt); // retry: 1s, 2s, 3s, 4s
+        } else {
+          console.error("[OurCustomers] fetch failed after retries:", err);
+        }
+      }
+    };
+
+    load();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // No brands in the CMS -> hide the section entirely
@@ -44,10 +59,7 @@ export function OurCustomers() {
   const bottomLoop = [...bottomRow, ...bottomRow];
 
   return (
-    <section
-      ref={ref}
-      className="relative py-20 md:py-24 border-t border-black/10 overflow-hidden"
-    >
+    <section className="relative py-20 md:py-24 border-t border-black/10 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 mb-14 md:mb-20">
         <SectionHeading
           kicker={t("Trusted by")}
@@ -64,11 +76,7 @@ export function OurCustomers() {
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#ffffff] via-[#ffffff]/80 to-transparent z-20 pointer-events-none" />
 
         {/* Top row: left to right */}
-        <div
-          className={`flex w-full overflow-hidden group/marquee-top transition-opacity duration-700 ${
-            inView ? "opacity-100" : "opacity-0"
-          }`}
-        >
+        <div className="flex w-full overflow-hidden group/marquee-top">
           <div className="flex shrink-0 items-center animate-marquee group-hover/marquee-top:[animation-play-state:paused] group-hover/marquee-bottom:[animation-play-state:paused] gap-16 md:gap-24 px-8">
             {topRow.map((c, i) => (
               <div
@@ -98,11 +106,7 @@ export function OurCustomers() {
         </div>
 
         {/* Bottom row: right to left (reverse marquee) */}
-        <div
-          className={`flex w-full overflow-hidden group/marquee-bottom transition-opacity duration-700 ${
-            inView ? "opacity-100" : "opacity-0"
-          }`}
-        >
+        <div className="flex w-full overflow-hidden group/marquee-bottom">
           <div className="flex shrink-0 items-center animate-marquee-reverse group-hover/marquee-top:[animation-play-state:paused] group-hover/marquee-bottom:[animation-play-state:paused] gap-16 md:gap-24 px-8">
             {bottomLoop.map((c, i) => (
               <div

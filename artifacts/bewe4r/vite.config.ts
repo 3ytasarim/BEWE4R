@@ -49,6 +49,10 @@ export default defineConfig({
     fs: {
       strict: true,
     },
+    // Local dev: set API_PROXY to the api-server origin to proxy /api calls
+    proxy: process.env.API_PROXY
+      ? { "/api": { target: process.env.API_PROXY, changeOrigin: true } }
+      : undefined,
   },
   preview: {
     port,
