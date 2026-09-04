@@ -57,5 +57,43 @@
       async
       type="text/javascript"
     ></script>
+    <script>
+      /* Re-brand the widget's "Powered by" attribution to B2b-voice */
+      (function () {
+        var URL = "https://b2b-voice.com/";
+        var LABEL = "B2b-voice";
+        var COLOR = "#00337A";
+        var seen = new WeakSet();
+        function brandLink(a) {
+          a.setAttribute("href", URL);
+          a.setAttribute("target", "_blank");
+          a.setAttribute("rel", "noopener");
+          if (a.textContent !== LABEL) a.textContent = LABEL;
+          a.style.setProperty("color", COLOR, "important");
+          a.style.setProperty("opacity", "1", "important");
+        }
+        function rebrand(root) {
+          if (!root || !root.querySelectorAll) return;
+          root
+            .querySelectorAll('a[href*="elevenlabs.io"], a[href="' + URL + '"]')
+            .forEach(brandLink);
+          root.querySelectorAll("*").forEach(function (el) {
+            if (el.shadowRoot) {
+              if (!seen.has(el.shadowRoot)) {
+                seen.add(el.shadowRoot);
+                new MutationObserver(function () {
+                  rebrand(el.shadowRoot);
+                }).observe(el.shadowRoot, { childList: true, subtree: true });
+              }
+              rebrand(el.shadowRoot);
+            }
+          });
+        }
+        setInterval(function () {
+          var host = document.querySelector("elevenlabs-convai");
+          if (host && host.shadowRoot) rebrand(host.shadowRoot);
+        }, 1000);
+      })();
+    </script>
   </body>
 </html>
