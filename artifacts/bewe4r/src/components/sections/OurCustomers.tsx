@@ -14,6 +14,51 @@ type Brand = {
   sortOrder: number | null;
 };
 
+// Repeat the row's items enough times to comfortably fill the track, then
+// triple it — the CSS animation always moves by exactly 1/3 of the track
+// width, so a tripled track loops with no visible seam/snap.
+function buildTrack(items: Brand[]) {
+  if (items.length === 0) return [];
+  const repeats = Math.max(1, Math.ceil(10 / items.length));
+  const base = Array.from({ length: repeats }, () => items).flat();
+  return [...base, ...base, ...base];
+}
+
+function LogoCard({
+  brand,
+  focusable,
+  t,
+}: {
+  brand: Brand;
+  focusable: boolean;
+  t: (key: string) => string;
+}) {
+  return (
+    <div
+      aria-hidden={focusable ? undefined : true}
+      className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center h-20"
+      data-testid={`customer-logo-${brand.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+    >
+      <Link
+        href={CUSTOMER_CTA_HREF}
+        aria-label={`${brand.name} — ${t("Start your sample")}`}
+        tabIndex={focusable ? undefined : -1}
+        className="flex items-center justify-center select-none"
+      >
+        <img
+          src={brand.logoUrl}
+          alt={brand.name}
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          style={{ height: 68, width: "auto", maxWidth: 210 }}
+          className="object-contain grayscale drop-shadow-[0_2px_6px_rgba(10,31,68,0.12)] transition-all duration-300 hover:grayscale-0 hover:drop-shadow-[0_4px_10px_rgba(10,31,68,0.18)]"
+        />
+      </Link>
+    </div>
+  );
+}
+
 export function OurCustomers() {
   const { t } = useTranslation();
   const [brands, setBrands] = useState<Brand[]>([]);
@@ -54,9 +99,9 @@ export function OurCustomers() {
 
   // Sort for row directions: top row asc, bottom row desc
   const sorted = [...brands].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
-  const topRow = [...sorted, ...sorted];
-  const bottomRow = [...sorted].reverse();
-  const bottomLoop = [...bottomRow, ...bottomRow];
+  const bottomSorted = [...sorted].reverse();
+  const topTrack = buildTrack(sorted);
+  const bottomTrack = buildTrack(bottomSorted);
 
   return (
     <section className="relative py-20 md:py-24 border-t border-black/10 overflow-hidden">
@@ -70,66 +115,25 @@ export function OurCustomers() {
         />
       </div>
 
-      <div className="relative space-y-10">
+      <div className="relative flex flex-col gap-1">
         {/* Edge fade masks */}
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#ffffff] via-[#ffffff]/80 to-transparent z-20 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#ffffff] via-[#ffffff]/80 to-transparent z-20 pointer-events-none" />
 
         {/* Top row: left to right */}
-        <div className="flex w-full overflow-hidden group/marquee-top">
-          <div className="flex shrink-0 items-center animate-marquee group-hover/marquee-top:[animation-play-state:paused] group-hover/marquee-bottom:[animation-play-state:paused] gap-16 md:gap-24 px-8">
-            {topRow.map((c, i) => (
-              <div
-                key={`top-${c.name}-${i}`}
-                aria-hidden={i >= sorted.length || undefined}
-                className="group/logo flex-shrink-0 flex items-center justify-center"
-                style={{ width: "clamp(200px, 22vw, 280px)" }}
-                data-testid={`customer-logo-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-              >
-                <Link
-                  href={CUSTOMER_CTA_HREF}
-                  aria-label={`${c.name} — ${t("Start your sample")}`}
-                  tabIndex={i >= sorted.length ? -1 : undefined}
-                  className="flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110"
-                >
-                  <img
-                    src={c.logoUrl}
-                    alt={c.name}
-                    loading="lazy"
-                    draggable={false}
-                    className="max-w-full max-h-[110px] md:max-h-[140px] object-contain select-none"
-                  />
-                </Link>
-              </div>
+        <div className="relative overflow-hidden group/marquee-top">
+          <div className="flex shrink-0 items-center animate-marquee group-hover/marquee-top:[animation-play-state:paused] group-hover/marquee-bottom:[animation-play-state:paused]">
+            {topTrack.map((c, i) => (
+              <LogoCard key={`top-${c.name}-${i}`} brand={c} focusable={i < sorted.length} t={t} />
             ))}
           </div>
         </div>
 
         {/* Bottom row: right to left (reverse marquee) */}
-        <div className="flex w-full overflow-hidden group/marquee-bottom">
-          <div className="flex shrink-0 items-center animate-marquee-reverse group-hover/marquee-top:[animation-play-state:paused] group-hover/marquee-bottom:[animation-play-state:paused] gap-16 md:gap-24 px-8">
-            {bottomLoop.map((c, i) => (
-              <div
-                key={`bottom-${c.name}-${i}`}
-                aria-hidden={i >= bottomRow.length || undefined}
-                className="group/logo flex-shrink-0 flex items-center justify-center"
-                style={{ width: "clamp(200px, 22vw, 280px)" }}
-              >
-                <Link
-                  href={CUSTOMER_CTA_HREF}
-                  aria-label={`${c.name} — ${t("Start your sample")}`}
-                  tabIndex={i >= bottomRow.length ? -1 : undefined}
-                  className="flex items-center justify-center transition-transform duration-500 ease-out group-hover/logo:scale-110"
-                >
-                  <img
-                    src={c.logoUrl}
-                    alt={c.name}
-                    loading="lazy"
-                    draggable={false}
-                    className="max-w-full max-h-[110px] md:max-h-[140px] object-contain select-none"
-                  />
-                </Link>
-              </div>
+        <div className="relative overflow-hidden group/marquee-bottom">
+          <div className="flex shrink-0 items-center animate-marquee-reverse group-hover/marquee-top:[animation-play-state:paused] group-hover/marquee-bottom:[animation-play-state:paused]">
+            {bottomTrack.map((c, i) => (
+              <LogoCard key={`bottom-${c.name}-${i}`} brand={c} focusable={i < bottomSorted.length} t={t} />
             ))}
           </div>
         </div>
