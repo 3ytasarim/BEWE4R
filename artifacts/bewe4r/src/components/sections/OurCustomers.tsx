@@ -36,7 +36,7 @@ function LogoCard({
   return (
     <div
       aria-hidden={focusable ? undefined : true}
-      className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center h-20"
+      className="flex-shrink-0 mx-7 sm:mx-10 flex items-center justify-center h-24"
       data-testid={`customer-logo-${brand.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
     >
       <Link
@@ -51,7 +51,7 @@ function LogoCard({
           loading="lazy"
           decoding="async"
           draggable={false}
-          style={{ height: 68, width: "auto", maxWidth: 210 }}
+          style={{ height: 92, width: "auto", maxWidth: 270 }}
           className="object-contain grayscale drop-shadow-[0_2px_6px_rgba(10,31,68,0.12)] transition-all duration-300 hover:grayscale-0 hover:drop-shadow-[0_4px_10px_rgba(10,31,68,0.18)]"
         />
       </Link>
