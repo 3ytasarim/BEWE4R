@@ -104,10 +104,25 @@ export function Footer() {
             </h2>
           </div>
 
-          {/* Legal links */}
+          {/* Explore + legal links */}
           <div className="flex flex-col gap-3 md:pt-2">
             <p
               className="text-[10px] uppercase tracking-[0.3em] mb-2"
+              style={{ color: "rgba(255,255,255,0.35)" }}
+            >
+              {t("Explore")}
+            </p>
+            <Link href="/blog">
+              <span
+                data-testid="link-blog"
+                className="text-sm transition-colors cursor-pointer hover:text-[#ffffff]"
+                style={{ color: "rgba(255,255,255,0.6)" }}
+              >
+                {t("Blog")}
+              </span>
+            </Link>
+            <p
+              className="text-[10px] uppercase tracking-[0.3em] mt-5 mb-2"
               style={{ color: "rgba(255,255,255,0.35)" }}
             >
               {t("Legal")}

@@ -28,6 +28,8 @@ import KatalogPage from "@/pages/Katalog";
 import PricesShippingPage from "@/pages/PricesShipping";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicy";
 import LegalNoticePage from "@/pages/LegalNotice";
+import BlogPage from "@/pages/Blog";
+import BlogPostPage from "@/pages/BlogPost";
 import TermsPage from "@/pages/Terms";
 import AdminDashboardPage from "@/pages/admin/DashboardPage";
 import AdminSeoPage from "@/pages/admin/SeoPage";
@@ -72,6 +74,9 @@ function Router() {
           <Route path="/brand-essentials/thank-you-cards" component={MarketingEssentialsPage} />
           <Route path="/brand-essentials/stickers" component={MarketingEssentialsPage} />
           <Route path="/brand-essentials/customer-gifts" component={MarketingEssentialsPage} />
+
+          <Route path="/blog" component={BlogPage} />
+          <Route path="/blog/:slug" component={BlogPostPage} />
 
           <Route path="/e-catalog" component={KatalogPage} />
           <Route path="/about" component={UeberUnsPage} />
