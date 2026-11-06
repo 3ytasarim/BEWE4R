@@ -62,6 +62,41 @@ function CreditMarquee() {
   );
 }
 
+/** Real <a href> links to every public page: crawlers and users without JS can reach all of them from any page. */
+const FOOTER_GROUPS: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
+  {
+    title: "Your Brand",
+    links: [
+      { label: "Print", href: "/your-brand/print" },
+      { label: "Label", href: "/your-brand/label" },
+      { label: "Sample", href: "/your-brand/sample" },
+      { label: "MOQ", href: "/your-brand/moq" },
+      { label: "Pre-Order", href: "/your-brand/pre-order" },
+      { label: "Storage", href: "/your-brand/storage" },
+      { label: "Delivery", href: "/your-brand/delivery" },
+    ],
+  },
+  {
+    title: "Brand Essentials",
+    links: [
+      { label: "More Products", href: "/brand-essentials" },
+      { label: "Zip Bags & Shipping Bags", href: "/brand-essentials/zip-bags" },
+      { label: "Boxes", href: "/brand-essentials/boxes" },
+      { label: "Marketing Essentials", href: "/brand-essentials/marketing-essentials" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Prices & Shipping", href: "/about/prices-shipping" },
+      { label: "E-Catalog", href: "/e-catalog" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+];
+
 export function Footer() {
   const { t } = useTranslation();
 
@@ -84,9 +119,9 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* ===== MAIN GRID ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 pt-14 md:pt-16 pb-10 md:pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10 md:gap-8 pt-14 md:pt-16 pb-10 md:pb-12">
           {/* Statement */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-4 lg:col-span-2">
             <Link href="/">
               <img
                 src={logoUrl}
@@ -104,44 +139,43 @@ export function Footer() {
             </h2>
           </div>
 
-          {/* Explore + legal links */}
-          <div className="flex flex-col gap-3 md:pt-2">
-            <p
-              className="text-[10px] uppercase tracking-[0.3em] mb-2"
-              style={{ color: "rgba(255,255,255,0.35)" }}
-            >
-              {t("Explore")}
-            </p>
-            <Link href="/blog">
-              <span
-                data-testid="link-blog"
-                className="text-sm transition-colors cursor-pointer hover:text-[#ffffff]"
-                style={{ color: "rgba(255,255,255,0.6)" }}
-              >
-                {t("Blog")}
-              </span>
-            </Link>
-            <p
-              className="text-[10px] uppercase tracking-[0.3em] mt-5 mb-2"
-              style={{ color: "rgba(255,255,255,0.35)" }}
-            >
-              {t("Legal")}
-            </p>
-            {[
-              { label: "Privacy", href: "/privacy" },
-              { label: "Legal Notice", href: "/legal-notice" },
-              { label: "Terms", href: "/terms" },
-            ].map((item) => (
-              <Link key={item.label} href={item.href}>
-                <span
-                  className="text-sm transition-colors cursor-pointer hover:text-[#ffffff]"
-                  style={{ color: "rgba(255,255,255,0.6)" }}
-                >
-                  {t(item.label)}
-                </span>
-              </Link>
-            ))}
-          </div>
+          {/* Site links */}
+          {FOOTER_GROUPS.map((group, gi) => (
+            <nav key={group.title} aria-label={t(group.title)} className="flex flex-col gap-3 md:pt-2">
+              <p className="text-[10px] uppercase tracking-[0.3em] mb-2" style={{ color: "rgba(255,255,255,0.35)" }}>
+                {t(group.title)}
+              </p>
+              {group.links.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  <span
+                    data-testid={item.href === "/blog" ? "link-blog" : undefined}
+                    className="text-sm transition-colors cursor-pointer hover:text-[#ffffff]"
+                    style={{ color: "rgba(255,255,255,0.6)" }}
+                  >
+                    {t(item.label)}
+                  </span>
+                </Link>
+              ))}
+              {gi === FOOTER_GROUPS.length - 1 && (
+                <>
+                  <p className="text-[10px] uppercase tracking-[0.3em] mt-5 mb-2" style={{ color: "rgba(255,255,255,0.35)" }}>
+                    {t("Legal")}
+                  </p>
+                  {[
+                    { label: "Privacy", href: "/privacy" },
+                    { label: "Legal Notice", href: "/legal-notice" },
+                    { label: "Terms", href: "/terms" },
+                  ].map((item) => (
+                    <Link key={item.href} href={item.href}>
+                      <span className="text-sm transition-colors cursor-pointer hover:text-[#ffffff]" style={{ color: "rgba(255,255,255,0.6)" }}>
+                        {t(item.label)}
+                      </span>
+                    </Link>
+                  ))}
+                </>
+              )}
+            </nav>
+          ))}
 
           {/* Contact */}
           <div className="flex flex-col gap-4 md:pt-2">
