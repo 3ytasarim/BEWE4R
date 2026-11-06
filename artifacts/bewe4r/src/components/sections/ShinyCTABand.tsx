@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
-import heroCinematic from "@/assets/hero-cinematic.png";
+import heroCinematic from "@/assets/hero-cinematic.webp";
 
 function ShinyText({ children }: { children: string }) {
   return (
@@ -32,6 +32,8 @@ export function ShinyCTABand() {
       >
         <img
           src={heroCinematic}
+          loading="lazy"
+          decoding="async"
           alt=""
           className="w-full h-full object-cover opacity-35"
         />

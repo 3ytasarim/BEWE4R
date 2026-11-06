@@ -1,8 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import compareBlank from "@/assets/hoodie-blank.png";
-import comparePrinted from "@/assets/hoodie-printed.png";
+import compareBlank from "@/assets/hoodie-blank.webp";
+import comparePrinted from "@/assets/hoodie-printed.webp";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 
 const fadeUp = {

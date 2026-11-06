@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
-import showcaseHoodie from "@/assets/showcase-hoodie.png";
+import showcaseHoodie from "@/assets/showcase-hoodie.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -100,6 +100,8 @@ export function ProductShowcase() {
             <div className="relative aspect-square bg-gradient-to-br from-white/5 to-white/2 border border-white/10 overflow-hidden">
               <img
                 src={showcaseHoodie}
+                loading="lazy"
+                decoding="async"
                 alt={t("Custom Hoodie Showcase")}
                 className="absolute inset-0 w-full h-full object-cover"
               />

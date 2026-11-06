@@ -3,9 +3,9 @@ import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
 import { PageHero } from "@/components/sections/PageHero";
 import { AnimatedSection, fadeUp } from "@/components/sections/AnimatedSection";
-import zipBagsImg from "@/assets/zip-bags.png";
-import kartonagenImg from "@/assets/kartonagen.png";
-import dankeskartenImg from "@/assets/dankeskarten.png";
+import zipBagsImg from "@/assets/zip-bags.webp";
+import kartonagenImg from "@/assets/kartonagen.webp";
+import dankeskartenImg from "@/assets/dankeskarten.webp";
 
 const products = [
   { name: "Zip Bags & Shipping Bags", desc: "Premium zip bags and shipping bags with custom print — built for presentation, protection and a memorable unboxing.", href: "/brand-essentials/zip-bags", img: zipBagsImg },

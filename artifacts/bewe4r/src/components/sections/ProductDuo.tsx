@@ -2,9 +2,9 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import compareBlank from "@/assets/hoodie-blank.png";
-import comparePrinted from "@/assets/hoodie-printed.png";
-import showcaseHoodieDetail from "@/assets/showcase-hoodie-detail.png";
+import compareBlank from "@/assets/hoodie-blank.webp";
+import comparePrinted from "@/assets/hoodie-printed.webp";
+import showcaseHoodieDetail from "@/assets/showcase-hoodie-detail.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -95,12 +95,16 @@ function BlankToBrandCard() {
       >
         <img
           src={comparePrinted}
+          loading="lazy"
+          decoding="async"
           alt={t("Finished BEWE4R hoodie")}
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           draggable={false}
         />
         <img
           src={compareBlank}
+          loading="lazy"
+          decoding="async"
           alt={t("Concept sketch")}
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
@@ -198,6 +202,8 @@ function EveryDetailCard() {
         >
           <img
             src={showcaseHoodieDetail}
+            loading="lazy"
+            decoding="async"
             alt="Custom distressed hoodie"
             className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
             draggable={false}

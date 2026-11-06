@@ -60,6 +60,8 @@ export function BentoGrid() {
                 <div className="relative w-full h-full min-h-[360px]">
                   <img
                     src={bentoBrand}
+                    loading="lazy"
+                    decoding="async"
                     alt={t("Create your own brand")}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -86,6 +88,8 @@ export function BentoGrid() {
                 <div className="relative w-full h-full min-h-[200px]">
                   <img
                     src={bentoMerch}
+                    loading="lazy"
+                    decoding="async"
                     alt={t("Merchandise")}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -108,6 +112,8 @@ export function BentoGrid() {
                 <div className="relative w-full h-full min-h-[200px]">
                   <img
                     src={bentoB2B}
+                    loading="lazy"
+                    decoding="async"
                     alt="B2B"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />

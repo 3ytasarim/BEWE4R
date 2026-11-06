@@ -3,8 +3,8 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useTranslation } from "react-i18next";
 import { PrimaryCTA, SecondaryCTA } from "@/components/ui/cta-button";
 import { AnimatedSection, fadeUp } from "@/components/sections/AnimatedSection";
-import pricesImg from "@assets/Prices_1780762617347.png";
-import shippingImg from "@assets/Shipping_1780762617336.png";
+import pricesImg from "@assets/Prices_1780762617347.webp";
+import shippingImg from "@assets/Shipping_1780762617336.webp";
 
 /* ── Content ─────────────────────────────────────────────────────────── */
 
