@@ -77,7 +77,7 @@ router.patch("/brands/:id", async (req, res) => {
   const { name, logoUrl, website, sortOrder } = req.body;
   const updated = await db
     .update(brandReferences)
-    .set({ name, logoUrl, website, sortOrder })
+    .set({ name, logoUrl, website, sortOrder, updatedAt: new Date() })
     .where(eq(brandReferences.id, id))
     .returning();
   if (updated.length === 0) return res.status(404).json({ error: "Not found" });

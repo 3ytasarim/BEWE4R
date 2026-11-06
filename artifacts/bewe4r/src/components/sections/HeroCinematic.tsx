@@ -32,6 +32,8 @@ export function HeroCinematic() {
         className="absolute inset-0 z-0"
         style={{ y: bgY, scale: bgScale }}
       >
+        {/* The poster is the largest element painted first (LCP): fetch it with high priority */}
+        <link rel="preload" as="image" href={heroCinematic} fetchPriority="high" />
         {/* Looping cinematic background video — sketch image as poster fallback */}
         <video
           src={heroLoop}

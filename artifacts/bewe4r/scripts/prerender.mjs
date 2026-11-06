@@ -34,8 +34,54 @@ function writeFile(relFile, content) {
   fs.writeFileSync(file, content);
 }
 
+/** Width/height of a PNG, JPEG or WebP from its header (no image library needed). */
+function imageSize(buf) {
+  if (buf.length > 24 && buf.readUInt32BE(0) === 0x89504e47) return { w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) };
+  if (buf[0] === 0xff && buf[1] === 0xd8) {
+    let i = 2;
+    while (i + 9 < buf.length) {
+      if (buf[i] !== 0xff) { i++; continue; }
+      const m = buf[i + 1];
+      if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) return { h: buf.readUInt16BE(i + 5), w: buf.readUInt16BE(i + 7) };
+      i += m === 0xd8 || (m >= 0xd0 && m <= 0xd7) || m === 0x01 || m === 0xff ? 2 : 2 + buf.readUInt16BE(i + 2);
+    }
+    return null;
+  }
+  if (buf.length > 30 && buf.toString("ascii", 0, 4) === "RIFF" && buf.toString("ascii", 8, 12) === "WEBP") {
+    const kind = buf.toString("ascii", 12, 16);
+    if (kind === "VP8 ") return { w: buf.readUInt16LE(26) & 0x3fff, h: buf.readUInt16LE(28) & 0x3fff };
+    if (kind === "VP8L") { const b = buf.readUInt32LE(21); return { w: (b & 0x3fff) + 1, h: ((b >> 14) & 0x3fff) + 1 }; }
+    if (kind === "VP8X") return { w: 1 + buf.readUIntLE(24, 3), h: 1 + buf.readUIntLE(27, 3) };
+  }
+  return null;
+}
+
+const sizeCache = new Map();
+function sizeOfSrc(src) {
+  if (sizeCache.has(src)) return sizeCache.get(src);
+  let size = null;
+  try {
+    if (src.startsWith("data:image/")) size = imageSize(Buffer.from(src.slice(src.indexOf(",") + 1), "base64"));
+    else if (src.startsWith("/")) size = imageSize(fs.readFileSync(path.join(outDir, src.split(/[?#]/)[0])));
+  } catch {
+    /* missing file or unsupported format: leave the tag as it is */
+  }
+  sizeCache.set(src, size);
+  return size;
+}
+
+/** Adds intrinsic width/height to every <img> that lacks them, so images never shift the layout while loading. */
+function addImageDimensions(html) {
+  return html.replace(/<img\b[^>]*>/g, (tag) => {
+    if (/\swidth=/.test(tag) && /\sheight=/.test(tag)) return tag;
+    const src = (tag.match(/\ssrc="([^"]*)"/) || [])[1];
+    const size = src && sizeOfSrc(src);
+    return size ? tag.replace("<img", `<img width="${size.w}" height="${size.h}"`) : tag;
+  });
+}
+
 function pageHtml(appHtml, seo) {
-  return template.replace("<!--seo-head-->", () => headTags(seo)).replace("<!--app-html-->", () => appHtml);
+  return addImageDimensions(template.replace("<!--seo-head-->", () => headTags(seo)).replace("<!--app-html-->", () => appHtml));
 }
 
 async function renderRoute(urlPath) {

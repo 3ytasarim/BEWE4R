@@ -70,7 +70,7 @@ export function OurCustomers() {
 
     const load = async () => {
       try {
-        const r = await fetch("/api/brands", { cache: "no-store" });
+        const r = await fetch("/api/brands/public", { cache: "no-store" });
         const contentType = r.headers.get("content-type") || "";
         if (!r.ok || !contentType.includes("application/json")) {
           throw new Error(`Unexpected response ${r.status} (${contentType})`);

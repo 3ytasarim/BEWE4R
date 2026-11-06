@@ -201,9 +201,11 @@ export default function KontaktPage() {
                   )}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs text-white/30 uppercase tracking-widest mb-2">{t("Name *")}</label>
+                      <label htmlFor="contact-name" className="block text-xs text-white/60 uppercase tracking-widest mb-2">{t("Name *")}</label>
                       <input
                         type="text"
+                        id="contact-name"
+                        autoComplete="name"
                         name="name"
                         required
                         value={form.name}
@@ -214,9 +216,11 @@ export default function KontaktPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-white/30 uppercase tracking-widest mb-2">{t("Email *")}</label>
+                      <label htmlFor="contact-email" className="block text-xs text-white/60 uppercase tracking-widest mb-2">{t("Email *")}</label>
                       <input
                         type="email"
+                        id="contact-email"
+                        autoComplete="email"
                         name="email"
                         required
                         value={form.email}
@@ -228,9 +232,11 @@ export default function KontaktPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs text-white/30 uppercase tracking-widest mb-2">{t("Brand Name")}</label>
+                    <label htmlFor="contact-brand" className="block text-xs text-white/60 uppercase tracking-widest mb-2">{t("Brand Name")}</label>
                     <input
                       type="text"
+                      id="contact-brand"
+                      autoComplete="organization"
                       name="brand"
                       value={form.brand}
                       onChange={handleChange}
@@ -240,8 +246,9 @@ export default function KontaktPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs text-white/30 uppercase tracking-widest mb-2">{t("Message *")}</label>
+                    <label htmlFor="contact-message" className="block text-xs text-white/60 uppercase tracking-widest mb-2">{t("Message *")}</label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       required
                       value={form.message}
