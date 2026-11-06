@@ -21,6 +21,8 @@ export interface BlogPostData {
   updatedAt: string;
   author: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   en: BlogPostText;
   de: BlogPostText;
 }
@@ -32,6 +34,8 @@ export const BLOG_POSTS: BlogPostData[] = [
     updatedAt: "2026-11-05",
     author: "BEWE4R Team",
     image: deliveryImg,
+    imageWidth: 1600,
+    imageHeight: 1200,
     en: {
       title: "How Long Does It Take to Produce Your Clothing Line? A Realistic Timeline",
       excerpt:
@@ -159,6 +163,8 @@ Schick uns deinen Techpack oder dein Konzept und wir melden uns mit einem realis
     updatedAt: "2026-10-29",
     author: "BEWE4R Team",
     image: patternImg,
+    imageWidth: 1600,
+    imageHeight: 1200,
     en: {
       title: "Before You Start Production: The Checklist for Your First Clothing Order",
       excerpt:
@@ -280,6 +286,8 @@ Wenn du diese Punkte beisammen hast, kann es losgehen. Starte mit einem [Sample]
     updatedAt: "2026-10-22",
     author: "BEWE4R Team",
     image: garmentRailImg,
+    imageWidth: 1000,
+    imageHeight: 1000,
     en: {
       title: "Blank Customisation vs. Fully Custom Production: Which One Fits Your Brand?",
       excerpt:

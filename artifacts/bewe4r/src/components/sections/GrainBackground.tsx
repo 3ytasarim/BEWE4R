@@ -1,5 +1,5 @@
-import { Component, type ReactNode } from "react";
-import { useReducedMotion } from "framer-motion";
+import { Component, useEffect, useState, type ReactNode } from "react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { GrainGradient } from "@paper-design/shaders-react";
 
 /**
@@ -18,19 +18,19 @@ class ShaderBoundary extends Component<{ children: ReactNode }, { failed: boolea
 }
 
 /**
- * Feature-detect WebGL once so we never even mount the shader (which throws, not
- * rejects) in contexts without a GL context — headless capture browsers, GL
- * disabled, etc. Falls back to the plain white hero background.
+ * Feature-detect WebGL so we never even mount the shader (which throws, not rejects) in contexts
+ * without a GL context — headless capture browsers, GL disabled, etc. It runs after mount (not at
+ * module load) so the first client render matches the prerendered HTML; falls back to the plain
+ * white hero background.
  */
-const WEBGL_OK = (() => {
-  if (typeof document === "undefined") return false;
+function detectWebgl(): boolean {
   try {
     const c = document.createElement("canvas");
     return !!(c.getContext("webgl2") || c.getContext("webgl") || c.getContext("experimental-webgl"));
   } catch {
     return false;
   }
-})();
+}
 
 /**
  * Animated monochrome grain-gradient background tuned to the BEWE4R white theme:
@@ -39,7 +39,11 @@ const WEBGL_OK = (() => {
  */
 export default function GrainBackground({ className = "" }: { className?: string }) {
   const reduceMotion = useReducedMotion();
-  if (!WEBGL_OK) return null;
+  const [webglOk, setWebglOk] = useState(false);
+  useEffect(() => {
+    setWebglOk(detectWebgl());
+  }, []);
+  if (!webglOk) return null;
   return (
     <ShaderBoundary>
       <GrainGradient

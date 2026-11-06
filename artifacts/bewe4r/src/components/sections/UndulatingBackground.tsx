@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { gsap } from "gsap";
 
 /* Animated undulating grid of rounded bars (monochrome, tuned for a WHITE

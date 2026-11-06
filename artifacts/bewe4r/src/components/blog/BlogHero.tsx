@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { BlogBreadcrumb } from "./BlogBreadcrumb";
 
 /**
  * Hero of the blog page: pill badge, large uppercase headline with a gradient on the accent word, short subtitle.
@@ -11,6 +12,7 @@ export function BlogHero() {
   return (
     <section className="bg-[#ffffff] pb-12 pt-28 lg:pb-16 lg:pt-36">
       <div className="mx-auto max-w-[1760px] px-6 text-center lg:px-[80px]">
+        <BlogBreadcrumb className="mb-10 text-left" items={[{ label: t("Home"), href: "/" }, { label: t("Blog") }]} />
         <motion.span
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

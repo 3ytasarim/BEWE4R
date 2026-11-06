@@ -1,35 +1,27 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <title>BEWE4R · Premium Textilproduktion aus Istanbul</title>
-    <meta name="description" content="BEWE4R ist dein Produktionspartner für Streetwear, Modemarken und junge Brands. Von Sample über Print &amp; Stick bis zur Lieferung – alles aus einer Hand in Istanbul." />
-    <meta name="keywords" content="Textilproduktion, Streetwear Produktion, Modemarke gründen, eigene Brand starten, Siebdruck, DTG, DTF, Stickerei, Hangtag, Necktag, Techpack, Sample, MOQ, Pre-Order, Istanbul" />
     <meta name="author" content="BEWE4R" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#f4efe3" />
     <meta name="color-scheme" content="light" />
-    <link rel="canonical" href="https://www.bewe4r.com/" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="BEWE4R" />
-    <meta property="og:title" content="BEWE4R · Premium Textilproduktion aus Istanbul" />
-    <meta property="og:description" content="Dein Produktionspartner für Streetwear, Modemarken und junge Brands – Sample, Print, Stick, Label, Lager und Lieferung aus einer Hand." />
-    <meta property="og:url" content="https://www.bewe4r.com/" />
-    <meta property="og:image" content="/opengraph.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="de_DE" />
+    <!-- Per-page title, description, robots, canonical, Open Graph, Twitter and JSON-LD are written into the
+         first HTML of every page at build time (scripts/prerender.mjs from src/seo/*). -->
+    <!--seo-head-->
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BEWE4R · Premium Textilproduktion aus Istanbul" />
-    <meta name="twitter:description" content="Dein Produktionspartner für Streetwear, Modemarken und junge Brands." />
-    <meta name="twitter:image" content="/opengraph.jpg" />
+    <!-- Without JavaScript the entrance animations never run: show the prerendered content as is. -->
+    <noscript>
+      <style>
+        #root [style*="opacity:0;"],
+        #root [style$="opacity:0"] { opacity: 1 !important; }
+        #root [style*="translateY("],
+        #root [style*="translateX("],
+        #root [style*="rotate("] { transform: none !important; }
+      </style>
+    </noscript>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -44,8 +36,8 @@
     <script defer src="https://analytics.bleibsichtbar.com/recorder.js" data-website-id="51febfdf-41cf-464b-9ed1-4890faf0772a"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
 
     <!-- ElevenLabs voice agent — persists across all client-side routes; defaults to bottom-right -->
     <elevenlabs-convai

@@ -12,14 +12,26 @@ export interface BlogCardPost {
   title: string;
   summary?: string;
   href: string;
-  image?: { src: string; alt: string } | null;
+  image?: { src: string; alt: string; width?: number; height?: number } | null;
   category?: string | null;
+  /** Human readable date and the machine readable ISO date for <time datetime> */
   date?: string;
+  dateTime?: string;
   author?: string;
   cta: string;
 }
 
-export function Blog7({ posts, className }: { posts: BlogCardPost[]; className?: string }) {
+export function Blog7({
+  posts,
+  className,
+  headingLevel = "h2",
+}: {
+  posts: BlogCardPost[];
+  className?: string;
+  /** Level of the card titles; one below the heading that introduces the grid. */
+  headingLevel?: "h2" | "h3";
+}) {
+  const Heading = headingLevel;
   return (
     <section className={cn("pb-24 pt-4 lg:pb-32", className)}>
       <div className="mx-auto max-w-[1280px] px-6">
@@ -34,7 +46,10 @@ export function Blog7({ posts, className }: { posts: BlogCardPost[]; className?:
                   <img
                     src={post.image.src}
                     alt={post.image.alt}
+                    width={post.image.width}
+                    height={post.image.height}
                     loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover object-center transition-opacity duration-300 hover:opacity-90"
                   />
                 ) : (
@@ -50,11 +65,11 @@ export function Blog7({ posts, className }: { posts: BlogCardPost[]; className?:
               </Link>
 
               <CardHeader className="gap-3 space-y-0">
-                <h3 className="font-sans text-lg font-semibold normal-case leading-snug tracking-normal text-balance">
+                <Heading className="font-sans text-lg font-semibold normal-case leading-snug tracking-normal text-balance">
                   <Link href={post.href} className="underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
                     {post.title}
                   </Link>
-                </h3>
+                </Heading>
                 <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
                   {post.author && <span className="font-medium text-foreground">{post.author}</span>}
                   {post.author && post.date && (
@@ -62,7 +77,11 @@ export function Blog7({ posts, className }: { posts: BlogCardPost[]; className?:
                       ·
                     </span>
                   )}
-                  {post.date && <time className="tabular-nums text-muted-foreground">{post.date}</time>}
+                  {post.date && (
+                    <time dateTime={post.dateTime} className="tabular-nums text-muted-foreground">
+                      {post.date}
+                    </time>
+                  )}
                 </p>
               </CardHeader>
 

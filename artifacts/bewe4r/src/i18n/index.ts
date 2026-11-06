@@ -15,7 +15,9 @@ function readStoredLang(): Lang {
   }
 }
 
-const initialLng = readStoredLang();
+// The prerendered HTML (SSG) and the first client render are always English so hydration matches;
+// the visitor's saved language is applied right after hydration (see restoreStoredLang).
+const initialLng: Lang = "en";
 
 i18n.use(initReactI18next).init({
   // English is the source language — keys ARE the English strings.
@@ -35,6 +37,15 @@ i18n.use(initReactI18next).init({
 
 if (typeof document !== "undefined") {
   document.documentElement.lang = initialLng;
+}
+
+/** Apply the language saved in localStorage (called once after the first render). */
+export function restoreStoredLang() {
+  const stored = readStoredLang();
+  if (stored !== i18n.language) {
+    i18n.changeLanguage(stored);
+    if (typeof document !== "undefined") document.documentElement.lang = stored;
+  }
 }
 
 export function setLang(lang: Lang) {

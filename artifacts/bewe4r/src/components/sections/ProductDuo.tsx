@@ -1,4 +1,5 @@
-import { motion, useInView, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import compareBlank from "@/assets/hoodie-blank.png";

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 /* Monochrome WebGL fluid-cursor "smoke" effect, adapted for the BEWE4R dark
    hero. The reference component generated random rainbow colors + a full demo

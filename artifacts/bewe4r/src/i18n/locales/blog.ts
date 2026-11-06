@@ -13,4 +13,10 @@ export const blog: Record<string, string> = {
   "Article not found": "Artikel nicht gefunden",
   "min read": "Min. Lesezeit",
   "Topics": "Themen",
+  "Home": "Startseite",
+  "Breadcrumb": "Brotkrümelnavigation",
+  "Related articles": "Ähnliche Artikel",
+  "Page not found": "Seite nicht gefunden",
+  "The page you are looking for does not exist or has moved. Here is where you can go next.":
+    "Die gesuchte Seite existiert nicht oder wurde verschoben. Hier geht es weiter.",
 };

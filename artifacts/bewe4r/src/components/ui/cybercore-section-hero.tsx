@@ -1,5 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 /* MONOCHROME adaptation of an attached "Cybercore" animated grid/beam background.
    The original used neon cyan + orange; per the strict black & white rule every

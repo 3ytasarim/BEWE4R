@@ -1,58 +1,14 @@
-import { useEffect, useMemo } from "react";
-import { useRoute, Link } from "wouter";
+import { useMemo } from "react";
+import { useRoute } from "wouter";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
 import { BlogMarkdown } from "@/components/blog/BlogMarkdown";
-import { useSeo } from "@/hooks/useSeo";
-import { formatBlogDate, getBlogPost, readingMinutes, type BlogLang } from "@/data/blogPosts";
+import { BlogBreadcrumb } from "@/components/blog/BlogBreadcrumb";
+import { Blog7 } from "@/components/blog/Blog7";
+import { toCard } from "@/components/blog/blogCards";
+import NotFound from "@/pages/not-found";
+import { formatBlogDate, getBlogPost, getSortedBlogPosts, readingMinutes, type BlogLang } from "@/data/blogPosts";
 
-const SITE_URL = "https://www.bewe4r.com";
-
-interface ArticleHead {
-  url: string;
-  title: string;
-  description: string;
-  image: string;
-  jsonLd: Record<string, unknown>;
-}
-
-/** Canonical, Open Graph / Twitter tags and BlogPosting JSON-LD for one article; restored when leaving the page. */
-function useArticleHead(head: ArticleHead | null) {
-  useEffect(() => {
-    if (!head) return;
-    const restore: Array<() => void> = [];
-    const setAttr = (selector: string, attr: string, value: string) => {
-      const el = document.querySelector(selector);
-      if (!el) return;
-      const prev = el.getAttribute(attr);
-      el.setAttribute(attr, value);
-      restore.push(() => {
-        if (prev !== null) el.setAttribute(attr, prev);
-      });
-    };
-
-    setAttr('link[rel="canonical"]', "href", head.url);
-    setAttr('meta[property="og:type"]', "content", "article");
-    setAttr('meta[property="og:title"]', "content", head.title);
-    setAttr('meta[property="og:description"]', "content", head.description);
-    setAttr('meta[property="og:url"]', "content", head.url);
-    setAttr('meta[property="og:image"]', "content", head.image);
-    setAttr('meta[name="twitter:title"]', "content", head.title);
-    setAttr('meta[name="twitter:description"]', "content", head.description);
-    setAttr('meta[name="twitter:image"]', "content", head.image);
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.text = JSON.stringify(head.jsonLd);
-    document.head.appendChild(script);
-
-    return () => {
-      restore.forEach((fn) => fn());
-      script.remove();
-    };
-  }, [head]);
-}
-
+/** One article. Head tags (title, canonical, Open Graph, BlogPosting + BreadcrumbList JSON-LD): see seo/blogSeo.ts. */
 export default function BlogPostPage() {
   const { t, i18n } = useTranslation();
   const lang: BlogLang = i18n.language === "de" ? "de" : "en";
@@ -60,56 +16,27 @@ export default function BlogPostPage() {
   const post = params?.slug ? getBlogPost(params.slug) : undefined;
   const text = post?.[lang];
 
-  useSeo(text?.title ?? t("Article not found"), text?.description, text?.keywords);
+  const related = useMemo(
+    () =>
+      post
+        ? getSortedBlogPosts()
+            .filter((p) => p.slug !== post.slug)
+            .slice(0, 3)
+            .map((p) => toCard(p, lang, t("Read more")))
+        : [],
+    [post, lang, t],
+  );
 
-  const head = useMemo<ArticleHead | null>(() => {
-    if (!post) return null;
-    const t2 = post[lang];
-    const image = new URL(post.image, window.location.origin).href;
-    const url = `${SITE_URL}/blog/${post.slug}`;
-    return {
-      url,
-      title: t2.title,
-      description: t2.description,
-      image,
-      jsonLd: {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline: t2.title,
-        description: t2.description,
-        datePublished: post.publishedAt,
-        dateModified: post.updatedAt,
-        inLanguage: lang,
-        keywords: t2.keywords,
-        author: { "@type": "Organization", name: post.author },
-        publisher: { "@type": "Organization", name: "BEWE4R", url: SITE_URL },
-        mainEntityOfPage: url,
-        image,
-      },
-    };
-  }, [post, lang]);
-  useArticleHead(head);
-
-  if (!post || !text) {
-    return (
-      <div className="bg-[#ffffff] text-[#0f0f0f]">
-        <div className="mx-auto max-w-3xl px-6 py-40 text-center">
-          <h1 className="mb-4 font-display text-4xl">{t("Article not found")}</h1>
-          <Link href="/blog" className="font-medium underline underline-offset-4 hover:text-[#0f0f0f]/60">
-            {t("Back to blog")}
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  if (!post || !text) return <NotFound />;
 
   return (
     <div className="bg-[#ffffff] text-[#0f0f0f]">
-      <article className="bg-[#ffffff] pb-24 pt-32 lg:pt-40">
+      <article className="bg-[#ffffff] pb-16 pt-32 lg:pt-40">
         <div className="mx-auto max-w-3xl px-6">
-          <Link href="/blog" className="mb-10 inline-flex items-center text-sm font-semibold text-[#0f0f0f] transition-colors hover:text-[#0f0f0f]/60">
-            <ArrowLeft className="mr-2 h-4 w-4" /> {t("Back to overview")}
-          </Link>
+          <BlogBreadcrumb
+            className="mb-10"
+            items={[{ label: t("Home"), href: "/" }, { label: t("Blog"), href: "/blog" }, { label: text.title }]}
+          />
 
           <header className="mb-12">
             <span className="mb-5 inline-block rounded-full border border-[#0f0f0f]/30 bg-[#0f0f0f]/5 px-4 py-1 text-xs font-bold uppercase tracking-[1.2px] text-[#0f0f0f]">
@@ -128,9 +55,17 @@ export default function BlogPostPage() {
             <p className="text-xl leading-relaxed text-[#6b7280]">{text.excerpt}</p>
           </header>
 
-          <div className="mb-14 overflow-hidden rounded-3xl border border-border shadow-lg">
-            <img src={post.image} alt={text.title} className="h-auto max-h-[500px] w-full object-cover" />
-          </div>
+          <figure className="mb-14 overflow-hidden rounded-3xl border border-border shadow-lg">
+            <img
+              src={post.image}
+              alt={text.title}
+              width={post.imageWidth}
+              height={post.imageHeight}
+              fetchPriority="high"
+              decoding="async"
+              className="h-auto max-h-[500px] w-full object-cover"
+            />
+          </figure>
 
           <BlogMarkdown content={text.content} />
 
@@ -148,7 +83,7 @@ export default function BlogPostPage() {
           )}
 
           <div className="mt-10 flex items-center space-x-4 border-t border-gray-100 pt-8">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0f0f0f] font-display text-xl text-[#ffffff]">
+            <div aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0f0f0f] font-display text-xl text-[#ffffff]">
               {post.author.charAt(0)}
             </div>
             <div>
@@ -158,6 +93,15 @@ export default function BlogPostPage() {
           </div>
         </div>
       </article>
+
+      {related.length > 0 && (
+        <section aria-labelledby="related-articles" className="border-t border-gray-100 pt-16">
+          <h2 id="related-articles" className="mx-auto max-w-[1280px] px-6 font-display text-3xl lg:text-4xl">
+            {t("Related articles")}
+          </h2>
+          <Blog7 posts={related} headingLevel="h3" className="pt-8" />
+        </section>
+      )}
     </div>
   );
 }

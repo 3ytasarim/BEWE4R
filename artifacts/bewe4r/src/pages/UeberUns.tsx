@@ -1,4 +1,5 @@
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useRef } from "react";
 import { Link } from "wouter";
 import { useTranslation } from "react-i18next";

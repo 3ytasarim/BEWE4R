@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useTranslation } from "react-i18next";
 import { PrimaryCTA, SecondaryCTA } from "@/components/ui/cta-button";
 import { AnimatedSection, fadeUp } from "@/components/sections/AnimatedSection";

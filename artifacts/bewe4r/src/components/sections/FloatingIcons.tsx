@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import clothes from "@/assets/icons/clothes.png";
 import hoodie from "@/assets/icons/hoodie.png";
 import tshirt from "@/assets/icons/tshirt.png";
