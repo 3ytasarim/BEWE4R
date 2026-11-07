@@ -6,6 +6,8 @@ export type BlogLang = "en" | "de";
 
 export interface BlogPostText {
   title: string;
+  /** Shorter title for <title> / Open Graph (search results cut off after about 60 characters) */
+  seoTitle?: string;
   excerpt: string;
   description: string;
   keywords: string;
@@ -38,6 +40,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     imageHeight: 1200,
     en: {
       title: "How Long Does It Take to Produce Your Clothing Line? A Realistic Timeline",
+      seoTitle: "How Long Does Clothing Production Take?",
       excerpt:
         "Production is only one part of the timeline. Here is how a clothing project moves from techpack to delivery, and what really decides how long it takes.",
       description:
@@ -167,6 +170,7 @@ Schick uns deinen Techpack oder dein Konzept und wir melden uns mit einem realis
     imageHeight: 1200,
     en: {
       title: "Before You Start Production: The Checklist for Your First Clothing Order",
+      seoTitle: "First Clothing Order Checklist: What to Prepare",
       excerpt:
         "You do not need a perfect techpack to begin, but you do need clarity on a handful of decisions. Here is what to prepare before you send your first inquiry.",
       description:
@@ -290,6 +294,7 @@ Wenn du diese Punkte beisammen hast, kann es losgehen. Starte mit einem [Sample]
     imageHeight: 1000,
     en: {
       title: "Blank Customisation vs. Fully Custom Production: Which One Fits Your Brand?",
+      seoTitle: "Blank Customisation vs. Custom Production",
       excerpt:
         "Start from a premium blank or develop a garment from scratch? Neither is better in general. Here is how to decide based on your goal, budget and timeline.",
       description:

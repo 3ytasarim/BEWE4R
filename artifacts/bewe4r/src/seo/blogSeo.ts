@@ -61,7 +61,7 @@ export function getBlogSeo(path: string): SeoData | null {
   const url = absoluteUrl(`/blog/${post.slug}`);
   const image = absoluteUrl(post.image);
   return {
-    title: `${post.en.title} | ${SITE_NAME}`,
+    title: `${post.en.seoTitle ?? post.en.title} | ${SITE_NAME}`,
     description: post.en.description,
     canonical: url,
     robots: ROBOTS,
