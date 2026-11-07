@@ -82,7 +82,7 @@ function ProductGallery({ imgs, name }: { imgs: string[]; name: string }) {
         >
           <img
             src={src}
-            alt={`${name} — ${idx + 1}`}
+            alt={`${name} example ${idx + 1} by BEWE4R`}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { FaqAccordion } from "@/components/ui/faq-accordion";
+import { MOQ_FAQ } from "@/data/faqs";
 import { PageHero } from "@/components/sections/PageHero";
 import { AnimatedSection, fadeUp } from "@/components/sections/AnimatedSection";
 import moqImg from "@/assets/real/moq.jpg";
@@ -13,13 +14,6 @@ const moqItems = [
   { product: "Caps", moq: "50 pieces", note: "Per colour & design" },
   { product: "Shorts", moq: "50 pieces", note: "Per colour & design" },
   { product: "Joggers / Pants", moq: "50 pieces", note: "Per colour & design" },
-];
-
-const faq = [
-  { q: "Can I mix different sizes?", a: "Yes — the MOQ refers to the total quantity. You can split it freely across sizes (XS–3XL)." },
-  { q: "What if I want fewer pieces?", a: "Get in touch — for some products there are special terms for smaller quantities." },
-  { q: "Does the MOQ apply per colour or in total?", a: "Per colour and design. With multiple colours the MOQ multiplies accordingly." },
-  { q: "Are there discounts for larger quantities?", a: "Yes — from 100 pieces and up, significant volume discounts are possible. Get in touch." },
 ];
 
 export default function MoqPage() {
@@ -67,14 +61,13 @@ export default function MoqPage() {
           <AnimatedSection>
             <motion.h2 variants={fadeUp} className="font-display text-5xl text-white mb-12">{t("MOQ FAQ")}</motion.h2>
             <motion.div variants={fadeUp}>
-              <Accordion type="single" collapsible>
-                {faq.map((item, i) => (
-                  <AccordionItem key={i} value={`moq-${i}`} className="border-b border-white/10 border-t-0 border-l-0 border-r-0">
-                    <AccordionTrigger className="py-5 text-base text-white font-normal hover:no-underline [&>svg]:text-white/30" data-testid={`moq-faq-${i}`}>{t(item.q)}</AccordionTrigger>
-                    <AccordionContent className="text-white/50 pb-5 text-sm leading-relaxed">{t(item.a)}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <FaqAccordion
+                items={MOQ_FAQ.map((item) => ({ q: t(item.q), a: t(item.a as string) }))}
+                itemClassName="border-b border-white/10"
+                triggerClassName="py-5 text-base text-white font-normal"
+                answerClassName="text-white/50 pb-5 text-sm leading-relaxed"
+                testIdPrefix="moq-faq"
+              />
             </motion.div>
           </AnimatedSection>
         </div>

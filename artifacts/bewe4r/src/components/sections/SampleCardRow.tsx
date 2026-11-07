@@ -198,7 +198,7 @@ export default function SampleCardRow() {
             data-rot={c.rot}
             data-depth={c.depth}
           >
-            <img src={c.src} alt={`Sample ${i + 1}`} loading="lazy" />
+            <img src={c.src} alt={`BEWE4R sample example ${i + 1}`} loading="lazy" />
           </div>
         ))}
       </div>

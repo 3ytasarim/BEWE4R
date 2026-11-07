@@ -6,13 +6,15 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 interface ImageGalleryProps {
   images: string[];
   columns?: number;
+  /** Start of every image's alt text; the photo number is appended */
+  altPrefix?: string;
 }
 
 /* Deterministic ratio pattern gives the grid a masonry rhythm without
    randomness (avoids reflow/non-deterministic layout on every render). */
 const RATIOS = [3 / 4, 4 / 3, 1, 4 / 3, 3 / 4];
 
-export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
+export function ImageGallery({ images, columns = 3, altPrefix = "BEWE4R production in Istanbul" }: ImageGalleryProps) {
   const cols: string[][] = Array.from({ length: columns }, () => []);
   images.forEach((src, i) => {
     cols[i % columns].push(src);
@@ -25,7 +27,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
           {colImgs.map((src, index) => (
             <AnimatedImage
               key={`${col}-${index}`}
-              alt={`Production ${col}-${index}`}
+              alt={`${altPrefix}, photo ${index * columns + col + 1} of ${images.length}`}
               src={src}
               ratio={RATIOS[(col + index) % RATIOS.length]}
             />

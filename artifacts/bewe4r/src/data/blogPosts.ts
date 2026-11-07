@@ -70,11 +70,11 @@ The fastest projects start with clear information. A techpack is ideal, but it i
 
 ### Sampling
 
-The sample is where timelines are won or lost. Every round of changes means another round of production and feedback. Collect all your corrections in one message, decide quickly, and you save more time than any faster factory could.
+The sample is where timelines are won or lost. Every round of changes means another round of production and feedback. A first sample is usually ready within about 2 weeks, so every extra round adds noticeable time. Collect all your corrections in one message, decide quickly, and you save more time than any faster factory could.
 
 ### Bulk production
 
-Production time depends on the product, the quantity, the number of colours and designs, and the technique. Screen print, DTF, DTG, embroidery, 3D patches and embossing each have their own workflow. For this reason we do not quote one generic number. The production time is confirmed in your individual offer, based on your actual order.
+Production time depends on the product, the quantity, the number of colours and designs, and the technique. Screen print, DTF, DTG, embroidery, 3D patches and embossing each have their own workflow. After sample approval, bulk production typically takes 3–5 weeks, depending on the size of the order. The exact schedule for your order is confirmed in your individual offer.
 
 ### Shipping
 
@@ -130,11 +130,11 @@ Die schnellsten Projekte starten mit klaren Informationen. Ein Techpack ist idea
 
 ### Sampling
 
-Beim Sample werden Zeitpläne gewonnen oder verloren. Jede Änderungsrunde bedeutet eine weitere Runde aus Produktion und Feedback. Sammle alle Korrekturen in einer Nachricht und entscheide zügig: Das spart mehr Zeit als jede schnellere Fabrik.
+Beim Sample werden Zeitpläne gewonnen oder verloren. Jede Änderungsrunde bedeutet eine weitere Runde aus Produktion und Feedback. Ein erstes Sample ist in der Regel nach etwa 2 Wochen fertig, jede zusätzliche Runde kostet also spürbar Zeit. Sammle alle Korrekturen in einer Nachricht und entscheide zügig: Das spart mehr Zeit als jede schnellere Fabrik.
 
 ### Serienproduktion
 
-Die Produktionszeit hängt vom Produkt, der Stückzahl, der Anzahl der Farben und Designs und dem Verfahren ab. Siebdruck, DTF, DTG, Stickerei, 3D-Patches und Prägung haben jeweils ihren eigenen Ablauf. Deshalb nennen wir keine pauschale Zahl. Die Produktionszeit wird in deinem individuellen Angebot bestätigt, auf Basis deiner tatsächlichen Bestellung.
+Die Produktionszeit hängt vom Produkt, der Stückzahl, der Anzahl der Farben und Designs und dem Verfahren ab. Siebdruck, DTF, DTG, Stickerei, 3D-Patches und Prägung haben jeweils ihren eigenen Ablauf. Nach der Sample-Freigabe dauert die Serienproduktion je nach Bestellgröße typischerweise 3–5 Wochen. Den genauen Zeitplan für deine Bestellung bestätigen wir in deinem individuellen Angebot.
 
 ### Versand
 

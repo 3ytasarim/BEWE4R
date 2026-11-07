@@ -175,7 +175,7 @@ export default function MarketingEssentialsPage() {
                   >
                     <SpotlightImageCard
                       src={slide.src}
-                      alt={`${t(section.title)} — ${i + 1}`}
+                      alt={`${t(section.title)} example ${i + 1} by BEWE4R`}
                       aspect="aspect-[3/4]"
                     />
                   </motion.div>

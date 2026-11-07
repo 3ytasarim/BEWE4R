@@ -12,6 +12,8 @@ import { ALIASES } from "@/seo/pages";
 // Layout
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { RelatedLinks } from "@/components/layout/RelatedLinks";
+import { useTranslation } from "react-i18next";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -50,6 +52,19 @@ function RestoreLang() {
   return null;
 }
 
+/** First focusable element: lets keyboard and screen-reader users jump past the navigation. */
+function SkipLink() {
+  const { t } = useTranslation();
+  return (
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[2px] focus:bg-[#0f0f0f] focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#ffffff]"
+    >
+      {t("Skip to content")}
+    </a>
+  );
+}
+
 function Router() {
   const [location] = useLocation();
   const isAdmin = location.startsWith("/admin");
@@ -58,8 +73,9 @@ function Router() {
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <RouteSeo />
+      <SkipLink />
       {!isAdmin && <Navbar />}
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
         <Suspense fallback={null}>
           <Switch>
             {APP_ROUTES.map((r) => (
@@ -73,6 +89,7 @@ function Router() {
           </Switch>
           <RestoreLang />
         </Suspense>
+        <RelatedLinks />
       </main>
       {!isAdmin && <Footer />}
     </div>

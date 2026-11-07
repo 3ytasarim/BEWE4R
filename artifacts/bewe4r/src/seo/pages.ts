@@ -1,3 +1,4 @@
+import { HOME_FAQ, MOQ_FAQ, SAMPLE_FAQ, type Faq } from "@/data/faqs";
 import type { SeoData } from "./types";
 import { DEFAULT_OG_IMAGE, LOGO_URL, SITE_NAME, SITE_URL, absoluteUrl } from "./site";
 
@@ -216,6 +217,13 @@ const ORGANIZATION = {
 
 export const ORGANIZATION_REF = { "@id": `${SITE_URL}/#organization` };
 
+/** Pages that show a visible FAQ: their FAQPage schema is built from the same entries the page renders. */
+const FAQ_BY_PATH: Record<string, Faq[]> = {
+  "/": HOME_FAQ,
+  "/your-brand/moq": MOQ_FAQ,
+  "/your-brand/sample": SAMPLE_FAQ,
+};
+
 export function staticSeo(path: string): SeoData | null {
   const page = PAGE_SEO[path];
   if (!page) return null;
@@ -233,6 +241,18 @@ export function staticSeo(path: string): SeoData | null {
         publisher: ORGANIZATION_REF,
       },
     );
+  }
+  const faq = FAQ_BY_PATH[path];
+  if (faq) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: Array.isArray(f.a) ? f.a.join(" ") : f.a },
+      })),
+    });
   }
   return {
     title: page.title,

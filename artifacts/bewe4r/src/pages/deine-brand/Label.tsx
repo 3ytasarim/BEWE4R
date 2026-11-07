@@ -85,7 +85,7 @@ function TagGallery({ imgs, name }: { imgs: string[]; name: string }) {
           whileHover={{ y: -6 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
         >
-          <SpotlightImageCard src={src} alt={`${name} — ${idx + 1}`} />
+          <SpotlightImageCard src={src} alt={`${name} example ${idx + 1} by BEWE4R`} />
         </motion.div>
       ))}
     </div>

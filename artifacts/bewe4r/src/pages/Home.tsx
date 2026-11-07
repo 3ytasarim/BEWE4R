@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { FaqAccordion } from "@/components/ui/faq-accordion";
+import { HOME_FAQ } from "@/data/faqs";
 import { BentoGrid } from "@/components/sections/BentoGrid";
 import { HowToStart } from "@/components/sections/HowToStart";
 import { ProductDuo } from "@/components/sections/ProductDuo";
@@ -28,41 +29,6 @@ const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
-
-const faqItems = [
-  {
-    q: "What is the minimum order quantity?",
-    a: "The minimum order quantity varies by product. For t-shirts and hoodies it's 30–50 pieces per color. Get in touch for a tailored quote.",
-  },
-  {
-    q: "How long does production take?",
-    a: "After sample approval, production takes 3–5 weeks, depending on the size of the order. Samples are usually ready within 2 weeks.",
-  },
-  {
-    q: "What does a sample cost?",
-    a: "Samples are priced based on effort. Write to us — we'll prepare a transparent quote based on your design.",
-  },
-  {
-    q: "Do you deliver to Germany, Austria and Switzerland?",
-    a: "Yes. We deliver quickly and reliably across the entire DACH region as well as worldwide.",
-  },
-  {
-    q: "Do I need a techpack?",
-    a: "A techpack is ideal, but not strictly required. We can help you create one — just send us your concept or sketches.",
-  },
-  {
-    q: "Can I have my own labels and hangtags?",
-    a: "Absolutely. We offer neck tags, woven labels, designer tags, hangtags and care labels — all customized with your brand.",
-  },
-  {
-    q: "Which print techniques do you offer?",
-    a: "Screen printing, DTG (direct-to-garment), DTF (direct-to-film), embroidery and transfer printing — the right technique for every design.",
-  },
-  {
-    q: "How does the pre-order model work?",
-    a: "You sell your products to your community in advance. We only start production once enough orders have come in. No inventory risk for you.",
-  },
-];
 
 const ticker = ["PREMIUM QUALITY", "TEXTILE MANUFACTURER", "PREMIUM QUALITY"];
 
@@ -113,25 +79,13 @@ export default function Home() {
               className="mb-16"
             />
             <motion.div variants={fadeUp}>
-              <Accordion type="single" collapsible className="space-y-0">
-                {faqItems.map((item, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`item-${i}`}
-                    className="border-b border-white/10 border-t-0 border-l-0 border-r-0"
-                  >
-                    <AccordionTrigger
-                      className="py-6 text-left text-base text-white hover:text-white font-normal hover:no-underline tracking-wide [&>svg]:text-white/30"
-                      data-testid={`faq-trigger-${i}`}
-                    >
-                      {t(item.q)}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-white/50 pb-6 text-sm leading-relaxed">
-                      {t(item.a)}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <FaqAccordion
+                items={HOME_FAQ.map((item) => ({ q: t(item.q), a: t(item.a as string) }))}
+                itemClassName="border-b border-white/10"
+                triggerClassName="py-6 text-base text-white font-normal tracking-wide"
+                answerClassName="text-white/50 pb-6 text-sm leading-relaxed"
+                testIdPrefix="faq-trigger"
+              />
             </motion.div>
           </motion.div>
         </div>
