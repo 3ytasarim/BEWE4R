@@ -131,7 +131,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   "/about": {
     title: "About BEWE4R: Clothing Production Studio in Istanbul",
     description:
-      "Meet the team behind BEWE4R, a clothing production partner in Istanbul that supports brands from the first idea and techpack to sampling, production and delivery.",
+      "Meet the team behind BEWE4R, a clothing production partner in Istanbul that guides brands from first idea and techpack to sampling, production and shipping.",
     changefreq: "monthly",
     priority: 0.6,
     source: "src/pages/UeberUns.tsx",
@@ -161,14 +161,14 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   },
   "/legal-notice": {
     title: "Legal Notice | BEWE4R",
-    description: "Legal notice and company information of BEWE4R.",
+    description: "Legal notice of BEWE4R: company details, contact information and the legally required disclosures for our clothing production services in Istanbul.",
     changefreq: "yearly",
     priority: 0.2,
     source: "src/pages/LegalNotice.tsx",
   },
   "/terms": {
     title: "Terms and Conditions | BEWE4R",
-    description: "General terms and conditions for orders and services at BEWE4R.",
+    description: "General terms and conditions of BEWE4R for samples, production orders, payment, delivery and liability when you work with us on your clothing brand.",
     changefreq: "yearly",
     priority: 0.2,
     source: "src/pages/Terms.tsx",
