@@ -11,24 +11,31 @@ const HEADLINE = ["PREMIUM CLOTHING", "MANUFACTURER"];
 const reveal = (delay: number, shift?: number) =>
   ({ "--hero-delay": `${delay}s`, ...(shift ? { "--hero-shift": `${shift}px` } : {}) }) as CSSProperties;
 
-/* The 3 MB loop only starts once the page is idle and the connection can afford it; until then the poster is shown. */
+/* The 3 MB loop is not part of the first load: it starts on the visitor's first interaction (or 10 s after the page loaded)
+   and only when the connection can afford it. Until then the poster, which is a frame of the same video, is shown. */
+const START_EVENTS = ["pointerdown", "keydown", "touchstart", "scroll", "mousemove"] as const;
+
 function useDeferredVideoSrc(src: string) {
   const [ready, setReady] = useState<string | undefined>();
   useEffect(() => {
     const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
     if (conn?.saveData || /(^|-)[23]g$/.test(conn?.effectiveType ?? "")) return;
-    const start = () => setReady(src);
-    const hasIdle = typeof window.requestIdleCallback === "function";
-    let handle = 0;
-    const onLoad = () => {
-      handle = hasIdle ? window.requestIdleCallback(start, { timeout: 3000 }) : window.setTimeout(start, 1500);
+    let timer = 0;
+    const start = () => {
+      window.clearTimeout(timer);
+      START_EVENTS.forEach((e) => window.removeEventListener(e, start));
+      setReady(src);
     };
-    if (document.readyState === "complete") onLoad();
-    else window.addEventListener("load", onLoad, { once: true });
+    START_EVENTS.forEach((e) => window.addEventListener(e, start, { passive: true }));
+    const arm = () => {
+      timer = window.setTimeout(start, 10000);
+    };
+    if (document.readyState === "complete") arm();
+    else window.addEventListener("load", arm, { once: true });
     return () => {
-      window.removeEventListener("load", onLoad);
-      if (hasIdle) window.cancelIdleCallback(handle);
-      else window.clearTimeout(handle);
+      window.clearTimeout(timer);
+      window.removeEventListener("load", arm);
+      START_EVENTS.forEach((e) => window.removeEventListener(e, start));
     };
   }, [src]);
   return ready;
