@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import { PrimaryCTA, SecondaryCTA } from "@/components/ui/cta-button";
 import heroCinematic from "@/assets/hero-video-poster.jpg";
@@ -7,9 +7,37 @@ import heroLoop from "@/assets/hero-video.mp4";
 
 const HEADLINE = ["PREMIUM CLOTHING", "MANUFACTURER"];
 
+/* Start delay (and slide distance) of the CSS entrance animations in index.css */
+const reveal = (delay: number, shift?: number) =>
+  ({ "--hero-delay": `${delay}s`, ...(shift ? { "--hero-shift": `${shift}px` } : {}) }) as CSSProperties;
+
+/* The 3 MB loop only starts once the page is idle and the connection can afford it; until then the poster is shown. */
+function useDeferredVideoSrc(src: string) {
+  const [ready, setReady] = useState<string | undefined>();
+  useEffect(() => {
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    if (conn?.saveData || /(^|-)[23]g$/.test(conn?.effectiveType ?? "")) return;
+    const start = () => setReady(src);
+    const hasIdle = typeof window.requestIdleCallback === "function";
+    let handle = 0;
+    const onLoad = () => {
+      handle = hasIdle ? window.requestIdleCallback(start, { timeout: 3000 }) : window.setTimeout(start, 1500);
+    };
+    if (document.readyState === "complete") onLoad();
+    else window.addEventListener("load", onLoad, { once: true });
+    return () => {
+      window.removeEventListener("load", onLoad);
+      if (hasIdle) window.cancelIdleCallback(handle);
+      else window.clearTimeout(handle);
+    };
+  }, [src]);
+  return ready;
+}
+
 export function HeroCinematic() {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const videoSrc = useDeferredVideoSrc(heroLoop);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -36,13 +64,13 @@ export function HeroCinematic() {
         <link rel="preload" as="image" href={heroCinematic} fetchPriority="high" />
         {/* Looping cinematic background video — sketch image as poster fallback */}
         <video
-          src={heroLoop}
+          src={videoSrc}
           poster={heroCinematic}
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="none"
           className="w-full h-full object-cover opacity-100"
         />
         {/* Deep shadow vignette — lighter edge darkening so the video stays visible */}
@@ -88,52 +116,37 @@ export function HeroCinematic() {
             <span aria-hidden="true" className="block">
               {HEADLINE.map((word, wi) => (
                 <span key={wi} className="block overflow-hidden">
-                  <motion.span
-                    className="block whitespace-nowrap"
-                    initial={{ y: "115%", rotate: 4 }}
-                    animate={{ y: 0, rotate: 0 }}
-                    transition={{
-                      duration: 0.55,
-                      delay: 0.15 + wi * 0.07,
-                      ease: [0.22, 1, 0.36, 1] as const,
-                    }}
-                    style={{ color: "#ffffff" }}
+                  <span
+                    className="block whitespace-nowrap hero-word-rise"
+                    style={{ color: "#ffffff", ...reveal(0.15 + wi * 0.07) }}
                   >
                     {t(word)}
-                  </motion.span>
+                  </span>
                 </span>
               ))}
             </span>
           </h1>
 
           {/* Sub copy */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.45 }}
-            className="text-lg md:text-2xl max-w-2xl md:max-w-none md:whitespace-nowrap mb-4 leading-snug font-light"
-            style={{ color: "rgba(255,255,255,0.85)" }}
+          <p
+            className="hero-fade-up text-lg md:text-2xl max-w-2xl md:max-w-none md:whitespace-nowrap mb-4 leading-snug font-light"
+            style={{ color: "rgba(255,255,255,0.85)", ...reveal(0.45) }}
           >
             {t("Creating high-quality garments for modern brands worldwide.")}
-          </motion.p>
+          </p>
 
           {/* Paragraph */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.45 }}
-            className="text-sm md:text-base max-w-xl md:max-w-none md:whitespace-nowrap mb-9 md:mb-11 leading-relaxed font-light"
-            style={{ color: "rgba(255,255,255,0.55)" }}
+          <p
+            className="hero-fade-up text-sm md:text-base max-w-xl md:max-w-none md:whitespace-nowrap mb-9 md:mb-11 leading-relaxed font-light"
+            style={{ color: "rgba(255,255,255,0.55)", ...reveal(0.55) }}
           >
             {t("From the first sample to the finished collection — print, label, cut & sew, all crafted in our Istanbul manufacture.")}
-          </motion.p>
+          </p>
 
           {/* CTA group */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.45 }}
-            className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
+          <div
+            className="hero-fade-up flex flex-wrap items-center justify-center gap-3 md:gap-4"
+            style={reveal(0.65)}
           >
             <PrimaryCTA href="/contact" testId="hero-cta-primary" onDark>
               {t("Develop your Sample")}
@@ -141,18 +154,15 @@ export function HeroCinematic() {
             <SecondaryCTA href="/contact" testId="hero-cta-contact" onDark>
               {t("Scale Your Production")}
             </SecondaryCTA>
-          </motion.div>
+          </div>
 
           {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.45 }}
-            className="mt-7 md:mt-9 text-[11px] uppercase tracking-[0.3em]"
-            style={{ color: "rgba(255,255,255,0.45)" }}
+          <p
+            className="hero-fade-up mt-7 md:mt-9 text-[11px] uppercase tracking-[0.3em]"
+            style={{ color: "rgba(255,255,255,0.45)", ...reveal(0.8, 12) }}
           >
             {t("Built to bring your vision to life")}
-          </motion.p>
+          </p>
         </div>
       </motion.div>
     </section>
