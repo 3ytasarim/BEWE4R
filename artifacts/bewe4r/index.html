@@ -31,10 +31,10 @@
     <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Umami analytics (bleibsichtbar) -->
+    <!-- Umami analytics (bleibsichtbar): page views load right away; the heavier session recorder is loaded with the
+         voice widget on the visitor's first interaction (see the script at the end of <body>). -->
     <link rel="preconnect" href="https://analytics.bleibsichtbar.com" />
     <script defer src="https://analytics.bleibsichtbar.com/script.js" data-website-id="51febfdf-41cf-464b-9ed1-4890faf0772a"></script>
-    <script defer src="https://analytics.bleibsichtbar.com/recorder.js" data-website-id="51febfdf-41cf-464b-9ed1-4890faf0772a"></script>
   </head>
   <body>
     <div id="root"><!--app-html--></div>
@@ -46,20 +46,31 @@
       disable-banner="true"
     ></elevenlabs-convai>
     <script>
-      /* Load the widget script after the page has loaded and the browser is idle, so it never competes with LCP. */
+      /* Third-party scripts (voice widget ~470 KB, session recorder ~190 KB) load on the visitor's first interaction,
+         so they never compete with the first paint, LCP or hydration. Real visitors trigger this within moments. */
       (function () {
-        function load() {
+        var EVENTS = ["pointerdown", "keydown", "touchstart", "scroll", "mousemove"];
+        var started = false;
+        function add(src, attrs) {
           var s = document.createElement("script");
-          s.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
+          s.src = src;
           s.async = true;
+          for (var k in attrs) s.setAttribute(k, attrs[k]);
           document.body.appendChild(s);
         }
-        function whenIdle() {
-          if ("requestIdleCallback" in window) window.requestIdleCallback(load, { timeout: 4000 });
-          else setTimeout(load, 2000);
+        function start() {
+          if (started) return;
+          started = true;
+          EVENTS.forEach(function (e) {
+            window.removeEventListener(e, start);
+          });
+          add("https://unpkg.com/@elevenlabs/convai-widget-embed");
+          if (window.__rebrandWidget) window.__rebrandWidget();
+          add("https://analytics.bleibsichtbar.com/recorder.js", { "data-website-id": "51febfdf-41cf-464b-9ed1-4890faf0772a" });
         }
-        if (document.readyState === "complete") whenIdle();
-        else window.addEventListener("load", whenIdle);
+        EVENTS.forEach(function (e) {
+          window.addEventListener(e, start, { passive: true });
+        });
       })();
     </script>
     <script>
@@ -123,11 +134,13 @@
           if (host && host.shadowRoot) rebrand(host.shadowRoot);
         }
         tick();
-        // Catch the widget within ~50ms of it rendering, then settle to a keep-alive.
-        var fast = setInterval(tick, 50);
-        setTimeout(function () {
-          clearInterval(fast);
-        }, 12000);
+        // Called when the widget script is requested: catch the widget within ~50ms of it rendering, then settle to a keep-alive.
+        window.__rebrandWidget = function () {
+          var fast = setInterval(tick, 50);
+          setTimeout(function () {
+            clearInterval(fast);
+          }, 12000);
+        };
         setInterval(tick, 1000);
         document.addEventListener("DOMContentLoaded", tick);
       })();
