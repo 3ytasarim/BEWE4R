@@ -26,13 +26,10 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Fonts load without blocking the first paint (media swap); text shows in a fallback font until they arrive (display=swap) -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    </noscript>
+    <!-- Fonts are self-hosted (src/fonts.css, public/fonts). The latin files are preloaded so the text is drawn in the final
+         font from the first paint and the headline does not jump when the font arrives (layout shift). -->
+    <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Umami analytics (bleibsichtbar) -->
     <link rel="preconnect" href="https://analytics.bleibsichtbar.com" />

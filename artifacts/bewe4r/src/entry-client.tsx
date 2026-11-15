@@ -1,5 +1,6 @@
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
+import "./fonts.css";
 import "./index.css";
 import "./i18n";
 import { startAnimatedFavicon } from "./lib/animated-favicon";
