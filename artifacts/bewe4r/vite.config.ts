@@ -36,6 +36,9 @@ export default defineConfig({
     dedupe: ["react", "react-dom"],
   },
   root: path.resolve(import.meta.dirname),
+  // Template literals are emitted as plain string concatenation: same behaviour, but no raw line breaks
+  // inside the minified bundles (libraries such as framer-motion embed multi-line CSS templates).
+  esbuild: { supported: { "template-literal": false } },
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
