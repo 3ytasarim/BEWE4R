@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import logoUrl from "@assets/Bewe4r_logo_1780440584916.png";
 import { WhatsAppLogo } from "@/components/ui/whatsapp-button";
+import { openCookieSettings } from "@/lib/consentStore";
 
 function MarqueeGroup() {
   return (
@@ -172,6 +173,16 @@ export function Footer() {
                       </span>
                     </Link>
                   ))}
+                  {/* opens the cookie popup: the choice can be changed or withdrawn any time */}
+                  <button
+                    type="button"
+                    onClick={openCookieSettings}
+                    data-testid="link-cookie-settings"
+                    className="text-left text-sm transition-colors hover:text-[#ffffff]"
+                    style={{ color: "rgba(255,255,255,0.6)" }}
+                  >
+                    {t("Cookie settings")}
+                  </button>
                 </>
               )}
             </nav>

@@ -31,48 +31,18 @@
     <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Umami analytics (bleibsichtbar): page views load right away; the heavier session recorder is loaded with the
-         voice widget on the visitor's first interaction (see the script at the end of <body>). -->
-    <link rel="preconnect" href="https://analytics.bleibsichtbar.com" />
-    <script defer src="https://analytics.bleibsichtbar.com/script.js" data-website-id="51febfdf-41cf-464b-9ed1-4890faf0772a"></script>
+    <!-- Analytics (Umami), session recording and the voice widget are NOT loaded here: they start only after the
+         visitor agreed in the cookie popup (src/lib/consent.ts, src/lib/consentStore.ts). -->
   </head>
   <body>
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/entry-client.tsx"></script>
 
-    <!-- ElevenLabs voice agent — persists across all client-side routes; defaults to bottom-right -->
+    <!-- ElevenLabs voice agent element: stays empty until the visitor consented to the voice assistant, then the widget script (loaded by src/lib/consentStore.ts) fills it; bottom-right -->
     <elevenlabs-convai
       agent-id="agent_1401m1hq2pe1ev8bv429xhp7rzp5"
       disable-banner="true"
     ></elevenlabs-convai>
-    <script>
-      /* Third-party scripts (voice widget ~470 KB, session recorder ~190 KB) load on the visitor's first interaction,
-         so they never compete with the first paint, LCP or hydration. Real visitors trigger this within moments. */
-      (function () {
-        var EVENTS = ["pointerdown", "keydown", "touchstart", "scroll", "mousemove"];
-        var started = false;
-        function add(src, attrs) {
-          var s = document.createElement("script");
-          s.src = src;
-          s.async = true;
-          for (var k in attrs) s.setAttribute(k, attrs[k]);
-          document.body.appendChild(s);
-        }
-        function start() {
-          if (started) return;
-          started = true;
-          EVENTS.forEach(function (e) {
-            window.removeEventListener(e, start);
-          });
-          add("https://unpkg.com/@elevenlabs/convai-widget-embed");
-          if (window.__rebrandWidget) window.__rebrandWidget();
-          add("https://analytics.bleibsichtbar.com/recorder.js", { "data-website-id": "51febfdf-41cf-464b-9ed1-4890faf0772a" });
-        }
-        EVENTS.forEach(function (e) {
-          window.addEventListener(e, start, { passive: true });
-        });
-      })();
-    </script>
     <script>
       /* Re-brand the widget's "Powered by" attribution to Bleibsichtbar (no ElevenLabs flash) */
       (function () {

@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,6 +8,7 @@ import { applySeoToDocument } from "@/seo/head";
 import { resolveSeo } from "@/seo/resolve";
 import { APP_ROUTES } from "@/router/pages";
 import { ALIASES } from "@/seo/pages";
+import { applyConsentOnFirstInteraction } from "@/lib/consentStore";
 
 // Layout
 import { Navbar } from "@/components/layout/Navbar";
@@ -15,6 +16,9 @@ import { Footer } from "@/components/layout/Footer";
 import { RelatedLinks } from "@/components/layout/RelatedLinks";
 import { useTranslation } from "react-i18next";
 import NotFound from "@/pages/not-found";
+
+// Cookie popup: its own chunk, only mounted in the browser (the server HTML never contains it)
+const CookieBanner = lazy(() => import("@/components/shared/CookieBanner"));
 
 const queryClient = new QueryClient();
 
@@ -50,6 +54,20 @@ function RestoreLang() {
     restoreStoredLang();
   }, []);
   return null;
+}
+
+/** Cookie popup plus loading of the scripts a returning visitor already agreed to. Browser only, after hydration. */
+function ConsentLayer() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+    applyConsentOnFirstInteraction();
+  }, []);
+  return mounted ? (
+    <Suspense fallback={null}>
+      <CookieBanner />
+    </Suspense>
+  ) : null;
 }
 
 /** First focusable element: lets keyboard and screen-reader users jump past the navigation. */
@@ -92,6 +110,7 @@ function Router() {
         <RelatedLinks />
       </main>
       {!isAdmin && <Footer />}
+      <ConsentLayer />
     </div>
   );
 }

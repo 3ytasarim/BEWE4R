@@ -24,6 +24,7 @@ export const blog: Record<string, string> = {
   "E-Catalog": "E-Katalog",
   "More Products": "Weitere Produkte",
   "Skip to content": "Zum Inhalt springen",
+  "Cookie settings": "Cookie-Einstellungen",
   "Keep exploring": "Weiter entdecken",
   "Screen, DTF, DTG, embroidery, 3D patches and embossing": "Siebdruck, DTF, DTG, Stickerei, 3D-Patches und Prägung",
   "Hang tags, design tags, neck tags and jeans tags": "Hang Tags, Design Tags, Neck Tags und Jeans Tags",
