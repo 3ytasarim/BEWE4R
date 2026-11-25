@@ -138,7 +138,10 @@ for (const set of Object.values(out)) for (const t of set) if (!pages[t] && t !=
 const reach = new Set(["/"]);
 for (const queue = ["/"]; queue.length; ) for (const t of out[queue.shift()] || []) if (pages[t] && !reach.has(t)) (reach.add(t), queue.push(t));
 check("No broken internal links", !broken.size, [...broken].join(","));
-check("Every public page is reachable from the home page", publicRoutes.every((p) => reach.has(p)), publicRoutes.filter((p) => !reach.has(p)).join(","));
+// Pages that are deliberately not linked from anywhere (still reachable by direct URL). Keep this list short.
+const UNLINKED_ON_PURPOSE = ["/e-catalog"];
+const orphans = publicRoutes.filter((p) => !reach.has(p) && !UNLINKED_ON_PURPOSE.includes(p));
+check("Every public page is reachable from the home page", !orphans.length, orphans.join(","));
 
 for (const r of results) console.log(`${r.ok ? "PASS" : "FAIL"}  ${r.name}${r.ok ? "" : `\n      -> ${r.detail}`}`);
 const failed = results.filter((r) => !r.ok).length;

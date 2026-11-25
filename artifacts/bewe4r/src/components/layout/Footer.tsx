@@ -91,7 +91,6 @@ const FOOTER_GROUPS: Array<{ title: string; links: Array<{ label: string; href: 
     links: [
       { label: "About Us", href: "/about" },
       { label: "Prices & Shipping", href: "/about/prices-shipping" },
-      { label: "E-Catalog", href: "/e-catalog" },
       { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
     ],
