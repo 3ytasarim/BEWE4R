@@ -1,0 +1,47 @@
+{
+ "slug": "compare-custom-clothing-production-proposals",
+ "lang": "en",
+ "title": "How to compare two custom clothing production proposals",
+ "seoTitle": "How to Compare Clothing Production Proposals",
+ "description": "Use a line-by-line scope check to compare fabric, sampling, artwork, packing and delivery responsibilities for the same clothing brief.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "Two production proposals can describe “a washed black hoodie with a chest print” and still refer to quite different garments. Before choosing a supplier, translate each reply into a short specification. Wherever you have to guess, write down the question. You want to know whether the offers would put the same approved garment into the same warehouse.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Pick the detail most likely to be misunderstood"
+  },
+  {
+   "id": "section-2",
+   "text": "Build a like-for-like comparison"
+  },
+  {
+   "id": "section-3",
+   "text": "Send a single clarification to both suppliers"
+  },
+  {
+   "id": "section-4",
+   "text": "How do you compare two proposals that describe sampling differently?"
+  },
+  {
+   "id": "section-5",
+   "text": "Bring the agreed scope into production"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Pick the detail most likely to be misunderstood</h2>\n<p>Take a washed black hoodie with an off-white print. One supplier may propose a stock washed-look fabric. Another may propose treating the finished garment. Ask when the effect is applied, what happens to the rib, and whether the print is added before or after the treatment. These choices affect the reference you need to approve and what your repeat order can match.</p>\n<h2 id=\"section-2\">Build a like-for-like comparison</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Line in your brief</th><th scope=\"col\">What to put beside each supplier’s answer</th></tr></thead><tbody><tr><td>Fabric and shade</td><td>Material reference, weight, colour route and the sample that represents them</td></tr><tr><td>Fit and grading</td><td>Base size, sizes included, measurement method and who supplies the pattern</td></tr><tr><td>Surface work</td><td>Method, dimensions, placement reference and artwork version</td></tr><tr><td>Samples and changes</td><td>Which trial is for fit, which is for the finish and how revisions are recorded</td></tr><tr><td>Packing and delivery</td><td>Fold, bag, external size identifier, carton marks, destination and handover point</td></tr></tbody></table></div>\n<p>Leave a blank if a supplier has not answered. Writing “included” after a conversation can conceal a different assumption about what was included. Ask for a short written description of the disputed item and attach the relevant drawing.</p>\n<h2 id=\"section-3\">Send a single clarification to both suppliers</h2>\n<p>A useful clarification might read, “Please confirm whether the sample will use the same rib and wash sequence as the production hoodie. If either is provisional, identify the later approval point.” You can now compare how each team manages a substitution rather than simply comparing two confident replies.</p>\n<h2 id=\"section-4\">How do you compare two proposals that describe sampling differently?</h2>\n<p>Ask both suppliers to walk through one actual revision. If the armhole needs changing after the fitting, who alters the pattern, who produces the next sample, how is it identified and what triggers the next stage? Put the two sequences on one sheet. You will see whether both proposals lead to the same physical reference for bulk.</p>\n<h2 id=\"section-5\">Bring the agreed scope into production</h2>\n<p>Capture the final comparison in the order specification, with the latest date and the person who accepted any change. If one proposal includes a delivery appointment and the other stops at dispatch, identify who will arrange receipt before you commit to a shop launch. A sample approval is easier to use when the production team can see precisely what it covers.</p>\n<p>Use the <a href=\"/blog/clothing-production-enquiry-template\">production enquiry example</a> to give both suppliers the same starting document. For a BEWE4R project, <a href=\"/contact\">send the specification you want us to review</a> and flag any points still open.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/choose-clothing-manufacturer-turkey",
+   "text": "Choosing a Clothing Manufacturer in Turkey"
+  },
+  {
+   "href": "/blog/clothing-production-enquiry-template",
+   "text": "Clothing Production Enquiry Template for Fashion Brands"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

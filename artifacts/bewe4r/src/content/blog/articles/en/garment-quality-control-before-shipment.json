@@ -1,0 +1,47 @@
+{
+ "slug": "garment-quality-control-before-shipment",
+ "lang": "en",
+ "title": "What should a fashion brand check before bulk garments ship?",
+ "seoTitle": "Garment Quality Control Before Shipment",
+ "description": "Use the approved garment and current specification to review measurements, decoration, size identification and carton contents before shipment.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "A pre-shipment check is useful only if everyone knows which garment sets the standard. Start with the approved sample identifier, the current specification and the final order matrix. A perfect match to an obsolete drawing is still a problem.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Plan the check around the risks in the order"
+  },
+  {
+   "id": "section-2",
+   "text": "A short inspection record"
+  },
+  {
+   "id": "section-3",
+   "text": "What happens when a unit fails?"
+  },
+  {
+   "id": "section-4",
+   "text": "Can photographs replace the approved reference during final inspection?"
+  },
+  {
+   "id": "section-5",
+   "text": "Make the release decision visible"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Plan the check around the risks in the order</h2>\n<p>For a hoodie with a new zip, a back print and two similar shades, examine the zip operation, artwork position and colour identification across the relevant variants. Agree how units are selected, which sizes and colours are included, what constitutes an issue and who can release or hold the affected stock. A single photo of the best-looking medium cannot represent an entire mixed order.</p>\n<h2 id=\"section-2\">A short inspection record</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Check</th><th scope=\"col\">Example of a useful record</th></tr></thead><tbody><tr><td>Measurement</td><td>Style, size, unit identifier, point of measure, target, actual reading and agreed tolerance</td></tr><tr><td>Construction</td><td>Exact seam or fastening, observation and photograph showing the location</td></tr><tr><td>Decoration</td><td>Artwork version, finished size, position reference and comparison to the approved trial</td></tr><tr><td>Packing</td><td>Size inside garment, outside bag identifier, carton mark and quantity checked</td></tr></tbody></table></div>\n<p>Use the same measuring method as the original approval. If a garment was measured flat without tension at sampling, do not stretch the bulk garment to reach a target. Record its condition and repeat disputed measurements with both parties working from the marked drawing.</p>\n<h2 id=\"section-3\">What happens when a unit fails?</h2>\n<p>Imagine a carton marked black medium contains one cream tee behind a black external sticker. Keep the affected unit and record the carton, date and observed mismatch. Ask how far the identification issue might extend. It may call for checking the packed variants from the same operation before releasing that portion. Document the extent examined, any correction and the result of the recheck.</p>\n<h2 id=\"section-4\">Can photographs replace the approved reference during final inspection?</h2>\n<p>Use photographs to locate details and document findings. Keep the approved garment, labelled swatch or agreed measurement record available for properties a photograph cannot settle, such as handle or a measurement taken from a defined seam. For a remote inspection, agree in advance what the inspector has physically on site and which decisions need further review.</p>\n<h2 id=\"section-5\">Make the release decision visible</h2>\n<p>Summarise what was examined, what passed, what remains open and who accepted the result. If only part of the order is released, identify it by colour, size or carton range. Photos help a remote buyer assess visible details, while physical measurements and counts need their own record. Keep the evidence with the order for a later reorder or receiving query.</p>\n<p>Use the <a href=\"/blog/approve-clothing-sample-for-bulk-production\">sample approval guide</a> to establish the physical reference in advance. <a href=\"/contact\">Discuss inspection and packing requirements with BEWE4R</a> before the garment enters bulk production.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/approve-clothing-sample-for-bulk-production",
+   "text": "Garment Sample Approval Before Bulk Production"
+  },
+  {
+   "href": "/blog/sourcing-clothing-from-turkey-for-european-brands",
+   "text": "Sourcing Clothing from Turkey for European Brands"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

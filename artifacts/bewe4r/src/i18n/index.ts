@@ -39,13 +39,23 @@ if (typeof document !== "undefined") {
   document.documentElement.lang = initialLng;
 }
 
-/** Apply the language saved in localStorage (called once after the first render). */
-export function restoreStoredLang() {
-  const stored = readStoredLang();
-  if (stored !== i18n.language) {
-    i18n.changeLanguage(stored);
-    if (typeof document !== "undefined") document.documentElement.lang = stored;
-  }
+/** Language of a page whose content is fixed by its URL (/de/blog/..., /nl/blog/...), or null. */
+export function pageLangOf(pathname: string): "de" | "nl" | null {
+  const m = pathname.match(/^\/(de|nl)\//);
+  return m ? (m[1] as "de" | "nl") : null;
+}
+
+/**
+ * Applies the language of the interface after the first render and after every navigation:
+ * a German page shows the German interface, a Dutch page the English one (there is no Dutch interface),
+ * every other page the language the visitor saved. <html lang> follows the language of the page content.
+ * Choosing a language with the toggle (setLang) stays valid until the next navigation.
+ */
+export function applyPageLanguage(pathname: string) {
+  const pageLang = pageLangOf(pathname);
+  const target: Lang = pageLang === "de" ? "de" : pageLang === "nl" ? "en" : readStoredLang();
+  if (target !== i18n.language) i18n.changeLanguage(target);
+  if (typeof document !== "undefined") document.documentElement.lang = pageLang ?? target;
 }
 
 export function setLang(lang: Lang) {

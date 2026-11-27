@@ -1,0 +1,47 @@
+{
+ "slug": "custom-t-shirt-production-checklist",
+ "lang": "en",
+ "title": "What should a brand specify before producing a custom T-shirt?",
+ "seoTitle": "Custom T-Shirt Production Checklist for Brands",
+ "description": "Brief a T-shirt beyond its fabric and colour. Check the neckline, sleeve opening, seam behaviour and artwork position on the intended size range.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "A custom T-shirt looks simple until you compare two samples side by side. A few changes to neck width, sleeve angle or fabric drape can turn the same sketch into a different garment. Start your brief with the intended wearer and the one feature customers should notice when they put it on.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Set the neckline before judging the whole tee"
+  },
+  {
+   "id": "section-2",
+   "text": "Use the first sample as a working sheet"
+  },
+  {
+   "id": "section-3",
+   "text": "Check artwork across sizes"
+  },
+  {
+   "id": "section-4",
+   "text": "Where should you position a chest print if the tee comes in several sizes?"
+  },
+  {
+   "id": "section-5",
+   "text": "Prepare a short approval note"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Set the neckline before judging the whole tee</h2>\n<p>A close rib neck can make a wide body look more structured. A wider opening creates a different impression even if the chest measurement stays unchanged. Specify the neck shape, rib width as seen when finished and how you want the join to look. Check that the opening is comfortable to pull on and returns to the intended shape.</p>\n<h2 id=\"section-2\">Use the first sample as a working sheet</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Area</th><th scope=\"col\">What to specify</th><th scope=\"col\">Check on the final garment</th></tr></thead><tbody><tr><td>Jersey</td><td>Composition, colour, weight and hand feel</td><td>Drape, opacity in use and the surface available for the graphic</td></tr><tr><td>Shoulder and sleeve</td><td>Seam position, sleeve length and opening</td><td>Where the sleeve ends with the arm resting naturally</td></tr><tr><td>Side and bottom seams</td><td>Construction and finished hem depth</td><td>Whether seams hang evenly before and after agreed care</td></tr><tr><td>Neck and labels</td><td>Rib shape, label type and placement</td><td>Comfort against the skin and an easy-to-read size</td></tr></tbody></table></div>\n<h2 id=\"section-3\">Check artwork across sizes</h2>\n<p>Print the graphic on paper at intended scale and hold it against the smallest and largest sample available. This is a placement check, not a substitute for a decoration trial. When the position feels right, write the finished width, centre line and distance from a named seam. Ask the maker to confirm printable space if the artwork approaches a side seam or neck rib.</p>\n<p>For a light tee with a large solid print, check how it hangs when worn. The decoration may affect the way the front moves, even if its colour looks right on the table. Test the proposed artwork on the fabric that will actually go into production.</p>\n<h2 id=\"section-4\">Where should you position a chest print if the tee comes in several sizes?</h2>\n<p>Start with a named landmark such as the centre front or the neck seam. Place a paper version of the actual print on the smallest and largest available samples. If a single dimension makes one size look unbalanced, record which sizes use a different placement or artwork scale. Include those exceptions on the production sheet.</p>\n<h2 id=\"section-5\">Prepare a short approval note</h2>\n<p>Write down which fabric, pattern and artwork versions were reviewed. If a care trial changes the length or causes the seam to twist, identify the garment and the measurement rather than approving from a fresh replacement photo. Keep one approved tee for the next reorder. For a <a href=\"/your-brand/sample\">sample review with BEWE4R</a>, send your technical drawing, size range and the artwork at intended scale.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/embroidery-vs-screen-printing-clothing-logo",
+   "text": "Embroidery or Screen Printing for a Clothing Logo?"
+  },
+  {
+   "href": "/blog/prepare-clothing-tech-pack",
+   "text": "How to Prepare a Clothing Tech Pack for Sampling"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

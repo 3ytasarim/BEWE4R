@@ -1,0 +1,47 @@
+{
+ "slug": "prepare-clothing-tech-pack",
+ "lang": "en",
+ "title": "What goes into a clothing tech pack that a sample maker can use?",
+ "seoTitle": "How to Prepare a Clothing Tech Pack for Sampling",
+ "description": "Build a usable garment specification with annotated drawings, points of measure, trims, artwork references and a clear record of revisions.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "A tech pack is the working description of one garment. A good one lets two people answer the same question in the same way. If one person measures the hoodie body from the shoulder and another starts from the neck seam at centre back, the figures are impossible to compare until the method is defined.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Give every drawing a purpose"
+  },
+  {
+   "id": "section-2",
+   "text": "Define a point of measure before entering a number"
+  },
+  {
+   "id": "section-3",
+   "text": "List what the sample is made of"
+  },
+  {
+   "id": "section-4",
+   "text": "How should you mark left and right on an asymmetric garment?"
+  },
+  {
+   "id": "section-5",
+   "text": "Keep revisions easy to trace"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Give every drawing a purpose</h2>\n<p>Start with front and back flat drawings. Add close-ups where an ordinary outline hides a decision, such as the opening of a pocket, the fold of a cuff or the way a zip ends at the neck. Give each style a short identifier and put it on every page. If the front and back use different panels, label them on the drawing and in the material list.</p>\n<h2 id=\"section-2\">Define a point of measure before entering a number</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Field</th><th scope=\"col\">Illustrative entry for a hoodie</th></tr></thead><tbody><tr><td>Point of measure</td><td>Half chest, measured straight across on the flat garment at the defined line below the armhole</td></tr><tr><td>Reference</td><td>Drawing A, line 3, with the measuring line and endpoints marked</td></tr><tr><td>Base size and target</td><td>M, 60 cm, garment closed and laid flat without tension</td></tr><tr><td>Tolerance</td><td>Agree the permitted variation for this point with the maker and enter it beside the target</td></tr></tbody></table></div>\n<p>This is an example of how to describe one measurement. The target, the exact line and the tolerance belong to your own design. Record whether a number is a half width or a full circumference, and identify the wash state of the sample. When a point changes after fitting, update the drawing as well as the number.</p>\n<h2 id=\"section-3\">List what the sample is made of</h2>\n<p>Create a row for each fabric and trim. Include body fabric, rib, pocket lining, zip, drawcord, labels and the colour reference for each. Attach artwork at its intended finished dimensions. A high-resolution logo with no placement or scale still leaves an important design decision to the workshop.</p>\n<h2 id=\"section-4\">How should you mark left and right on an asymmetric garment?</h2>\n<p>State that left and right refer to the wearer, then mark the garment front and back on the drawing. On a jacket with a single sleeve pocket, specify “wearer’s left sleeve” on the sketch, in the components list and on the placement detail. A mirrored product photograph can otherwise cause a perfectly sewn pocket to land on the opposite arm.</p>\n<h2 id=\"section-5\">Keep revisions easy to trace</h2>\n<p>A note such as “shorten sleeve by 2 cm” should say which base measurement it changes, whether the cuff is included and which sizes it applies to. Keep one current file, date each revision and name the person who approved it. Send a summary of changes with the revised document.</p>\n<p>If you only have sketches, identify the decisions you already know and the ones you want help developing. <a href=\"/your-brand/sample\">Discuss a sample with BEWE4R</a> or use our <a href=\"/blog/clothing-production-enquiry-template\">example production enquiry</a> to organise your first message.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/approve-clothing-sample-for-bulk-production",
+   "text": "Garment Sample Approval Before Bulk Production"
+  },
+  {
+   "href": "/blog/clothing-production-enquiry-template",
+   "text": "Clothing Production Enquiry Template for Fashion Brands"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

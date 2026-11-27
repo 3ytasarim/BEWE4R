@@ -394,3 +394,87 @@
     .spin-flat-svg { animation: none; }
   }
 }
+/* Text of the blog articles (HTML from src/content/blog/articles). Literal colours: the theme tokens are inverted. */
+@layer components {
+  .blog-html {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #374151;
+  }
+  .blog-html > * + * {
+    margin-top: 1.5rem;
+  }
+  .blog-html h2 {
+    margin-top: 3rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.1;
+    color: #0f0f0f;
+    scroll-margin-top: 7rem;
+  }
+  .blog-html p {
+    text-wrap: pretty;
+  }
+  .blog-html a {
+    font-weight: 500;
+    color: #0f0f0f;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(15, 15, 15, 0.35);
+    transition: text-decoration-color 0.2s;
+  }
+  .blog-html a:hover {
+    text-decoration-color: #0f0f0f;
+  }
+  .blog-html ul,
+  .blog-html ol {
+    padding-left: 1.5rem;
+  }
+  .blog-html ul {
+    list-style: disc;
+  }
+  .blog-html ol {
+    list-style: decimal;
+  }
+  .blog-html li + li {
+    margin-top: 0.5rem;
+  }
+  .blog-html li::marker {
+    color: #0f0f0f;
+  }
+  .blog-html blockquote {
+    border-left: 3px solid #0f0f0f;
+    background: #f7f7f5;
+    padding: 0.25rem 1.25rem;
+    border-radius: 0 12px 12px 0;
+  }
+  .blog-html blockquote p {
+    margin: 1rem 0;
+  }
+  .blog-html .table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+  }
+  .blog-html table {
+    width: 100%;
+    min-width: 34rem;
+    border-collapse: collapse;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .blog-html th,
+  .blog-html td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .blog-html tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .blog-html th {
+    background: #f3f4f6;
+    font-weight: 600;
+    color: #0f0f0f;
+  }
+}

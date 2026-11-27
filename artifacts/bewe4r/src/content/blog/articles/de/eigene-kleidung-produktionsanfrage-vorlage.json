@@ -1,0 +1,52 @@
+{
+ "slug": "eigene-kleidung-produktionsanfrage-vorlage",
+ "lang": "de",
+ "title": "Eigene Kleidung produzieren lassen – was schreibt ihr in die erste Anfrage?",
+ "seoTitle": "Produktionsanfrage für eigene Kleidung mit Textvorlage",
+ "description": "Kopiert die Musteranfrage für eure Kollektion. So beschreibt ihr Modell, Stückzahlen, Stoff, Veredelung und Lieferziel, auch wenn euer Tech Pack noch entsteht.",
+ "date": "2026-11-25",
+ "author": "BEWE4R-Team",
+ "intro": "Eine gute Produktionsanfrage beginnt mit einem konkreten Kleidungsstück. Beschreibt, wie es sitzen soll, welche Stückzahlen ihr je Farbe plant und wo die Ware ankommen muss. Nennt dann die eine Frage, die das erste Muster für euch klären soll. So kann die Produktion erkennen, was ihr bereits entschieden habt und wo ihr Unterstützung braucht.",
+ "tocLabel": "In diesem Beitrag",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Eine Musteranfrage, die ihr übernehmen könnt"
+  },
+  {
+   "id": "section-2",
+   "text": "Welche Anhänge machen die Anfrage verständlich?"
+  },
+  {
+   "id": "section-3",
+   "text": "Was schreibt ihr, wenn der Stoff noch offen ist?"
+  },
+  {
+   "id": "section-4",
+   "text": "Wie benennt ihr die Dateien für das erste Muster?"
+  },
+  {
+   "id": "section-5",
+   "text": "Woran erkennt ihr eine brauchbare Antwort?"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Eine Musteranfrage, die ihr übernehmen könnt</h2>\n<blockquote><p>Hallo zusammen, wir entwickeln für unser Label ein kastig geschnittenes T-Shirt mit etwas kürzerem Rumpf. Im Anhang findet ihr die Vorder- und Rückenansicht und ein Foto von einem Shirt, dessen Schulter uns gefällt. Die Länge möchten wir für unseren eigenen Schnitt anpassen.</p><p>Für den ersten Drop planen wir 80 Stück in Schwarz und 40 in Creme. Unser Größenlauf von XS bis XL steht in der Tabelle. Wir würden Schwarz zuerst bemustern. Könnt ihr uns sagen, welche Stoffe infrage kommen und welche Mindestmenge für jede Farbe gilt?</p><p>Das Brustmotiv ist mit der gewünschten Breite eingezeichnet. Dazu kommen ein gewebtes Nackenlabel und ein Größenaufkleber außen auf dem Beutel. Unser Lager in Köln braucht die Kartons bis zum 5. Mai, der Verkaufsstart ist am 14. Mai. Welche Angaben fehlen euch, um das Muster zu planen und den Wunschtermin zu prüfen?</p></blockquote>\n<p>Ersetzt Standort und Stückzahlen durch eure eigenen Angaben. Wenn ihr einen Einbuchungstermin oder Verkaufstag vereinbart habt, nennt beides mit Datum. Für einen Pop-up am Samstag muss euer Team eventuell schon am Donnerstag zählen und auszeichnen können.</p>\n<h2 id=\"section-2\">Welche Anhänge machen die Anfrage verständlich?</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Anhang</th><th scope=\"col\">Woran die Produktion erkennen kann, was ihr meint</th></tr></thead><tbody><tr><td>Passformreferenz</td><td>Markierung an der Schulter und eine kurze Erklärung, welches Detail ihr übernehmen möchtet</td></tr><tr><td>Maßskizze</td><td>Benannte Größe, Maßeinheit und sichtbare Messpunkte</td></tr><tr><td>Motivdatei</td><td>Position auf dem Kleidungsstück und gewünschte Breite am fertigen Teil</td></tr><tr><td>Mengenübersicht</td><td>Separate Zeilen für jedes Modell und jede Farbe, Größen in eigenen Spalten</td></tr></tbody></table></div>\n<h2 id=\"section-3\">Was schreibt ihr, wenn der Stoff noch offen ist?</h2>\n<p>Beschreibt, wie sich das Shirt tragen soll. Soll es im Sommer unter einem Hemd funktionieren oder auch ohne weitere Lage einen festen Stand haben? Falls ihr zwei Stoffproben vergleichen wollt, bittet um die Zusammensetzung und die jeweiligen Stoffnummern. So könnt ihr später die richtige Probe freigeben.</p>\n<h2 id=\"section-4\">Wie benennt ihr die Dateien für das erste Muster?</h2>\n<p>Verwendet für Skizze, Maßblatt und Motiv dieselbe Modellkennung. Aus „Shirt_final_neu“ geht später kaum hervor, welches Motiv zur zweiten Anprobe gehörte. „BT01_Brustmotiv_V2“ lässt sich zusammen mit dem Freigabedatum eindeutig zuordnen. Gebt dem Betrieb in der Nachricht an, welche ältere Datei damit ersetzt wird.</p>\n<h2 id=\"section-5\">Woran erkennt ihr eine brauchbare Antwort?</h2>\n<p>Der Betrieb sollte benennen können, welches Modell zuerst bemustert wird, welche Punkte offen sind und was ihr als Nächstes liefern oder prüfen sollt. Stimmen Farbe, Menge oder Lieferort in der Antwort nicht mit eurer Anfrage überein, korrigiert das vor dem ersten Musterauftrag. <a href=\"/contact\">Produktionsanfrage an BEWE4R senden</a> · <a href=\"/de/blog/mindestmenge-kleidung-produzieren-lassen\">Mindestmenge je Farbe einordnen</a></p>",
+ "relatedLabel": "Passende Ratgeber",
+ "related": [
+  {
+   "href": "/de/blog/mindestmenge-kleidung-produzieren-lassen",
+   "text": "Kleidung produzieren lassen – welche Mindestmenge gilt?"
+  },
+  {
+   "href": "/de/blog/hoodies-produzieren-lassen-muster",
+   "text": "Hoodies produzieren lassen – vom Entwurf zur Musteranprobe"
+  }
+ ],
+ "ctaText": "Produktion mit BEWE4R besprechen",
+ "ctaHref": "/contact",
+ "alt": {
+  "en": "clothing-production-enquiry-template",
+  "de": "eigene-kleidung-produktionsanfrage-vorlage",
+  "nl": "kleding-laten-produceren-voorbeeld-aanvraag"
+ }
+}

@@ -81,7 +81,13 @@ function addImageDimensions(html) {
 }
 
 function pageHtml(appHtml, seo) {
-  return addImageDimensions(template.replace("<!--seo-head-->", () => headTags(seo)).replace("<!--app-html-->", () => appHtml));
+  return addImageDimensions(
+    template
+      .replace("<!--seo-head-->", () => headTags(seo))
+      .replace("<!--app-html-->", () => appHtml)
+      // <html lang> follows the language of the page content (English unless the page is a /de/ or /nl/ article)
+      .replace("<html lang=\"en\"", () => `<html lang="${seo.lang ?? "en"}"`),
+  );
 }
 
 async function renderRoute(urlPath) {

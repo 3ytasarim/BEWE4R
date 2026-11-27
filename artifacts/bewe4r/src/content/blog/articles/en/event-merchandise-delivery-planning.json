@@ -1,0 +1,47 @@
+{
+ "slug": "event-merchandise-delivery-planning",
+ "lang": "en",
+ "title": "How to plan event merchandise around the day the venue needs it",
+ "seoTitle": "Event Merchandise Production and Delivery Planning",
+ "description": "Work backwards from venue receiving hours, confirm the size split and prepare carton labels so event staff can find the right garments on arrival.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "For event merchandise, the critical deadline is often the last time the venue will receive a delivery. The event might open on Saturday while the loading entrance accepts parcels only on Thursday morning. Put the receiving slot in the brief and work backwards from it with the manufacturer and the person running the event.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Separate the dates that people call “delivery”"
+  },
+  {
+   "id": "section-2",
+   "text": "Sort the order for the people at the event"
+  },
+  {
+   "id": "section-3",
+   "text": "Agree on a fallback before you need one"
+  },
+  {
+   "id": "section-4",
+   "text": "How should you pack identical shirts for staff and for sale?"
+  },
+  {
+   "id": "section-5",
+   "text": "Rehearse the first hour on site"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Separate the dates that people call “delivery”</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Milestone</th><th scope=\"col\">Who should confirm it?</th><th scope=\"col\">Useful evidence</th></tr></thead><tbody><tr><td>Venue accepts the cartons</td><td>Event operations or venue contact</td><td>Delivery window, entrance, booking reference and phone contact</td></tr><tr><td>Goods reach a local staging point</td><td>Logistics coordinator</td><td>Named receiver and a plan for the final trip</td></tr><tr><td>Goods leave the supplier</td><td>Production contact</td><td>Dispatch confirmation and carton list</td></tr><tr><td>Last artwork release</td><td>Event producer and artwork owner</td><td>Final files, including spelling and approved sponsor marks</td></tr></tbody></table></div>\n<p>Ask for the dependencies between milestones. If a sponsor logo arrives late, the printer may have to wait even when every undecorated garment is ready. Ask which date moves and whether any unaffected items can be completed separately.</p>\n<h2 id=\"section-2\">Sort the order for the people at the event</h2>\n<p>A volunteer tee, a crew hoodie and audience merchandise serve different groups. Give each group a distinct product code and a separate quantity sheet. Mark cartons by destination such as registration desk, stage crew or retail stand. Avoid packing the garments needed at setup underneath stock that will only be opened after the doors open.</p>\n<h2 id=\"section-3\">Agree on a fallback before you need one</h2>\n<p>Imagine a second sponsor is still deciding whether to participate. The artwork owner can approve a version without that logo, hold the print or authorise a different placement later. The workshop needs one named decision maker and a written choice. A design change made in an informal group chat can easily miss the person preparing the final artwork.</p>\n<h2 id=\"section-4\">How should you pack identical shirts for staff and for sale?</h2>\n<p>Give the staff allocation its own carton marks and separate packing-list lines, even when both piles contain the same SKU. Include the names or shifts only on the internal issue list where needed. At the venue, the person opening the first carton can hand out uniforms without accidentally taking from the stock already promised to customers.</p>\n<h2 id=\"section-5\">Rehearse the first hour on site</h2>\n<p>Give someone the packing list and ask them to locate a crew hoodie in a named size. Have them verify the outside label against the garment. If the task requires opening several cartons, improve the marks now. Keep a copy of the final carton list with the person who signs for receipt.</p>\n<p>For an overview of the stages before dispatch, see <a href=\"/blog/how-long-does-clothing-production-take\">BEWE4R’s clothing production timeline</a>. <a href=\"/contact\">Send your event date, receiving window and garment list</a> for a project-specific discussion.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/first-creator-merch-drop",
+   "text": "Planning a First Creator Merchandise Drop"
+  },
+  {
+   "href": "/blog/branded-zip-bags-and-clothing-mailers",
+   "text": "Branded Zip Bags and Mailers for Clothing"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

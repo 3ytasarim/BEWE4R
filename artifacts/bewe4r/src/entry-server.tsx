@@ -3,6 +3,7 @@ import { renderToPipeableStream } from "react-dom/server";
 import App from "./App";
 import "./i18n";
 import { BLOG_POSTS } from "./data/blogPosts";
+import { ARTICLE_INDEX, articlePath } from "./content/blog/index";
 import { preloadPath } from "./router/pages";
 import { ALIASES, PAGE_SEO } from "./seo/pages";
 import { headTags } from "./seo/head";
@@ -53,7 +54,7 @@ export interface SitemapEntry {
   source?: string;
 }
 
-/** Every indexable URL: static pages plus one URL per blog post. */
+/** Every indexable URL: static pages plus one URL per blog post (the three first posts, the article files and their translations). */
 export function getSitemapEntries(): SitemapEntry[] {
   const entries: SitemapEntry[] = Object.entries(PAGE_SEO).map(([path, p]) => ({
     path,
@@ -62,13 +63,16 @@ export function getSitemapEntries(): SitemapEntry[] {
     source: p.source,
   }));
   const blogList = entries.find((e) => e.path === "/blog");
-  const newest = BLOG_POSTS.map((p) => p.updatedAt).sort().pop();
+  const newest = [...BLOG_POSTS.map((p) => p.updatedAt), ...ARTICLE_INDEX.map((a) => a.date)].sort().pop();
   if (blogList && newest) {
     blogList.lastmod = newest;
     delete blogList.source;
   }
   for (const post of BLOG_POSTS) {
     entries.push({ path: `/blog/${post.slug}`, changefreq: "monthly", priority: 0.7, lastmod: post.updatedAt });
+  }
+  for (const a of ARTICLE_INDEX) {
+    entries.push({ path: articlePath(a.lang, a.slug), changefreq: "monthly", priority: a.lang === "en" ? 0.7 : 0.6, lastmod: a.date });
   }
   return entries;
 }

@@ -1,4 +1,4 @@
-import { SITE_LOCALE, SITE_NAME } from "./site";
+import { OG_LOCALES, SITE_NAME } from "./site";
 import type { SeoData } from "./types";
 
 const esc = (s: string) =>
@@ -15,7 +15,7 @@ function metaEntries(seo: SeoData): MetaEntry[] {
     { attr: "name", key: "robots", content: seo.robots },
     { attr: "property", key: "og:type", content: seo.ogType },
     { attr: "property", key: "og:site_name", content: SITE_NAME },
-    { attr: "property", key: "og:locale", content: SITE_LOCALE },
+    { attr: "property", key: "og:locale", content: OG_LOCALES[seo.lang ?? "en"] },
     { attr: "property", key: "og:title", content: seo.title },
     { attr: "property", key: "og:description", content: seo.description },
     { attr: "property", key: "og:image", content: seo.ogImage.url },
@@ -39,6 +39,7 @@ export function headTags(seo: SeoData): string {
   const lines = [`<title>${esc(seo.title)}</title>`];
   for (const e of metaEntries(seo)) lines.push(`<meta ${e.attr}="${e.key}" content="${esc(e.content)}" />`);
   if (seo.canonical) lines.push(`<link rel="canonical" href="${esc(seo.canonical)}" />`);
+  for (const a of seo.alternates ?? []) lines.push(`<link rel="alternate" hreflang="${esc(a.hreflang)}" href="${esc(a.href)}" />`);
   for (const ld of seo.jsonLd) lines.push(`<script type="application/ld+json" data-seo-ld>${jsonForScript(ld)}</script>`);
   return lines.join("\n    ");
 }
@@ -68,6 +69,15 @@ export function applySeoToDocument(seo: SeoData) {
     link.href = seo.canonical;
   } else if (link) {
     link.remove();
+  }
+
+  document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((n) => n.remove());
+  for (const a of seo.alternates ?? []) {
+    const el = document.createElement("link");
+    el.rel = "alternate";
+    el.hreflang = a.hreflang;
+    el.href = a.href;
+    document.head.appendChild(el);
   }
 
   document.head.querySelectorAll("script[data-seo-ld]").forEach((n) => n.remove());

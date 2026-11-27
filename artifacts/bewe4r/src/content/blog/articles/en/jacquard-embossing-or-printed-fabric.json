@@ -1,0 +1,47 @@
+{
+ "slug": "jacquard-embossing-or-printed-fabric",
+ "lang": "en",
+ "title": "Should your pattern be knitted in, embossed or printed on the fabric?",
+ "seoTitle": "Jacquard, Embossing or Printed Fabric?",
+ "description": "Compare three ways to build a garment pattern. Review repeat size, surface relief and how the motif lands on cut panels before approving a swatch.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "Choose the method according to what makes the motif recognisable. A jacquard knit builds the design into the knitted structure. Embossing creates surface relief. Fabric printing places a coloured image onto the material. A repeating monogram could be developed in any of these ways and give three quite different garments.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Look at the pattern at garment scale"
+  },
+  {
+   "id": "section-2",
+   "text": "Give each method its own sample question"
+  },
+  {
+   "id": "section-3",
+   "text": "Review a full repeat, then a finished detail"
+  },
+  {
+   "id": "section-4",
+   "text": "How much of a repeating motif should a swatch show?"
+  },
+  {
+   "id": "section-5",
+   "text": "Record the final choice"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Look at the pattern at garment scale</h2>\n<p>A monogram can read clearly on a flat square and become unrecognisable when cut into a narrow sleeve. Print a paper repeat at actual size. Lay the front panel, the pocket and the smallest sleeve over it. Mark where the motif may be cut off and where the design needs a deliberate centre. Prepare a separate drawing if the left and right fronts must meet in a particular way.</p>\n<h2 id=\"section-2\">Give each method its own sample question</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Method</th><th scope=\"col\">What to inspect on a swatch</th><th scope=\"col\">What to inspect after cutting and sewing</th></tr></thead><tbody><tr><td>Jacquard knit</td><td>Definition, reverse, stretch and the scale of the repeat</td><td>Whether the motif still reads across curves and at the side seams</td></tr><tr><td>Embossing</td><td>Legibility under different lighting and feel of the relief</td><td>Whether folds hide the pattern in the intended position</td></tr><tr><td>Fabric print</td><td>Colour, registration and repetition on the chosen ground</td><td>Placement on panels and the appearance of visible joins</td></tr></tbody></table></div>\n<h2 id=\"section-3\">Review a full repeat, then a finished detail</h2>\n<p>A tiny cutting may miss the point where a pattern repeats. Request enough material to see how one repeat joins the next. On a placed graphic, ask for the equivalent evidence of exact position. If the artwork is intended to cross a zip or pocket, the separate panels must be reviewed together.</p>\n<p>A body pattern does not necessarily need to match across every seam. Decide which joins are important to the design and document where variation is acceptable. This prevents the maker from concentrating on a hidden side panel while missing the centre-front feature your customers will notice.</p>\n<h2 id=\"section-4\">How much of a repeating motif should a swatch show?</h2>\n<p>Request at least one complete repeat and enough neighbouring pattern to see how its edges join. Mark the top direction and intended garment panel. For a centred graphic on a narrow front, place a paper window the size of the panel over the sample. You can then see what would actually be visible after cutting.</p>\n<h2 id=\"section-5\">Record the final choice</h2>\n<p>Keep an identified swatch, the pattern file, the direction of the repeat and photos of the approved made-up detail. Note the review after the proposed care process. If a different base material is introduced, check the relevant colour, relief or structure again. <a href=\"/your-brand/print\">Explore BEWE4R’s surface finishes</a> and <a href=\"/contact\">discuss the motif you want to develop</a>.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/dtf-vs-dtg-for-custom-garments",
+   "text": "DTF vs DTG for Custom Clothing"
+  },
+  {
+   "href": "/blog/streetwear-drop-matching-hoodie-and-joggers",
+   "text": "Streetwear Production for a Coordinated Drop"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

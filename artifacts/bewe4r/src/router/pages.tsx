@@ -44,6 +44,9 @@ export interface AppRoute {
   page: ReturnType<typeof definePage>;
 }
 
+/** The English article and its German and Dutch translations are rendered by the same page. */
+const blogPostPage = definePage(() => import("@/pages/BlogPost"));
+
 export const APP_ROUTES: AppRoute[] = [
   { path: "/", page: definePage(() => import("@/pages/Home")) },
   { path: "/your-brand/print", page: definePage(() => import("@/pages/deine-brand/Print")) },
@@ -60,7 +63,9 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/brand-essentials/marketing-essentials", page: definePage(() => import("@/pages/weitere-produkte/MarketingEssentials")) },
 
   { path: "/blog", page: definePage(() => import("@/pages/Blog")) },
-  { path: "/blog/:slug", page: definePage(() => import("@/pages/BlogPost")) },
+  { path: "/blog/:slug", page: blogPostPage },
+  { path: "/de/blog/:slug", page: blogPostPage },
+  { path: "/nl/blog/:slug", page: blogPostPage },
 
   { path: "/e-catalog", page: definePage(() => import("@/pages/Katalog")) },
   { path: "/about", page: definePage(() => import("@/pages/UeberUns")) },
@@ -94,4 +99,10 @@ export function findRoute(rawPath: string): AppRoute | undefined {
 /** Resolve the chunk of the route that is about to be rendered (no-op for unknown URLs). */
 export async function preloadPath(path: string): Promise<void> {
   await findRoute(path)?.page.preload();
+  // A blog article is its own file (chunk): load it too, so the first render and hydration never wait for it.
+  if (/^\/(?:(?:de|nl)\/)?blog\/[^/?#]+/.test(path)) {
+    const [{ loadArticle }, { parseBlogPath }] = await Promise.all([import("@/content/blog/articles"), import("@/content/blog/index")]);
+    const target = parseBlogPath(path);
+    if (target) await loadArticle(target.lang, target.slug);
+  }
 }

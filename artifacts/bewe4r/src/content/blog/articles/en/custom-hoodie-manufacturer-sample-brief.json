@@ -1,0 +1,52 @@
+{
+ "slug": "custom-hoodie-manufacturer-sample-brief",
+ "lang": "en",
+ "title": "How to brief a hoodie manufacturer for the fit you actually want",
+ "seoTitle": "Custom Hoodie Manufacturing for Fashion Brands",
+ "description": "Specify the hood, neckline, rib, pocket and decoration before sampling a custom hoodie. Use a wear test to check how the details work together.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "Brief a hoodie manufacturer around how the garment should behave on the body. “Heavyweight oversized hoodie” leaves the maker to decide how the hood sits, where the shoulder falls and whether the hem grips the waist. A short description of the wearer, a reference garment and a marked drawing give those decisions a starting point.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Start at the neck"
+  },
+  {
+   "id": "section-2",
+   "text": "Follow the hand through the garment"
+  },
+  {
+   "id": "section-3",
+   "text": "Place the graphic on a made-up sample"
+  },
+  {
+   "id": "section-4",
+   "text": "What should you check on a zip hoodie that you might miss on a pullover?"
+  },
+  {
+   "id": "section-5",
+   "text": "Give the maker a decision they can act on"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Start at the neck</h2>\n<p>A hood can look generous from the side and still be difficult to pull over the head. Record the neck opening, hood depth and height as separate decisions. Say whether the hood should stand away from the face or settle on the shoulders. If it is lined, show the lining material and where its edge should be visible. A double layer adds bulk at the neckline and can change the balance when the hood is down.</p>\n<h2 id=\"section-2\">Follow the hand through the garment</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Detail</th><th scope=\"col\">Ask the wearer to do this</th><th scope=\"col\">Record the result</th></tr></thead><tbody><tr><td>Cuff and sleeve</td><td>Reach forward, then relax the arm.</td><td>Where the cuff sits and whether the sleeve returns comfortably.</td></tr><tr><td>Kangaroo pocket</td><td>Put both hands in naturally.</td><td>Entry angle, usable depth and signs of pulling at the corners.</td></tr><tr><td>Hem rib</td><td>Sit and stand with a tee underneath.</td><td>Where the hem settles and whether it rides up.</td></tr><tr><td>Front zip, if present</td><td>Close it fully with the hood down.</td><td>Whether the front lies flat and the top feels comfortable.</td></tr></tbody></table></div>\n<h2 id=\"section-3\">Place the graphic on a made-up sample</h2>\n<p>A chest print measured from a raw cut edge can end up in a different place after sewing. Specify a finished reference such as the centre front and a named neck seam. If the artwork is wide, check the smallest size you intend to sell. On a cropped hoodie the available distance between neck and pocket may be quite different from that on the base size.</p>\n<h2 id=\"section-4\">What should you check on a zip hoodie that you might miss on a pullover?</h2>\n<p>Close the zip, align the hem and check whether the front edges and pocket openings sit where the drawing shows them. Then wear it open over a tee. Look for an edge that turns out and exposes the back of the decoration. Record whether a fault appears open, closed or in both positions so the maker can reproduce it.</p>\n<h2 id=\"section-5\">Give the maker a decision they can act on</h2>\n<p>Send the intended use, main fabric reference, desired hand feel and a list of construction details that make this your hoodie. Label anything you are still exploring. If you have two possible fabrics, ask which approval can be made on swatches and which needs a full garment. Keep the physical sample that reflects the final hood, rib and decoration decisions.</p>\n<p>For a boxy shape, our <a href=\"/blog/oversized-hoodie-fit-measurements\">oversized fit guide</a> explains how shoulder and sleeve measurements interact. <a href=\"/your-brand/sample\">Discuss a hoodie sample with BEWE4R</a>.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/heavyweight-lightweight-hoodie-fabric-gsm",
+   "text": "Heavyweight or Lightweight Hoodie Fabric?"
+  },
+  {
+   "href": "/blog/oversized-hoodie-fit-measurements",
+   "text": "Oversized Hoodie Fit, Measurements and Grading"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact",
+ "alt": {
+  "en": "custom-hoodie-manufacturer-sample-brief",
+  "de": "hoodies-produzieren-lassen-muster",
+  "nl": "eigen-hoodies-laten-maken-pasmodel"
+ }
+}

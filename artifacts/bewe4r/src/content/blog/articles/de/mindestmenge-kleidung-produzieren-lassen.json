@@ -1,0 +1,52 @@
+{
+ "slug": "mindestmenge-kleidung-produzieren-lassen",
+ "lang": "de",
+ "title": "Wie viele Teile braucht ihr, um eure eigene Kleidung produzieren zu lassen?",
+ "seoTitle": "Kleidung produzieren lassen – welche Mindestmenge gilt?",
+ "description": "So prüft ihr eine Mindestmenge pro Modell, Farbe und Stoff. Ein Beispiel zeigt, wie aus 120 geplanten T-Shirts eine brauchbare Größenliste wird.",
+ "date": "2026-11-25",
+ "author": "BEWE4R-Team",
+ "intro": "Wenn ihr zum ersten Mal Kleidung produzieren lasst, fragt nach der Mindestmenge für genau die Variante, die ihr verkaufen wollt. Eine Zahl für die gesamte Bestellung reicht dafür selten aus. Entscheidend ist, ob der Betrieb die Stückzahl je Modell, je Farbe oder für einen bestimmten Stoff ansetzt und wie ihr die Größen innerhalb dieser Menge verteilen dürft.",
+ "tocLabel": "In diesem Beitrag",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Was bedeutet eine Mindestmenge pro Modell und Farbe?"
+  },
+  {
+   "id": "section-2",
+   "text": "Warum macht die Stofffarbe einen Unterschied?"
+  },
+  {
+   "id": "section-3",
+   "text": "Was könnt ihr tun, wenn eine Farbe unter der Mindestmenge liegt?"
+  },
+  {
+   "id": "section-4",
+   "text": "Gilt die Mindestmenge auch für eine Nachbestellung?"
+  },
+  {
+   "id": "section-5",
+   "text": "Welche Frage gehört in eure Anfrage?"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Was bedeutet eine Mindestmenge pro Modell und Farbe?</h2>\n<p>Nehmen wir an, ihr plant 120 T-Shirts für euren Onlineshop. Davon sollen 80 schwarz und 40 cremefarben sein. Würde für euren Auftrag eine Mindestmenge von 50 Stück je Modell und Farbe gelten, wäre Schwarz umsetzbar. Bei Creme fehlen zehn Stück. Dass ihr insgesamt 120 bestellt, löst das Problem für die zweite Farbe nicht. Die Zahlen sind ein Rechenbeispiel. Lasst euch die tatsächliche Grenze für euren Entwurf bestätigen.</p>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">T-Shirt im selben Schnitt</th><th scope=\"col\">XS</th><th scope=\"col\">S</th><th scope=\"col\">M</th><th scope=\"col\">L</th><th scope=\"col\">XL</th><th scope=\"col\">Summe</th></tr></thead><tbody><tr><td>Schwarz</td><td>5</td><td>15</td><td>30</td><td>20</td><td>10</td><td>80</td></tr><tr><td>Creme</td><td>3</td><td>8</td><td>14</td><td>10</td><td>5</td><td>40</td></tr></tbody></table></div>\n<p>Schickt diese Aufteilung mit der Anfrage. So kann euch der Betrieb auch sagen, ob einzelne Größen eigene Vorgaben haben. Plant ihr einen zweiten Schnitt, bekommt er eine eigene Zeile, selbst wenn beide T-Shirts später unter derselben Kollektion laufen.</p>\n<h2 id=\"section-2\">Warum macht die Stofffarbe einen Unterschied?</h2>\n<p>Vielleicht passt ein schwarzer Stoff aus dem vorhandenen Farbsortiment bereits zu eurer Idee. Für euren exakten Cremeton müsste hingegen eine eigene Färbung angesetzt werden. Fragt für beide Varianten, ob der Stoff verfügbar ist, welches Farbmuster ihr prüfen könnt und ob für die Färbung eine eigene Mindestmenge gilt. Auch bei einem passenden Muster sollte der Betrieb die Verfügbarkeit für die Serie bestätigen.</p>\n<h2 id=\"section-3\">Was könnt ihr tun, wenn eine Farbe unter der Mindestmenge liegt?</h2>\n<p>Schaut zuerst auf eure Kundschaft. Habt ihr für Creme erst wenige konkrete Interessenten, könnte Schwarz allein den ersten Drop tragen. Gehört Creme fest zur Markenidee, lasst euch eine vorhandene Stofffarbe zeigen und prüft sie bei Tageslicht neben euren Labels. Mit nur einer kleineren Größe zu starten verändert zwar den Größenmix, erhöht aber die Gesamtmenge dieser Farbe nicht.</p>\n<h2 id=\"section-4\">Gilt die Mindestmenge auch für eine Nachbestellung?</h2>\n<p>Schickt die Artikelnummer, den freigegebenen Stoff und die neue Größenverteilung mit. Fragt, ob der Stoff noch verfügbar ist und ob eure Labels für die geplante Stückzahl reichen. So merkt ihr früh, wenn ein unveränderter schwarzer Bestseller für die nächste Serie trotzdem eine neue Stoff- oder Farbfreigabe braucht.</p>\n<h2 id=\"section-5\">Welche Frage gehört in eure Anfrage?</h2>\n<p>„Wir planen den gleichen Schnitt in Schwarz und Creme. Für welche unserer beiden Mengen könnt ihr den gewünschten Stoff und das Brustmotiv umsetzen? Ändert sich die Mindestmenge, wenn wir Creme aus eurer vorhandenen Farbpalette nehmen?“ Damit bekommt ihr Antworten, mit denen ihr euren Drop tatsächlich planen könnt. <a href=\"/your-brand/moq\">Mindestmengen bei BEWE4R ansehen</a> · <a href=\"/de/blog/eigene-kleidung-produktionsanfrage-vorlage\">Vorlage für eure Produktionsanfrage</a></p>",
+ "relatedLabel": "Passende Ratgeber",
+ "related": [
+  {
+   "href": "/de/blog/hoodies-produzieren-lassen-muster",
+   "text": "Hoodies produzieren lassen – vom Entwurf zur Musteranprobe"
+  },
+  {
+   "href": "/de/blog/eigene-kleidung-produktionsanfrage-vorlage",
+   "text": "Produktionsanfrage für eigene Kleidung mit Textvorlage"
+  }
+ ],
+ "ctaText": "Produktion mit BEWE4R besprechen",
+ "ctaHref": "/contact",
+ "alt": {
+  "en": "clothing-moq-by-style-and-colour",
+  "de": "mindestmenge-kleidung-produzieren-lassen",
+  "nl": "minimale-afname-kleding-laten-maken"
+ }
+}

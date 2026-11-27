@@ -1,6 +1,4 @@
-import deliveryImg from "@/assets/real/lieferung.jpg";
-import patternImg from "@/assets/real/sample.jpg";
-import garmentRailImg from "@/assets/real/garment-rail.jpg";
+import type { CategoryId, ContentLang } from "@/content/blog/categories";
 
 export type BlogLang = "en" | "de";
 
@@ -11,7 +9,6 @@ export interface BlogPostText {
   excerpt: string;
   description: string;
   keywords: string;
-  category: string;
   tags: string[];
   /** Markdown: ## / ### headings, bullet and numbered lists, **bold**, [links](/path) */
   content: string;
@@ -22,9 +19,8 @@ export interface BlogPostData {
   publishedAt: string;
   updatedAt: string;
   author: string;
-  image: string;
-  imageWidth: number;
-  imageHeight: number;
+  /** One of the six blog categories (src/content/blog/categories.ts) */
+  categoryId: CategoryId;
   en: BlogPostText;
   de: BlogPostText;
 }
@@ -35,9 +31,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     publishedAt: "2026-11-05",
     updatedAt: "2026-11-05",
     author: "BEWE4R Team",
-    image: deliveryImg,
-    imageWidth: 1600,
-    imageHeight: 1200,
+    categoryId: "sourcing",
     en: {
       title: "How Long Does It Take to Produce Your Clothing Line? A Realistic Timeline",
       seoTitle: "How Long Does Clothing Production Take?",
@@ -47,7 +41,6 @@ export const BLOG_POSTS: BlogPostData[] = [
         "How long does clothing production take? A realistic timeline from techpack and sample to bulk production and shipping, and how to plan from your launch date.",
       keywords:
         "clothing production timeline, how long does clothing production take, garment manufacturing lead time, sample to bulk production, clothing manufacturer Istanbul",
-      category: "Production",
       tags: ["Production time", "Sampling", "Shipping"],
       content: `Planning a clothing line means planning backwards from a launch date. Whether it is a first drop, a collaboration or a seasonal collection, the question we hear most often is simple: how long will it take? The honest answer is that production itself is only one part of the timeline. Most of the calendar is made up of the steps around it.
 
@@ -107,7 +100,6 @@ Send us your techpack or concept and we will come back with a realistic schedule
         "Wie lange dauert die Kleidungsproduktion? Ein realistischer Zeitplan vom Techpack über das Sample bis zur Serienproduktion und zum Versand, plus Planung ab deinem Launch-Termin.",
       keywords:
         "Kleidungsproduktion Dauer, Produktionszeit Kleidung, Textilproduktion Zeitplan, Sample bis Serienproduktion, Kleidungshersteller Istanbul",
-      category: "Produktion",
       tags: ["Produktionszeit", "Sampling", "Versand"],
       content: `Eine Kleidungsmarke zu planen heißt, vom Launch-Termin aus rückwärts zu rechnen. Ob erster Drop, Kollaboration oder saisonale Kollektion: Die Frage, die wir am häufigsten hören, ist einfach: Wie lange dauert das? Die ehrliche Antwort: Die Produktion selbst ist nur ein Teil des Zeitplans. Der größte Teil des Kalenders besteht aus den Schritten drumherum.
 
@@ -165,9 +157,7 @@ Schick uns deinen Techpack oder dein Konzept und wir melden uns mit einem realis
     publishedAt: "2026-10-29",
     updatedAt: "2026-10-29",
     author: "BEWE4R Team",
-    image: patternImg,
-    imageWidth: 1600,
-    imageHeight: 1200,
+    categoryId: "international",
     en: {
       title: "Before You Start Production: The Checklist for Your First Clothing Order",
       seoTitle: "First Clothing Order Checklist: What to Prepare",
@@ -177,7 +167,6 @@ Schick uns deinen Techpack oder dein Konzept und wir melden uns mit einem realis
         "What do you need before starting clothing production? A practical checklist covering fit, quantities, fabric, artwork, labels, timeline, budget and techpack.",
       keywords:
         "before starting clothing production, clothing production checklist, techpack, minimum order quantity clothing, start a clothing brand, first production order",
-      category: "Getting started",
       tags: ["Techpack", "MOQ", "Checklist"],
       content: `Most delays in a first production run are not caused by the factory. They start earlier, with a brief that is missing key details. The good news: you do not need a perfect techpack to begin. You need clarity on a handful of decisions. Here is what to prepare before you send your first inquiry.
 
@@ -234,7 +223,6 @@ Once you have these points, you are ready to start. Begin with a [sample](/your-
         "Was brauchst du vor dem Start der Kleidungsproduktion? Eine praktische Checkliste zu Passform, Stückzahlen, Stoff, Artwork, Labels, Zeitplan, Budget und Techpack.",
       keywords:
         "Kleidungsproduktion starten, Checkliste Kleidungsproduktion, Techpack, Mindestbestellmenge Kleidung, eigene Kleidungsmarke gründen, erste Produktion",
-      category: "Einstieg",
       tags: ["Techpack", "MOQ", "Checkliste"],
       content: `Die meisten Verzögerungen bei der ersten Produktion verursacht nicht die Fabrik. Sie beginnen früher, mit einem Briefing, dem wichtige Angaben fehlen. Die gute Nachricht: Du brauchst keinen perfekten Techpack, um anzufangen. Du brauchst Klarheit bei ein paar Entscheidungen. Das solltest du vorbereiten, bevor du deine erste Anfrage schickst.
 
@@ -289,9 +277,7 @@ Wenn du diese Punkte beisammen hast, kann es losgehen. Starte mit einem [Sample]
     publishedAt: "2026-10-22",
     updatedAt: "2026-10-22",
     author: "BEWE4R Team",
-    image: garmentRailImg,
-    imageWidth: 1000,
-    imageHeight: 1000,
+    categoryId: "development",
     en: {
       title: "Blank Customisation vs. Fully Custom Production: Which One Fits Your Brand?",
       seoTitle: "Blank Customisation vs. Custom Production",
@@ -301,7 +287,6 @@ Wenn du diese Punkte beisammen hast, kann es losgehen. Starte mit einem [Sample]
         "Blank customisation or fully custom production? Compare quantities, timeline, budget and use cases to decide which route fits your clothing brand.",
       keywords:
         "blank customisation, custom clothing production, premium blanks, private label clothing, custom cut and sew, start a clothing brand, first drop",
-      category: "Strategy",
       tags: ["Blanks", "Custom production", "Private label"],
       content: `Every clothing brand eventually faces the same decision: start from a premium blank and brand it, or develop a garment from scratch. Neither is better in general. They solve different problems, and the right choice depends on your goal, your budget and your timeline.
 
@@ -357,7 +342,6 @@ Not sure? [Send us your idea](/contact) and we will tell you which route fits, o
         "Blank-Veredelung oder komplett eigene Produktion? Vergleiche Stückzahlen, Zeitplan, Budget und Einsatzfälle und finde die passende Route für deine Kleidungsmarke.",
       keywords:
         "Blank-Veredelung, eigene Kleidungsproduktion, Premium Blanks, Private Label Kleidung, Cut and Sew, Kleidungsmarke gründen, erster Drop",
-      category: "Strategie",
       tags: ["Blanks", "Eigenproduktion", "Private Label"],
       content: `Jede Kleidungsmarke steht irgendwann vor derselben Entscheidung: mit einem Premium-Blank starten und ihn branden oder ein Kleidungsstück von Grund auf entwickeln. Keines von beiden ist grundsätzlich besser. Sie lösen unterschiedliche Probleme, und die richtige Wahl hängt von deinem Ziel, deinem Budget und deinem Zeitplan ab.
 
@@ -423,8 +407,10 @@ export function readingMinutes(markdown: string): number {
   return Math.max(1, Math.round(words / 200));
 }
 
-export function formatBlogDate(iso: string, lang: BlogLang): string {
-  return new Date(`${iso}T00:00:00`).toLocaleDateString(lang === "de" ? "de-DE" : "en-GB", {
+const DATE_LOCALES: Record<ContentLang, string> = { en: "en-GB", de: "de-DE", nl: "nl-NL" };
+
+export function formatBlogDate(iso: string, lang: ContentLang): string {
+  return new Date(`${iso}T00:00:00`).toLocaleDateString(DATE_LOCALES[lang], {
     day: "numeric",
     month: "long",
     year: "numeric",

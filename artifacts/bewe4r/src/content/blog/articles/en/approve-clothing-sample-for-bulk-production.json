@@ -1,0 +1,47 @@
+{
+ "slug": "approve-clothing-sample-for-bulk-production",
+ "lang": "en",
+ "title": "How do you approve a clothing sample for bulk production?",
+ "seoTitle": "Garment Sample Approval Before Bulk Production",
+ "description": "Review fit, measurements, artwork and packing in a fixed order. Record sample corrections so the production team knows exactly what has been approved.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "Approve a sample by identifying the physical garment, the specification version and the decisions it represents. A fit sample made in a substitute fabric can settle some pattern questions. It cannot establish the final shade, surface feel or print result on a different material.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Inspect the sample before the fitting"
+  },
+  {
+   "id": "section-2",
+   "text": "Replace vague feedback with a testable correction"
+  },
+  {
+   "id": "section-3",
+   "text": "What does your approval actually release?"
+  },
+  {
+   "id": "section-4",
+   "text": "Can you approve the fit when the sample is in a substitute colour?"
+  },
+  {
+   "id": "section-5",
+   "text": "Make a reference that survives the handover"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Inspect the sample before the fitting</h2>\n<p>Lay the garment flat and photograph it with its reference label. Check it against the current measurement sheet using the agreed points. Record the actual readings, even when the garment looks right. Then check material references, labels, trims and artwork against the brief. If the zip tape is temporary, mark it as temporary in the review.</p>\n<p>Now fit it on someone whose body measurements and usual size you have recorded with permission. Ask the wearer to sit, lift their arms and use the pockets. A front photograph can look excellent while the neck opening feels restrictive when the hood is up.</p>\n<h2 id=\"section-2\">Replace vague feedback with a testable correction</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Observation</th><th scope=\"col\">Instruction that can be checked next time</th></tr></thead><tbody><tr><td>Hood feels tight at entry</td><td>Mark where the opening catches, define the new opening measurement and retain the approved hood depth.</td></tr><tr><td>Rib looks too tall</td><td>Set the new finished rib height and say whether total body length should change.</td></tr><tr><td>Back graphic appears low</td><td>Measure from a named seam to the top of the artwork on the approved base size.</td></tr></tbody></table></div>\n<h2 id=\"section-3\">What does your approval actually release?</h2>\n<p>Distinguish pattern approval, decoration approval and release to bulk. For example, you can approve the revised cuff on sample two while keeping bulk on hold for the print trial. Write a single status beside every open item and name the person who will close it. Avoid a general “looks good” in a message thread that also contains unresolved changes.</p>\n<h2 id=\"section-4\">Can you approve the fit when the sample is in a substitute colour?</h2>\n<p>Record a limited approval. Identify the size and material used, the fit points accepted and the items still open. If the final colour also changes the fabric or finish, ask whether drape or stretch should be reviewed again. Put the outstanding shade approval in the same record so that a fit decision does not accidentally release the entire order.</p>\n<h2 id=\"section-5\">Make a reference that survives the handover</h2>\n<p>Keep a physical reference or clearly identified matching samples at both ends, where feasible. Store dated front and back photographs, the signed-off specification and the final artwork together. If the supplier proposes a substitution after approval, identify what it changes and review that element before releasing the affected work.</p>\n<p>Use <a href=\"/your-brand/sample\">BEWE4R’s sample page</a> to discuss the next physical trial. When you <a href=\"/contact\">send corrections</a>, include the sample identifier and one consolidated list so the maker receives a single set of instructions.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/prepare-clothing-tech-pack",
+   "text": "How to Prepare a Clothing Tech Pack for Sampling"
+  },
+  {
+   "href": "/blog/garment-quality-control-before-shipment",
+   "text": "Garment Quality Control Before Shipment"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

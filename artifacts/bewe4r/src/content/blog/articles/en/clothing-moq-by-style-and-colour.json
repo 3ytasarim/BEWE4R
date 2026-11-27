@@ -1,0 +1,52 @@
+{
+ "slug": "clothing-moq-by-style-and-colour",
+ "lang": "en",
+ "title": "How does a clothing MOQ work across colours and sizes?",
+ "seoTitle": "Clothing MOQ by Style, Colour and Fabric",
+ "description": "A practical guide to garment minimums, fabric availability and size splits, with a worked example for a first custom clothing order.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "MOQ means minimum order quantity. In clothing production, the useful question is what that minimum applies to. A requirement may attach to a garment style, a colour, a fabric dye lot or an individual trim. A total collection quantity tells you very little until those conditions are clear.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Write the order as the workshop will see it"
+  },
+  {
+   "id": "section-2",
+   "text": "When can you simplify the first run?"
+  },
+  {
+   "id": "section-3",
+   "text": "Check the components as well as the garment"
+  },
+  {
+   "id": "section-4",
+   "text": "Does the first order minimum also apply to a repeat?"
+  },
+  {
+   "id": "section-5",
+   "text": "What should you send to BEWE4R?"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Write the order as the workshop will see it</h2>\n<p>Imagine you want 120 tees. With one pattern in two colours you might plan 60 black and 60 cream. If you introduce a second neckline on half the cream pieces, ask whether that makes a separate style. If the cream is dyed to a custom shade, the fabric supplier may also have a separate minimum. The following split is an illustration for a buyer’s brief.</p>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Variant</th><th scope=\"col\">S</th><th scope=\"col\">M</th><th scope=\"col\">L</th><th scope=\"col\">XL</th><th scope=\"col\">Total</th></tr></thead><tbody><tr><td>Black tee, core fit</td><td>10</td><td>20</td><td>20</td><td>10</td><td>60</td></tr><tr><td>Cream tee, core fit</td><td>8</td><td>22</td><td>20</td><td>10</td><td>60</td></tr></tbody></table></div>\n<p>Those figures describe the proposed order. Ask which sizes can be combined within each colour and whether extended sizes use the same material and construction. An answer about black stock fabric should not automatically carry over to the cream dye request.</p>\n<h2 id=\"section-2\">When can you simplify the first run?</h2>\n<p>If the total is feasible but one colour falls short, start by protecting the part that gives the product its identity. A brand known for its silhouette might keep the custom pattern and launch in one available shade. A label built around a particular colour may prefer to retain that colour and postpone the second style. Ask the producer what each change does to sampling and bulk availability.</p>\n<h2 id=\"section-3\">Check the components as well as the garment</h2>\n<p>A special zip pull, custom tape or woven neck label can have its own minimum. Ask whether unused components can be retained, who records the balance and whether the component can be used on a later style. Put any agreement in writing. Otherwise a reorder may begin with a search for a trim everyone assumed was still available.</p>\n<h2 id=\"section-4\">Does the first order minimum also apply to a repeat?</h2>\n<p>Ask the supplier to check the exact colour and component references again. A reorder of the same black tee may use a new fabric lot, and an older woven label may no longer be available. Identify the quantities you want to repeat by colour and size, then confirm which materials can actually be reserved for that run.</p>\n<h2 id=\"section-5\">What should you send to BEWE4R?</h2>\n<p>Include the style count, colours, quantities per colour, size split and whether the fabric or trims must be custom. The team can confirm the applicable minimum for that combination. Use <a href=\"/your-brand/moq\">BEWE4R’s MOQ page</a> as a starting point and <a href=\"/contact\">send your proposed split</a> before announcing every colour to customers.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/pre-order-clothing-drop-size-planning",
+   "text": "Planning Clothing Pre-Orders by Colour and Size"
+  },
+  {
+   "href": "/blog/private-label-clothing-concept-to-collection",
+   "text": "Private Label Clothing from Concept to Collection"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact",
+ "alt": {
+  "en": "clothing-moq-by-style-and-colour",
+  "de": "mindestmenge-kleidung-produzieren-lassen",
+  "nl": "minimale-afname-kleding-laten-maken"
+ }
+}

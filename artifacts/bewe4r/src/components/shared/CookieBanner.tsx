@@ -77,11 +77,26 @@ export default function CookieBanner() {
   const [draft, setDraft] = useState<ConsentChoice>(REJECT_ALL);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Shown shortly after load: does not disturb the first impression or the load-time measurement.
+  // Shown on the visitor's first interaction (scroll, tap, key) or after 12 s. A popup that appears while the page is
+  // still settling would become the largest-content element (LCP) of many pages; Chrome stops measuring at the first
+  // interaction. Nothing is tracked or loaded before a decision, so showing it a moment later changes nothing legally.
+  const undecided = consent === null;
   useEffect(() => {
-    const id = window.setTimeout(() => setReady(true), 900);
-    return () => window.clearTimeout(id);
-  }, []);
+    if (!undecided) return;
+    const events = ["pointerdown", "keydown", "touchstart", "scroll"] as const;
+    let timer = 0;
+    const show = () => {
+      window.clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, show));
+      setReady(true);
+    };
+    events.forEach((e) => window.addEventListener(e, show, { passive: true }));
+    timer = window.setTimeout(show, 12000);
+    return () => {
+      window.clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, show));
+    };
+  }, [undecided]);
 
   const consentRef = useRef(consent);
   consentRef.current = consent;

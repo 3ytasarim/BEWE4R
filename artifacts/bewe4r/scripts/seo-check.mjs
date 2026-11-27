@@ -54,7 +54,8 @@ for (const p of publicRoutes) {
   for (const k of ["og:title", "og:description", "og:type"]) if (!head.includes(`property="${k}"`)) issues.og.push(`${p} ${k}`);
   for (const k of ["twitter:card", "twitter:title", "twitter:description", "twitter:image"]) if (!head.includes(`name="${k}"`)) issues.og.push(`${p} ${k}`);
 
-  if (!/<html lang="en"/.test(html)) issues.lang.push(p);
+  const expectedLang = p.startsWith("/de/") ? "de" : p.startsWith("/nl/") ? "nl" : "en";
+  if (!html.includes(`<html lang="${expectedLang}"`)) issues.lang.push(p);
   if (!/<meta name="robots" content="index, follow/.test(head)) issues.robots.push(p);
   if (/maximum-scale|user-scalable=no/i.test(head)) issues.viewport.push(p);
 
@@ -90,7 +91,7 @@ check("Unique <title> (max 70 chars)", !dupTitles.length && !issues.title.length
 check("Unique meta description (40-175 chars)", !dupDescs.length && !issues.desc.length, issues.desc.join(",") + JSON.stringify(dupDescs));
 check("Self-referencing canonical and matching og:url, full OG + Twitter tags", !issues.canon.length && !issues.og.length, issues.canon.concat(issues.og).slice(0, 5).join("; "));
 check("OG images are absolute HTTPS", !issues.ogimg.length, issues.ogimg.join(","));
-check('<html lang="en">', !issues.lang.length, issues.lang.join(","));
+check('<html lang> matches the page language (en; /de/ = de, /nl/ = nl)', !issues.lang.length, issues.lang.join(","));
 check("Public pages are index,follow", !issues.robots.length, issues.robots.join(","));
 check("Viewport does not block zoom", !issues.viewport.length, issues.viewport.join(","));
 check("JSON-LD present in the first HTML and valid JSON", !issues.ld.length, issues.ld.join(","));
@@ -99,19 +100,52 @@ check("Every <img> has width and height", !issues.dims.length, uniq(issues.dims)
 check("No http:// (mixed content) references", !issues.mixed.length, issues.mixed.join(","));
 
 const types = (p) => [...pages[p].matchAll(/"@type":"(\w+)"/g)].map((m) => m[1]);
-const posts = publicRoutes.filter((p) => p.startsWith("/blog/"));
+const englishPosts = publicRoutes.filter((p) => p.startsWith("/blog/"));
+const translatedPosts = publicRoutes.filter((p) => /^\/(de|nl)\/blog\//.test(p));
+const posts = [...englishPosts, ...translatedPosts];
+const langOf = (p) => (p.startsWith("/de/") ? "de" : p.startsWith("/nl/") ? "nl" : "en");
 check("Home: Organization + WebSite schema", ["Organization", "WebSite"].every((t) => types("/").includes(t)));
 check("/blog: Blog + BreadcrumbList schema", ["Blog", "BreadcrumbList"].every((t) => types("/blog").includes(t)));
-check(`Blog posts (${posts.length}): BlogPosting + BreadcrumbList`, posts.length > 0 && posts.every((p) => ["BlogPosting", "BreadcrumbList"].every((t) => types(p).includes(t))));
+check("Blog posts (" + englishPosts.length + " English, " + translatedPosts.length + " translated): BlogPosting + BreadcrumbList", posts.length > 0 && posts.every((p) => ["BlogPosting", "BreadcrumbList"].every((t) => types(p).includes(t))));
 const required = ["headline", "description", "image", "datePublished", "dateModified", "author", "publisher", "mainEntityOfPage", "url", "inLanguage"];
 const missingFields = posts.flatMap((p) => {
   const m = pages[p].match(/<script type="application\/ld\+json"[^>]*>(\{[^<]*"@type":"BlogPosting"[^<]*)<\/script>/);
   const data = m ? JSON.parse(m[1]) : {};
-  return required.filter((k) => !data[k]).concat(data.publisher?.logo ? [] : ["publisher.logo"]).map((k) => `${p}:${k}`);
+  const wrongLang = data.inLanguage === langOf(p) ? [] : ["inLanguage!=" + langOf(p)];
+  return required.filter((k) => !data[k]).concat(data.publisher?.logo ? [] : ["publisher.logo"], wrongLang).map((k) => p + ":" + k);
 });
-check("BlogPosting has all required fields and a publisher logo", !missingFields.length, missingFields.join(","));
+check("BlogPosting has all required fields, a publisher logo and the right inLanguage", !missingFields.length, missingFields.join(","));
 check("Blog dates use <time datetime>", posts.every((p) => /<time datetime="|<time dateTime="/.test(pages[p])));
-check("Blog posts have a visible breadcrumb and Related articles", posts.every((p) => /aria-label="Breadcrumb"/.test(pages[p]) && /id="related-articles"/.test(pages[p])));
+check("Blog posts have a visible breadcrumb and a related block", posts.every((p) => /<nav aria-label="[^"]+" class=""?[^>]*><ol/.test(pages[p]) && (/id="related-articles"/.test(pages[p]) || /<nav aria-label="[^"]+" class="mt-14/.test(pages[p]))));
+
+// Blog posts have no pictures: nothing but text inside <main>
+const mainOf = (p) => pages[p].slice(pages[p].indexOf("<main"), pages[p].indexOf("</main>"));
+const withImages = ["/blog", ...posts].filter((p) => /<img\b/.test(mainOf(p)));
+check("Blog list and posts contain no images", !withImages.length, withImages.join(","));
+
+// Blog list: every English post is linked, the category filter is there and its counts add up
+const listHtml = pages["/blog"];
+const unlinked = englishPosts.filter((p) => !listHtml.includes('href="' + p + '"'));
+check("/blog links every English post (" + englishPosts.length + ")", !unlinked.length, unlinked.join(","));
+const filterCounts = [...listHtml.matchAll(/data-testid="blog-filter-([a-z]+)"[^>]*>[\s\S]*?<span[^>]*>(\d+)<\/span>/g)].map((m) => [m[1], Number(m[2])]);
+const allCount = filterCounts.find(([id]) => id === "all")?.[1] ?? -1;
+const categorySum = filterCounts.filter(([id]) => id !== "all").reduce((n, [, c]) => n + c, 0);
+check("/blog has the category filter and its counts add up (All " + allCount + ")", filterCounts.length === 7 && allCount === englishPosts.length && categorySum === allCount, JSON.stringify(filterCounts));
+
+// hreflang: every alternate is a real page that links back, includes itself and x-default
+const hreflangProblems = [];
+for (const p of posts) {
+  const alts = [...pages[p].matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2].replace(SITE, "")]);
+  if (!alts.length) continue;
+  if (!alts.some(([, href]) => href === p)) hreflangProblems.push(p + ": no self reference");
+  if (!alts.some(([l]) => l === "x-default")) hreflangProblems.push(p + ": no x-default");
+  for (const [l, href] of alts) {
+    if (!pages[href]) { hreflangProblems.push(p + ": " + l + " -> " + href + " is not a page"); continue; }
+    if (l !== "x-default" && !pages[href].includes('hreflang="' + langOf(p) + '" href="' + SITE + p + '"')) hreflangProblems.push(p + ": " + href + " does not link back");
+  }
+}
+const translatedWithAlternates = posts.filter((p) => pages[p].includes('rel="alternate" hreflang=')).length;
+check("hreflang alternates are reciprocal (" + translatedWithAlternates + " pages)", !hreflangProblems.length && translatedWithAlternates === 9, hreflangProblems.slice(0, 4).join("; "));
 
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);

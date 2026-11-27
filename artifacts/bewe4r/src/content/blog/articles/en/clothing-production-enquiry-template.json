@@ -1,0 +1,52 @@
+{
+ "slug": "clothing-production-enquiry-template",
+ "lang": "en",
+ "title": "What should you send a clothing manufacturer to get a useful reply?",
+ "seoTitle": "Clothing Production Enquiry Template for Fashion Brands",
+ "description": "Copy a worked apparel enquiry and adapt it to your collection. Separate settled specifications from questions about fabric, sampling, quantity and delivery.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "A useful first enquiry gives the manufacturer enough information to decide what to sample and what still needs a conversation. Name the garment, quantities by style and colour, size range, destination and the date the goods need to be available. Mark the details where you want advice.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "An enquiry a brand could actually send"
+  },
+  {
+   "id": "section-2",
+   "text": "What should each attachment answer?"
+  },
+  {
+   "id": "section-3",
+   "text": "What if the tech pack is unfinished?"
+  },
+  {
+   "id": "section-4",
+   "text": "What should the subject line of the enquiry say?"
+  },
+  {
+   "id": "section-5",
+   "text": "How do you assess the reply?"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">An enquiry a brand could actually send</h2>\n<blockquote><p>We are developing a boxy unisex tee for our first collection. The attached front and back drawings show the shape, and the reference tee shows the shoulder position we like. We want to test a slightly shorter body while keeping the neckline comfortable.</p><p>Our proposed run is 120 pieces, split between black and cream. The size breakdown is attached. We would like to test the black version first. Please tell us which colours and fabric options can be sampled and which minimum applies to each version.</p><p>The chest artwork is supplied at its intended width. We also want a woven neck label and the size printed on a sticker outside each bag. Our Rotterdam warehouse needs the cartons by 5 May for a 14 May launch. What do you need from us to assess the sample and confirm whether that receiving date is realistic?</p></blockquote>\n<p>These are illustrative quantities for a message. Replace them with your own figures and add the date and receiving conditions agreed with your warehouse. A first enquiry can be precise about the decisions that are settled and honest about the ones that are open.</p>\n<h2 id=\"section-2\">What should each attachment answer?</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Attachment</th><th scope=\"col\">Decision it supports</th></tr></thead><tbody><tr><td>Front and back drawing</td><td>Which panels, seams and visible details the maker needs to interpret</td></tr><tr><td>Labelled fit reference</td><td>What to retain and what should change</td></tr><tr><td>Artwork with finished dimensions</td><td>What method and scale need testing</td></tr><tr><td>Colour and size matrix</td><td>Whether the planned assortment fits the production requirements</td></tr></tbody></table></div>\n<h2 id=\"section-3\">What if the tech pack is unfinished?</h2>\n<p>Send the information you have and name the missing part. “We need help defining the neck opening” gives a sample maker a useful starting point. Several unrelated inspiration images with no explanation can point towards conflicting shapes. Add one sentence under each reference identifying exactly what it illustrates. The <a href=\"/blog/prepare-clothing-tech-pack\">tech pack guide</a> shows how to organise the decisions once they are made.</p>\n<h2 id=\"section-4\">What should the subject line of the enquiry say?</h2>\n<p>Include the garment, stage and a reference your team can reuse. “Boxy tee BT01 – first sample for Rotterdam delivery” is easy to recognise when the sample photo arrives. Keep the same style reference on drawings and attachments. Save the file version in the attachment name so older artwork stays distinguishable when the email thread grows.</p>\n<h2 id=\"section-5\">How do you assess the reply?</h2>\n<p>Look for a response that identifies the proposed sample, any provisional material, the approvals before bulk and the next action for each party. Check that the supplier repeats the correct destination and variants. Return any corrections in one dated message so the next version starts from a shared brief.</p>\n<p><a href=\"/contact\">Send your production enquiry to BEWE4R</a>. For the shortest useful first message, include one garment reference and the question you want the first sample to answer.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/prepare-clothing-tech-pack",
+   "text": "How to Prepare a Clothing Tech Pack for Sampling"
+  },
+  {
+   "href": "/blog/clothing-moq-by-style-and-colour",
+   "text": "Clothing MOQ by Style, Colour and Fabric"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact",
+ "alt": {
+  "en": "clothing-production-enquiry-template",
+  "de": "eigene-kleidung-produktionsanfrage-vorlage",
+  "nl": "kleding-laten-produceren-voorbeeld-aanvraag"
+ }
+}

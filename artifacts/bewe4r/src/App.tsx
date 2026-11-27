@@ -3,7 +3,7 @@ import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { restoreStoredLang } from "@/i18n";
+import { applyPageLanguage } from "@/i18n";
 import { applySeoToDocument } from "@/seo/head";
 import { resolveSeo } from "@/seo/resolve";
 import { APP_ROUTES } from "@/router/pages";
@@ -46,13 +46,15 @@ function RouteSeo() {
 }
 
 /**
- * Applies the visitor’s saved language. It lives inside the Suspense boundary on purpose: its effect only runs
- * once that boundary has hydrated, so the language never changes while server HTML is still being hydrated.
+ * Applies the interface language: the visitor’s saved language, or the language of a /de/ or /nl/ page. It lives
+ * inside the Suspense boundary on purpose: its effect only runs once that boundary has hydrated, so the language
+ * never changes while server HTML is still being hydrated.
  */
 function RestoreLang() {
+  const [location] = useLocation();
   useEffect(() => {
-    restoreStoredLang();
-  }, []);
+    applyPageLanguage(location);
+  }, [location]);
   return null;
 }
 

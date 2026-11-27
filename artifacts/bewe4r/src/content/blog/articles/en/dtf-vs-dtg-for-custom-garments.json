@@ -1,0 +1,47 @@
+{
+ "slug": "dtf-vs-dtg-for-custom-garments",
+ "lang": "en",
+ "title": "DTF or DTG for a detailed clothing graphic?",
+ "seoTitle": "DTF vs DTG for Custom Clothing",
+ "description": "Compare a transfer print with a direct-to-garment print on your actual fabric. Check artwork detail, colour, coverage and feel before selecting a method.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "DTF places a design on a transfer film before it is applied to the garment. DTG prints the design directly onto the garment using a compatible ink and preparation process. Both can be candidates for detailed artwork. To choose between them, test the part of your graphic that is hardest to reproduce at the size customers will see.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Give the printer a meaningful test file"
+  },
+  {
+   "id": "section-2",
+   "text": "Judge appearance and handle together"
+  },
+  {
+   "id": "section-3",
+   "text": "Check the proposed garment position"
+  },
+  {
+   "id": "section-4",
+   "text": "Why run a print trial on both light and dark garments?"
+  },
+  {
+   "id": "section-5",
+   "text": "Keep a useful production reference"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Give the printer a meaningful test file</h2>\n<p>Take a photographic illustration containing dark shadows, a pale gradient and tiny lettering. A test square filled with solid colour would leave most of the design untested. Supply a crop at final scale that includes all three features, plus the intended garment shade and fabric composition. Ask which preparation the producer proposes for this particular material. <a href=\"https://epson.com/faq/SPT_SCF1070SE~faq-0000bc8-scf1070\" rel=\"noopener noreferrer\" target=\"_blank\">Epson describes the difference between its DTG and transfer processes</a>.</p>\n<h2 id=\"section-2\">Judge appearance and handle together</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Inspection</th><th scope=\"col\">Question for the trial</th></tr></thead><tbody><tr><td>Light details on a dark base</td><td>Do highlights and fine lettering remain distinct at wearing distance?</td></tr><tr><td>Large areas of artwork</td><td>How does the printed panel bend when worn?</td></tr><tr><td>Fabric texture</td><td>Does the surface interrupt fine detail or change the intended look?</td></tr><tr><td>After agreed care</td><td>Do edges, colour and flexibility stay within the appearance you approved?</td></tr></tbody></table></div>\n<p>A small motif and a solid front panel can produce different results on the same garment. Negative space within an illustration may affect how a design feels. Make that decision with the designer while the artwork can still change.</p>\n<h2 id=\"section-3\">Check the proposed garment position</h2>\n<p>A flat test on the body fabric can establish colour and detail. If the design approaches a collar, pocket or seam, ask whether the finished garment can be positioned for the chosen process. If the print must cross panels, get a separate construction or placement trial. A good flat print is only one of those approvals.</p>\n<h2 id=\"section-4\">Why run a print trial on both light and dark garments?</h2>\n<p>The same artwork can read differently against each ground colour and the printer may propose different preparation. Put the two garments together and inspect pale details, edges and the feel of large filled areas. If both colours go into the collection, identify each accepted result by base fabric and shade so the approvals stay traceable.</p>\n<h2 id=\"section-5\">Keep a useful production reference</h2>\n<p>Identify the accepted method, fabric colour, artwork revision, dimensions and care trial. Store the physical reference and a photograph beside the order. For a reorder on a different fabric blend, ask for the relevant compatibility and care checks again. <a href=\"/your-brand/print\">See BEWE4R’s DTF and DTG examples</a> and <a href=\"/contact\">discuss the artwork you want to test</a>.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/embroidery-vs-screen-printing-clothing-logo",
+   "text": "Embroidery or Screen Printing for a Clothing Logo?"
+  },
+  {
+   "href": "/blog/jacquard-embossing-or-printed-fabric",
+   "text": "Jacquard, Embossing or Printed Fabric?"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

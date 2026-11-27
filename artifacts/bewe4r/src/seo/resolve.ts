@@ -11,9 +11,9 @@ export async function resolveSeo(rawPath: string): Promise<SeoData> {
 
   if (path === "/admin" || path.startsWith("/admin/")) return ADMIN_SEO;
 
-  if (path === "/blog" || path.startsWith("/blog/")) {
+  if (path === "/blog" || /^\/(?:(?:de|nl)\/)?blog\//.test(path)) {
     const { getBlogSeo } = await import("./blogSeo");
-    return getBlogSeo(path) ?? NOT_FOUND_SEO;
+    return (await getBlogSeo(path)) ?? NOT_FOUND_SEO;
   }
 
   // A duplicate URL shows the same page as its target; its canonical points at the target.

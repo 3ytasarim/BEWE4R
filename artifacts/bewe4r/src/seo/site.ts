@@ -2,6 +2,8 @@
 export const SITE_URL = "https://www.bewe4r.com";
 export const SITE_NAME = "BEWE4R";
 export const SITE_LOCALE = "en_US";
+/** og:locale per content language */
+export const OG_LOCALES = { en: "en_US", de: "de_DE", nl: "nl_NL" } as const;
 
 export const DEFAULT_OG_IMAGE = {
   url: `${SITE_URL}/opengraph.jpg`,

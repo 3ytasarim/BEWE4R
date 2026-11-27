@@ -8,10 +8,10 @@ export interface Crumb {
 }
 
 /** Visible breadcrumb; the matching BreadcrumbList JSON-LD is written by seo/blogSeo.ts. */
-export function BlogBreadcrumb({ items, className }: { items: Crumb[]; className?: string }) {
+export function BlogBreadcrumb({ items, className, ariaLabel }: { items: Crumb[]; className?: string; ariaLabel?: string }) {
   const { t } = useTranslation();
   return (
-    <nav aria-label={t("Breadcrumb")} className={className}>
+    <nav aria-label={ariaLabel ?? t("Breadcrumb")} className={className}>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[#6b7280]">
         {items.map((item, i) => {
           const last = i === items.length - 1;

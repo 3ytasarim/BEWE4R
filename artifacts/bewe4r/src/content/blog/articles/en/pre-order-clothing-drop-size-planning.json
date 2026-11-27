@@ -1,0 +1,47 @@
+{
+ "slug": "pre-order-clothing-drop-size-planning",
+ "lang": "en",
+ "title": "How to turn clothing pre-orders into a production order",
+ "seoTitle": "Planning Clothing Pre-Orders by Colour and Size",
+ "description": "Reconcile variants, minimums and customer updates before releasing a pre-order clothing drop. An example shows why the total order count can mislead.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "Pre-orders can show how demand splits across colours and sizes. They are most useful when shop variants match the manufacturing order exactly. Before opening a pre-order window, identify what happens if one colour is popular and another falls short of its production requirement.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Give each sellable variant one identity"
+  },
+  {
+   "id": "section-2",
+   "text": "Read the numbers by variant"
+  },
+  {
+   "id": "section-3",
+   "text": "Reconcile orders at the closing date"
+  },
+  {
+   "id": "section-4",
+   "text": "What should you do with size exchanges requested before the order closes?"
+  },
+  {
+   "id": "section-5",
+   "text": "Make customer updates specific"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Give each sellable variant one identity</h2>\n<p>Create a simple code for each combination of garment, colour and size. Use the same code in the shop, the order export and the packing instructions. If a shop option says “washed grey” while the technical file uses “stone”, establish whether both refer to the same approved swatch. A name that feels obvious during launch can cause errors after the orders are exported.</p>\n<h2 id=\"section-2\">Read the numbers by variant</h2>\n<p>In an illustrative drop, 90 customers choose a black hoodie and 18 choose a green one. A headline count of 108 hides the question of whether green can be produced on the same terms. Ask the manufacturer about the minimum for each colour before the launch. A fabric dye lot or special trim may be the limiting component even when the sewing quantity is workable.</p>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Decision before launch</th><th scope=\"col\">Who needs the answer</th></tr></thead><tbody><tr><td>When does the order list close?</td><td>Shop team and production coordinator</td></tr><tr><td>Which variants are confirmed for production?</td><td>Supplier and customer support</td></tr><tr><td>What happens to an unavailable colour?</td><td>The team responsible for individual customer communication</td></tr><tr><td>Who records size changes and cancellations?</td><td>One owner maintaining the final export</td></tr></tbody></table></div>\n<h2 id=\"section-3\">Reconcile orders at the closing date</h2>\n<p>Keep an untouched copy of the shop export. Work from a dated copy that accounts for cancellations, authorised changes and any separately agreed replacement stock. Check totals by size inside each colour, then add the colour totals back to the overall garment count. Have a second person check a small sample of rows against the original orders before the file goes to production.</p>\n<h2 id=\"section-4\">What should you do with size exchanges requested before the order closes?</h2>\n<p>Move the quantity from the old size to the new one in the variant list and keep the order identifier tied to the change. A swap from M to L should add zero garments to the total. Reconcile both the overall quantity and the totals by colour and size before sending the final split to the maker.</p>\n<h2 id=\"section-5\">Make customer updates specific</h2>\n<p>Tell customers which milestone has actually happened, such as final sample approval, confirmed production or receipt at the warehouse. If a variant is delayed, contact the affected group with the available choices. Get explicit agreement to any product change. Keep the customer-facing message and the manufacturing file in sync so a size change does not disappear after the update.</p>\n<p>Review <a href=\"/your-brand/pre-order\">BEWE4R’s pre-order service</a> and <a href=\"/contact\">share your proposed variants</a> while the options can still be adjusted.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/clothing-moq-by-style-and-colour",
+   "text": "Clothing MOQ by Style, Colour and Fabric"
+  },
+  {
+   "href": "/blog/first-creator-merch-drop",
+   "text": "Planning a First Creator Merchandise Drop"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}

@@ -1,0 +1,47 @@
+{
+ "slug": "turn-a-blank-into-a-custom-cut-and-sew-style",
+ "lang": "en",
+ "title": "When your favourite blank no longer fits the design",
+ "seoTitle": "From a Favourite Blank to a Custom Cut-and-Sew Style",
+ "description": "Use a reference garment to brief a custom pattern. Specify the features to keep, the construction to change and the fit to test on the first sample.",
+ "date": "2026-11-25",
+ "author": "BEWE4R team",
+ "intro": "Move from a decorated blank to cut-and-sew when the shape or construction you need cannot be achieved reliably on the ready-made garment. The blank is still valuable. It gives the pattern maker a physical reference for the parts customers already like, as long as you explain exactly what you want to retain.",
+ "tocLabel": "In this guide",
+ "toc": [
+  {
+   "id": "section-1",
+   "text": "Start with the problem on a worn garment"
+  },
+  {
+   "id": "section-2",
+   "text": "Divide your instructions into three parts"
+  },
+  {
+   "id": "section-3",
+   "text": "Decide which details belong to your brand"
+  },
+  {
+   "id": "section-4",
+   "text": "Should you send the reference blank in more than one size?"
+  },
+  {
+   "id": "section-5",
+   "text": "Use the first sample to settle the change"
+  }
+ ],
+ "bodyHtml": "<h2 id=\"section-1\">Start with the problem on a worn garment</h2>\n<p>Consider a label whose printed tee sells well but whose sleeves kick out too far. The team also wants a shorter body while keeping the neck opening unchanged. Put the current tee on a representative wearer, photograph front and side views and mark the desired sleeve angle and hem. Then lay it flat and measure the underlying garment in the same condition for every photo. A quick pinning exercise can show intent, even though the production pattern will need its own development.</p>\n<h2 id=\"section-2\">Divide your instructions into three parts</h2>\n<div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Keep</th><th scope=\"col\">Change</th><th scope=\"col\">Check on the new sample</th></tr></thead><tbody><tr><td>Neck opening and rib appearance</td><td>Sleeve shape and finished body length</td><td>Neck still sits comfortably after the sleeve and shoulder changes</td></tr><tr><td>Front graphic scale</td><td>Distance from the graphic to the hem</td><td>Artwork sits correctly on the shorter body</td></tr><tr><td>Overall softness</td><td>Fabric reference if the original is unavailable</td><td>New fabric hangs as intended on the wearer</td></tr></tbody></table></div>\n<p>One familiar dimension cannot guarantee the same feel. If the new jersey stretches differently, a neck opening copied from the reference may behave differently when pulled over the head. Give the maker the actual garment and an identified swatch wherever practical.</p>\n<h2 id=\"section-3\">Decide which details belong to your brand</h2>\n<p>Use your own drawings and artwork. A reference garment can illustrate a fit preference without asking a maker to reproduce another label’s logos, distinctive artwork or branding. Record your design decisions as measurements and construction notes so future orders rely on your specification.</p>\n<h2 id=\"section-4\">Should you send the reference blank in more than one size?</h2>\n<p>If your main concern is how the fit changes between sizes, two worn references with labelled photos are more informative than a single medium. Mark the feature you like on each and note whether either garment has already been washed. The workshop can then distinguish the shape you want to develop from a change introduced by use.</p>\n<h2 id=\"section-5\">Use the first sample to settle the change</h2>\n<p>Fit the old and new garments side by side before you approve a full size range. Check the hem over the waistband, the sleeve with the arm relaxed and the neckline after normal movement. If the new version solves the original problem but introduces a different one, photograph both and revise the same file.</p>\n<p>Still choosing a production route? Start with BEWE4R’s <a href=\"/blog/blank-customisation-vs-custom-production\">comparison of blank customisation and fully custom production</a>. If you already know what you want to change, <a href=\"/your-brand/sample\">discuss a development sample</a>.</p>",
+ "relatedLabel": "Related guides",
+ "related": [
+  {
+   "href": "/blog/prepare-clothing-tech-pack",
+   "text": "How to Prepare a Clothing Tech Pack for Sampling"
+  },
+  {
+   "href": "/blog/custom-t-shirt-production-checklist",
+   "text": "Custom T-Shirt Production Checklist for Brands"
+  }
+ ],
+ "ctaText": "Discuss your project",
+ "ctaHref": "/contact"
+}
