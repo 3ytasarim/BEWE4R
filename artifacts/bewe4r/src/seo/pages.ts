@@ -120,14 +120,6 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     priority: 0.8,
     source: "src/data/blogPosts.ts",
   },
-  "/e-catalog": {
-    title: "E-Catalog: What You Can Produce | BEWE4R",
-    description:
-      "Browse what BEWE4R can produce for your brand: T-shirts, hoodies, crewnecks, caps, shorts and more, ready for your print, embroidery and label.",
-    changefreq: "monthly",
-    priority: 0.8,
-    source: "src/pages/Katalog.tsx",
-  },
   "/about": {
     title: "About BEWE4R: Clothing Production Studio in Istanbul",
     description:
@@ -184,6 +176,8 @@ export const ALIASES: Record<string, string> = {
   "/brand-essentials/thank-you-cards": "/brand-essentials/marketing-essentials",
   "/brand-essentials/stickers": "/brand-essentials/marketing-essentials",
   "/brand-essentials/customer-gifts": "/brand-essentials/marketing-essentials",
+  // The E-Catalog page was removed: its old address goes to the home page (301, written to redirects.nginx.conf).
+  "/e-catalog": "/",
 };
 
 export const NOT_FOUND_SEO: SeoData = {

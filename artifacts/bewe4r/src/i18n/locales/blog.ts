@@ -21,7 +21,6 @@ export const blog: Record<string, string> = {
   "Storage": "Lager",
   "Delivery": "Lieferung",
   "Boxes": "Kartonagen",
-  "E-Catalog": "E-Katalog",
   "More Products": "Weitere Produkte",
   "Skip to content": "Zum Inhalt springen",
   "Cookie settings": "Cookie-Einstellungen",

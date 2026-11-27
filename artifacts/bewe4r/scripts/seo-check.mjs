@@ -172,10 +172,10 @@ for (const set of Object.values(out)) for (const t of set) if (!pages[t] && t !=
 const reach = new Set(["/"]);
 for (const queue = ["/"]; queue.length; ) for (const t of out[queue.shift()] || []) if (pages[t] && !reach.has(t)) (reach.add(t), queue.push(t));
 check("No broken internal links", !broken.size, [...broken].join(","));
-// Pages that are deliberately not linked from anywhere (still reachable by direct URL). Keep this list short.
-const UNLINKED_ON_PURPOSE = ["/e-catalog"];
-const orphans = publicRoutes.filter((p) => !reach.has(p) && !UNLINKED_ON_PURPOSE.includes(p));
-check("Every public page is reachable from the home page", !orphans.length, orphans.join(","));
+check("Every public page is reachable from the home page", publicRoutes.every((p) => reach.has(p)), publicRoutes.filter((p) => !reach.has(p)).join(","));
+// A removed page: not in the sitemap, not rendered, 301 to the home page
+const redirectsConf = fs.readFileSync(path.join(root, "..", "redirects.nginx.conf"), "utf8");
+check("Removed /e-catalog: no page, not in the sitemap, 301 to the home page", !pages["/e-catalog"] && !smPaths.includes("/e-catalog") && /location = \/e-catalog \{ return 301 \/; \}/.test(redirectsConf));
 
 for (const r of results) console.log(`${r.ok ? "PASS" : "FAIL"}  ${r.name}${r.ok ? "" : `\n      -> ${r.detail}`}`);
 const failed = results.filter((r) => !r.ok).length;

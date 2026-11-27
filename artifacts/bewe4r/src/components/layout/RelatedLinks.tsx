@@ -17,7 +17,6 @@ const L = {
   storage: { href: "/your-brand/storage", label: "Storage", desc: "Flexible, secure warehousing for your products" },
   delivery: { href: "/your-brand/delivery", label: "Delivery", desc: "Weekly shipping and delivery times" },
   pricesShipping: { href: "/about/prices-shipping", label: "Prices & Shipping", desc: "What affects cost and how shipping works" },
-  catalog: { href: "/e-catalog", label: "E-Catalog", desc: "What you can produce with BEWE4R" },
   contact: { href: "/contact", label: "Contact", desc: "Tell us about your project" },
   essentials: { href: "/brand-essentials", label: "More Products", desc: "Packaging and branded extras" },
   zipBags: { href: "/brand-essentials/zip-bags", label: "Zip Bags & Shipping Bags", desc: "Custom packaging in any size and finish" },
@@ -42,7 +41,6 @@ const RELATED: Record<string, Related[]> = {
   "/brand-essentials/boxes": [L.zipBags, L.marketing, L.essentials, L.contact],
   "/brand-essentials/marketing-essentials": [L.zipBags, L.boxes, L.essentials, L.contact],
   "/about/prices-shipping": [L.delivery, L.moq, L.sample, L.blogLead],
-  "/e-catalog": [L.sample, L.moq, L.print, L.contact],
 };
 
 export function RelatedLinks() {

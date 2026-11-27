@@ -67,7 +67,6 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/de/blog/:slug", page: blogPostPage },
   { path: "/nl/blog/:slug", page: blogPostPage },
 
-  { path: "/e-catalog", page: definePage(() => import("@/pages/Katalog")) },
   { path: "/about", page: definePage(() => import("@/pages/UeberUns")) },
   { path: "/about/prices-shipping", page: definePage(() => import("@/pages/PricesShipping")) },
   { path: "/contact", page: definePage(() => import("@/pages/Kontakt")) },
