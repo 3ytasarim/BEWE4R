@@ -1,8 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 
 type Badge = { label: string; value: string };
+
+/* Entrance animations are CSS (index.css): the hero text is visible from the prerendered HTML without waiting for
+   JavaScript, which keeps the largest-content paint (LCP) of every page that uses this hero early. */
+const at = (delay: number, shift?: number) =>
+  ({ "--hero-delay": `${delay}s`, ...(shift !== undefined ? { "--hero-shift": `${shift}px` } : {}) }) as CSSProperties;
 
 interface PageHeroProps {
   kicker: string;
@@ -89,13 +94,7 @@ export function PageHero({
 
       {/* Optional HLS video layer on top of image */}
       {videoSrc && (
-        <motion.div
-          className="absolute inset-0 z-[1]"
-          style={{ y: bgY, scale: bgScale }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <motion.div className="hero-fade-in absolute inset-0 z-[1]" style={{ y: bgY, scale: bgScale, ...at(0) }}>
           <video
             ref={videoRef}
             poster={image}
@@ -113,19 +112,15 @@ export function PageHero({
       <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[rgba(0,0,0,0.7)] via-transparent to-[rgba(0,0,0,0.7)] pointer-events-none" />
 
       {/* Cinematic ambient glow orbs (monochrome, very subtle) */}
-      <motion.div
+      <div
         aria-hidden
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute z-[3] top-[-20%] left-[15%] w-[600px] h-[600px] rounded-full bg-[rgba(255,255,255,0.06)] blur-[120px] mix-blend-screen"
+        style={at(0)}
+        className="hero-orb-in pointer-events-none absolute z-[3] top-[-20%] left-[15%] w-[600px] h-[600px] rounded-full bg-[rgba(255,255,255,0.06)] blur-[120px] mix-blend-screen"
       />
-      <motion.div
+      <div
         aria-hidden
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute z-[3] bottom-[-15%] right-[15%] w-[500px] h-[500px] rounded-full bg-[rgba(255,255,255,0.05)] blur-[120px] mix-blend-screen"
+        style={at(0.1)}
+        className="hero-orb-in pointer-events-none absolute z-[3] bottom-[-15%] right-[15%] w-[500px] h-[500px] rounded-full bg-[rgba(255,255,255,0.05)] blur-[120px] mix-blend-screen"
       />
 
       {/* Vertical grid lines */}
@@ -148,18 +143,16 @@ export function PageHero({
 
       {/* LIVE indicator (only when video active) */}
       {videoSrc && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="absolute z-20 top-24 right-6 md:right-10 flex items-center gap-2 px-3 py-1.5 bg-[rgba(0,0,0,0.5)] backdrop-blur-md border border-[rgba(255,255,255,0.15)]"
+        <div
+          style={at(0.6, -8)}
+          className="hero-fade-up absolute z-20 top-24 right-6 md:right-10 flex items-center gap-2 px-3 py-1.5 bg-[rgba(0,0,0,0.5)] backdrop-blur-md border border-[rgba(255,255,255,0.15)]"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ffffff] opacity-60" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#ffffff]" />
           </span>
           <span className="text-[10px] tracking-[0.3em] uppercase text-[rgba(255,255,255,0.8)]">{t("Studio · Live")}</span>
-        </motion.div>
+        </div>
       )}
 
       <motion.div
@@ -168,23 +161,15 @@ export function PageHero({
       >
         <div className={`max-w-7xl mx-auto w-full px-6 ${alignClass}`}>
           {/* Kicker with line */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.05, duration: 0.4 }}
-            className={`flex items-center gap-3 mb-6 md:mb-8 ${align === "center" ? "justify-center" : ""}`}
+          <div
+            style={at(0.05)}
+            className={`hero-slide-in flex items-center gap-3 mb-6 md:mb-8 ${align === "center" ? "justify-center" : ""}`}
           >
-            <motion.span
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.1, duration: 0.45, ease: [0.22, 1, 0.36, 1] as const }}
-              style={{ originX: 0 }}
-              className="block h-px w-12 bg-[rgba(255,255,255,0.5)]"
-            />
+            <span style={at(0.1)} className="hero-line-grow block h-px w-12 bg-[rgba(255,255,255,0.5)]" />
             <span className="text-[10px] md:text-xs text-[rgba(255,255,255,0.6)] uppercase tracking-[0.4em]">
               {kicker}
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline — per-word mask reveal */}
           <h1
@@ -192,67 +177,46 @@ export function PageHero({
           >
             {lines.map((line, li) => (
               <span key={li} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
-                <motion.span
-                  initial={{ y: "110%" }}
-                  animate={{ y: "0%" }}
-                  transition={{
-                    delay: 0.12 + li * 0.06,
-                    duration: 0.5,
-                    ease: [0.22, 1, 0.36, 1] as const,
-                  }}
-                  className="inline-block"
-                >
+                <span style={at(0.12 + li * 0.06)} className="hero-word-up inline-block">
                   {line}
-                </motion.span>
+                </span>
               </span>
             ))}
           </h1>
 
           {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 + lines.length * 0.05, duration: 0.4 }}
-            className={`text-[rgba(255,255,255,0.7)] text-sm md:text-lg leading-relaxed ${align === "center" ? "max-w-2xl mx-auto" : "max-w-2xl"}`}
+          <p
+            style={at(0.35 + lines.length * 0.05)}
+            className={`hero-fade-up text-[rgba(255,255,255,0.7)] text-sm md:text-lg leading-relaxed ${align === "center" ? "max-w-2xl mx-auto" : "max-w-2xl"}`}
           >
             {subtitle}
-          </motion.p>
+          </p>
 
           {/* Badges row */}
           {badges.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 + lines.length * 0.05, duration: 0.4 }}
-              className={`mt-8 md:mt-12 flex flex-wrap gap-x-6 md:gap-x-8 gap-y-4 ${align === "center" ? "justify-center" : ""}`}
+            <div
+              style={at(0.45 + lines.length * 0.05)}
+              className={`hero-fade-up mt-8 md:mt-12 flex flex-wrap gap-x-6 md:gap-x-8 gap-y-4 ${align === "center" ? "justify-center" : ""}`}
             >
               {badges.map((b, i) => (
-                <motion.div
-                  key={b.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.55 + i * 0.06, duration: 0.35 }}
-                  className="border-l border-[rgba(255,255,255,0.2)] pl-4"
-                >
+                <div key={b.label} style={at(0.55 + i * 0.06, 10)} className="hero-fade-up border-l border-[rgba(255,255,255,0.2)] pl-4">
                   <p className="font-display text-2xl md:text-4xl text-[#ffffff] leading-none mb-1">
                     {b.value}
                   </p>
                   <p className="text-[10px] text-[rgba(255,255,255,0.4)] uppercase tracking-[0.3em]">
                     {b.label}
                   </p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           )}
         </div>
       </motion.div>
 
       {/* Bottom progress strip */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.7, duration: 0.4 }}
-        className="relative z-20 border-t border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.4)] backdrop-blur-sm"
+      <div
+        style={at(0.7)}
+        className="hero-fade-in relative z-20 border-t border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.4)] backdrop-blur-sm"
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-[rgba(255,255,255,0.4)]">
           <span className="flex items-center gap-2">
@@ -262,7 +226,7 @@ export function PageHero({
           <span className="hidden md:inline">{t("Istanbul → Worldwide")}</span>
           <span>{t("Reply < 24h")}</span>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

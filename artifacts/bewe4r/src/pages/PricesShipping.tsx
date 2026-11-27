@@ -5,6 +5,7 @@ import { PrimaryCTA, SecondaryCTA } from "@/components/ui/cta-button";
 import { AnimatedSection, fadeUp } from "@/components/sections/AnimatedSection";
 import pricesImg from "@assets/Prices_1780762617347.webp";
 import shippingImg from "@assets/Shipping_1780762617336.webp";
+import { reveal } from "@/lib/reveal";
 
 /* ── Content ─────────────────────────────────────────────────────────── */
 
@@ -240,15 +241,9 @@ export default function PricesShippingPage() {
 
         <div className="relative z-20 flex-1 flex items-center justify-center">
           <div className="max-w-4xl mx-auto w-full px-6 flex flex-col items-center text-center pt-40 md:pt-52 pb-28 md:pb-32">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-              className="text-[11px] uppercase tracking-[0.3em] mb-6"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
+            <p className="hero-fade-up text-[11px] uppercase tracking-[0.3em] mb-6" style={{ color: "rgba(255,255,255,0.5)", ...reveal(0, 12) }}>
               {t("About Us · Prices & Shipping")}
-            </motion.p>
+            </p>
 
             <h1
               className="font-display text-[clamp(2.6rem,9vw,8rem)] leading-[0.9] tracking-tight mb-8 md:mb-10"
@@ -256,46 +251,25 @@ export default function PricesShippingPage() {
             >
               {["Prices", "& Shipping"].map((line, i) => (
                 <span key={line} className="block overflow-hidden">
-                  <motion.span
-                    className="block"
-                    initial={{ y: "115%", rotate: 4 }}
-                    animate={{ y: 0, rotate: 0 }}
-                    transition={{
-                      duration: 0.55,
-                      delay: 0.15 + i * 0.08,
-                      ease: [0.22, 1, 0.36, 1] as const,
-                    }}
-                    style={{ color: "#ffffff" }}
-                  >
+                  <span className="hero-word-rise block" style={{ color: "#ffffff", ...reveal(0.15) }}>
                     {t(line)}
-                  </motion.span>
+                  </span>
                 </span>
               ))}
             </h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.45 }}
-              className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
-            >
+            <div className="hero-fade-up flex flex-wrap items-center justify-center gap-3 md:gap-4" style={reveal(0.45, 20)}>
               <PrimaryCTA href="/contact" testId="prices-hero-cta-contact" onDark>
                 {t("Get Your Custom Quote")}
               </PrimaryCTA>
               <SecondaryCTA href="/about" testId="prices-hero-cta-about" onDark>
                 {t("About Us")}
               </SecondaryCTA>
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.45 }}
-              className="mt-7 md:mt-9 text-[11px] uppercase tracking-[0.3em]"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-            >
+            <p className="hero-fade-up mt-7 md:mt-9 text-[11px] uppercase tracking-[0.3em]" style={{ color: "rgba(255,255,255,0.45)", ...reveal(0.6, 12) }}>
               {t("Transparent pricing · Worldwide delivery")}
-            </motion.p>
+            </p>
           </div>
         </div>
       </section>

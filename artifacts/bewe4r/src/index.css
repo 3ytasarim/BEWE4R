@@ -382,7 +382,51 @@
     animation-delay: var(--hero-delay, 0s);
   }
 
+  /* Page hero (PageHero.tsx). Elements that also carry a scroll-parallax transform only fade (fill "backwards" never
+     overrides their own transform). */
+  @keyframes hero-fade-in {
+    from { opacity: 0; }
+  }
+  @keyframes hero-slide-in {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes hero-line-grow {
+    from { transform: scaleX(0); }
+    to { transform: none; }
+  }
+  @keyframes hero-orb-in {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes hero-word-up {
+    from { transform: translateY(110%); }
+    to { transform: none; }
+  }
+  .hero-fade-in {
+    animation: hero-fade-in 600ms ease-out backwards;
+    animation-delay: var(--hero-delay, 0s);
+  }
+  .hero-slide-in {
+    animation: hero-slide-in 400ms ease-out both;
+    animation-delay: var(--hero-delay, 0s);
+  }
+  .hero-line-grow {
+    transform-origin: left center;
+    animation: hero-line-grow 450ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--hero-delay, 0s);
+  }
+  .hero-orb-in {
+    animation: hero-orb-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--hero-delay, 0s);
+  }
+  .hero-word-up {
+    animation: hero-word-up 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--hero-delay, 0s);
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    .hero-fade-in, .hero-slide-in, .hero-line-grow, .hero-orb-in, .hero-word-up { animation: none; }
     .hero-word-rise, .hero-fade-up { animation: none; }
     .animate-marquee { animation: none; }
     .animate-marquee-reverse { animation: none; }

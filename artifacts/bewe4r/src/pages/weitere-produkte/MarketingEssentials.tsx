@@ -7,6 +7,7 @@ import { AnimatedSection, fadeUp } from "@/components/sections/AnimatedSection";
 import { type TiltedSlide } from "@/components/sections/TiltedCarousel";
 import AmbientGlowBackground from "@/components/sections/AmbientGlowBackground";
 import FloatingIcons from "@/components/sections/FloatingIcons";
+import { reveal } from "@/lib/reveal";
 
 /* Section titles — also fed into the scrolling marquee band below the hero. */
 const MARQUEE_TITLES = ["Thank You Cards", "Stickers", "Custom Gifts"];
@@ -55,15 +56,9 @@ export default function MarketingEssentialsPage() {
         <div className="relative z-20 flex-1 flex items-center justify-center">
           <div className="max-w-4xl mx-auto w-full px-6 flex flex-col items-center text-center pt-40 md:pt-52 pb-28 md:pb-32">
             {/* Kicker */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-              className="text-[11px] uppercase tracking-[0.3em] mb-6"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
+            <p className="hero-fade-up text-[11px] uppercase tracking-[0.3em] mb-6" style={{ color: "rgba(255,255,255,0.5)", ...reveal(0, 12) }}>
               {t("Brand Essentials · Marketing")}
-            </motion.p>
+            </p>
 
             {/* Headline — per-line mask reveal */}
             <h1
@@ -71,54 +66,31 @@ export default function MarketingEssentialsPage() {
               style={{ color: "#ffffff" }}
             >
               <span className="block overflow-hidden">
-                <motion.span
-                  className="block"
-                  initial={{ y: "115%", rotate: 4 }}
-                  animate={{ y: 0, rotate: 0 }}
-                  transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 1, 0.36, 1] as const }}
-                  style={{ color: "#ffffff" }}
-                >
+                <span className="hero-word-rise block" style={{ color: "#ffffff", ...reveal(0.12) }}>
                   {t("Marketing")}
-                </motion.span>
+                </span>
               </span>
               <span className="block overflow-hidden">
-                <motion.span
-                  className="block"
-                  initial={{ y: "115%", rotate: 4 }}
-                  animate={{ y: 0, rotate: 0 }}
-                  transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
-                  style={{ color: "#ffffff" }}
-                >
+                <span className="hero-word-rise block" style={{ color: "#ffffff", ...reveal(0.2) }}>
                   {t("Essentials")}
-                </motion.span>
+                </span>
               </span>
             </h1>
 
             {/* CTA group */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.45 }}
-              className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
-            >
+            <div className="hero-fade-up flex flex-wrap items-center justify-center gap-3 md:gap-4" style={reveal(0.45, 20)}>
               <PrimaryCTA href="/contact" testId="marketing-hero-cta-contact" onDark>
                 {t("Contact Us now")}
               </PrimaryCTA>
               <SecondaryCTA href="/your-brand/sample" testId="marketing-hero-cta-sample" onDark>
                 {t("Develop your Sample")}
               </SecondaryCTA>
-            </motion.div>
+            </div>
 
             {/* Tagline */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.45 }}
-              className="mt-7 md:mt-9 text-[11px] uppercase tracking-[0.3em]"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-            >
+            <p className="hero-fade-up mt-7 md:mt-9 text-[11px] uppercase tracking-[0.3em]" style={{ color: "rgba(255,255,255,0.45)", ...reveal(0.6, 12) }}>
               {t("Built to bring your vision to life")}
-            </motion.p>
+            </p>
           </div>
         </div>
       </section>
