@@ -56,7 +56,7 @@ export function BlogBrowser() {
           {visible.length} {t("articles")}
         </p>
 
-        <BlogCardGrid items={visible} cta={t("Read more")} />
+        <BlogCardGrid items={visible} cta={t("Read more")} uiLang={ui} />
       </div>
     </section>
   );

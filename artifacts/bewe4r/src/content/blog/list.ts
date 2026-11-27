@@ -18,7 +18,8 @@ export interface BlogListItem {
 
 /**
  * Newest first, in the publishing order of the guides on the same day.
- * With the German interface a post is shown in German where a German version exists.
+ * With the German interface a post is shown in German where a German version exists, and the German posts come first
+ * (the guides that only exist in English follow, newest first).
  */
 export function getBlogList(ui: "en" | "de"): BlogListItem[] {
   const items: BlogListItem[] = [];
@@ -44,7 +45,9 @@ export function getBlogList(ui: "en" | "de"): BlogListItem[] {
     items.push({ id: p.slug, category: p.categoryId, date: p.publishedAt, author: p.author, title: text.title, excerpt: text.excerpt, href: `/blog/${p.slug}`, lang: ui });
   }
 
-  return items.sort((x, y) => y.date.localeCompare(x.date));
+  const newestFirst = items.sort((x, y) => y.date.localeCompare(x.date));
+  if (ui !== "de") return newestFirst;
+  return [...newestFirst.filter((i) => i.lang === "de"), ...newestFirst.filter((i) => i.lang !== "de")];
 }
 
 /** The posts to suggest below an article: the same category first, then the newest of the rest. */
