@@ -74,7 +74,7 @@ export function LegacyPostView({ post }: { post: BlogPostData }) {
             <h2 id="related-articles" className="mb-8 font-display text-3xl text-[#0f0f0f] lg:text-4xl">
               {t("Related articles")}
             </h2>
-            <BlogCardGrid items={related} cta={t("Read more")} headingLevel="h3" uiLang={lang} />
+            <BlogCardGrid items={related} cta={t("Read more")} headingLevel="h3" />
           </div>
         </section>
       )}

@@ -14,7 +14,6 @@ export function BlogCardGrid({
   items,
   cta,
   headingLevel = "h2",
-  uiLang = "en",
   className,
 }: {
   items: BlogListItem[];
@@ -22,8 +21,6 @@ export function BlogCardGrid({
   cta: string;
   /** Level of the card titles; one below the heading that introduces the grid. */
   headingLevel?: "h2" | "h3";
-  /** Interface language: with "de", cards whose text is English get a small EN badge */
-  uiLang?: "en" | "de";
   className?: string;
 }) {
   const Heading = headingLevel;
@@ -41,16 +38,9 @@ export function BlogCardGrid({
             </Link>
           </Heading>
 
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="inline-flex w-fit rounded-full border border-[#0f0f0f]/20 bg-[#0f0f0f]/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#0f0f0f]">
-              {CATEGORY_LABELS[post.category][post.lang]}
-            </span>
-            {uiLang === "de" && post.lang === "en" && (
-              <span lang="en" title="English" className="inline-flex rounded-full bg-[#0f0f0f] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#ffffff]">
-                EN
-              </span>
-            )}
-          </div>
+          <span className="mt-4 inline-flex w-fit rounded-full border border-[#0f0f0f]/20 bg-[#0f0f0f]/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#0f0f0f]">
+            {CATEGORY_LABELS[post.category][post.lang]}
+          </span>
 
           <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
             <span className="font-medium text-[#0f0f0f]">{post.author}</span>
